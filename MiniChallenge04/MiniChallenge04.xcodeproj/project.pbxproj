@@ -32,6 +32,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4091472A2B98E2AD0082E226 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */,
+				40A3C5852B98D5000073F754 /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4091472B2B98E2BF0082E226 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40A3C5832B98D4FE0073F754 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4091472C2B98E2F50082E226 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4091472D2B98E3100082E226 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		40A3C5752B98D4FE0073F754 = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +82,10 @@
 		40A3C5802B98D4FE0073F754 /* MiniChallenge04 */ = {
 			isa = PBXGroup;
 			children = (
-				40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */,
-				40A3C5832B98D4FE0073F754 /* ContentView.swift */,
-				40A3C5852B98D5000073F754 /* Assets.xcassets */,
+				4091472A2B98E2AD0082E226 /* App */,
+				4091472D2B98E3100082E226 /* ViewModels */,
+				4091472C2B98E2F50082E226 /* Model */,
+				4091472B2B98E2BF0082E226 /* Views */,
 				40A3C5872B98D5000073F754 /* Preview Content */,
 			);
 			path = MiniChallenge04;
