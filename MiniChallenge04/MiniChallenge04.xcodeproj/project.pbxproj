@@ -11,16 +11,12 @@
 		40A3C5842B98D4FE0073F754 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3C5832B98D4FE0073F754 /* ContentView.swift */; };
 		40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5852B98D5000073F754 /* Assets.xcassets */; };
 		40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5882B98D5000073F754 /* Preview Assets.xcassets */; };
+		40D15D872BA8AD7000A7EB1B /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */; };
+		40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */; };
+		40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D8A2BA8B4BF00A7EB1B /* Black.swift */; };
 		43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA62BA8AB99002CB1BB /* FileWhatever.swift */; };
 		43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */; };
-		43588FAB2BA8AC27002CB1BB /* DialogueBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FAA2BA8AC27002CB1BB /* DialogueBox.swift */; };
-		43588FAD2BA8AF97002CB1BB /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FAC2BA8AF97002CB1BB /* Character.swift */; };
-		43588FAF2BA8B132002CB1BB /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FAE2BA8B132002CB1BB /* Scenes.swift */; };
-		43588FB12BA8B892002CB1BB /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FB02BA8B892002CB1BB /* Functions.swift */; };
-		43588FB32BA8B92C002CB1BB /* VariaveisGlobais.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FB22BA8B92C002CB1BB /* VariaveisGlobais.swift */; };
-		43588FC72BA8CE3B002CB1BB /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FC42BA8CE3B002CB1BB /* FirstScreen.swift */; };
-		43588FC82BA8CE3B002CB1BB /* Black.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FC52BA8CE3B002CB1BB /* Black.swift */; };
-		43588FC92BA8CE3B002CB1BB /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FC62BA8CE3B002CB1BB /* BackgroundImageView.swift */; };
+		9C1937B62BA8C2DA00DDB19C /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,16 +25,12 @@
 		40A3C5832B98D4FE0073F754 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40A3C5852B98D5000073F754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40A3C5882B98D5000073F754 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
+		40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
+		40D15D8A2BA8B4BF00A7EB1B /* Black.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Black.swift; sourceTree = "<group>"; };
 		43588FA62BA8AB99002CB1BB /* FileWhatever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhatever.swift; sourceTree = "<group>"; };
 		43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhateverTwo.swift; sourceTree = "<group>"; };
-		43588FAA2BA8AC27002CB1BB /* DialogueBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueBox.swift; sourceTree = "<group>"; };
-		43588FAC2BA8AF97002CB1BB /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		43588FAE2BA8B132002CB1BB /* Scenes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
-		43588FB02BA8B892002CB1BB /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		43588FB22BA8B92C002CB1BB /* VariaveisGlobais.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariaveisGlobais.swift; sourceTree = "<group>"; };
-		43588FC42BA8CE3B002CB1BB /* FirstScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
-		43588FC52BA8CE3B002CB1BB /* Black.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Black.swift; sourceTree = "<group>"; };
-		43588FC62BA8CE3B002CB1BB /* BackgroundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
+		9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,13 +57,10 @@
 			isa = PBXGroup;
 			children = (
 				40A3C5832B98D4FE0073F754 /* ContentView.swift */,
-				43588FAA2BA8AC27002CB1BB /* DialogueBox.swift */,
-				43588FAE2BA8B132002CB1BB /* Scenes.swift */,
-				43588FC62BA8CE3B002CB1BB /* BackgroundImageView.swift */,
-				43588FC52BA8CE3B002CB1BB /* Black.swift */,
-				43588FC42BA8CE3B002CB1BB /* FirstScreen.swift */,
-				43588FAC2BA8AF97002CB1BB /* Character.swift */,
-				43588FB22BA8B92C002CB1BB /* VariaveisGlobais.swift */,
+				40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */,
+				40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */,
+				40D15D8A2BA8B4BF00A7EB1B /* Black.swift */,
+				9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -79,7 +68,6 @@
 		40A3C5752B98D4FE0073F754 = {
 			isa = PBXGroup;
 			children = (
-				43588FB02BA8B892002CB1BB /* Functions.swift */,
 				40A3C5802B98D4FE0073F754 /* MiniChallenge04 */,
 				40A3C57F2B98D4FE0073F754 /* Products */,
 			);
@@ -199,18 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43588FAF2BA8B132002CB1BB /* Scenes.swift in Sources */,
+				40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */,
+				40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */,
 				43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */,
-				43588FB12BA8B892002CB1BB /* Functions.swift in Sources */,
-				43588FC72BA8CE3B002CB1BB /* FirstScreen.swift in Sources */,
 				40A3C5842B98D4FE0073F754 /* ContentView.swift in Sources */,
-				43588FC92BA8CE3B002CB1BB /* BackgroundImageView.swift in Sources */,
-				43588FAD2BA8AF97002CB1BB /* Character.swift in Sources */,
-				43588FB32BA8B92C002CB1BB /* VariaveisGlobais.swift in Sources */,
-				43588FC82BA8CE3B002CB1BB /* Black.swift in Sources */,
-				43588FAB2BA8AC27002CB1BB /* DialogueBox.swift in Sources */,
+				9C1937B62BA8C2DA00DDB19C /* CreditsView.swift in Sources */,
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
+				40D15D872BA8AD7000A7EB1B /* FirstScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,8 +334,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,9 +344,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GuilhermeNunesLobo.MiniChallenge04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -379,8 +368,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,9 +378,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.GuilhermeNunesLobo.MiniChallenge04;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
