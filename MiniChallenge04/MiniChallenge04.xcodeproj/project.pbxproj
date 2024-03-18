@@ -49,20 +49,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		4091472C2B98E2F50082E226 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		4091472D2B98E3100082E226 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		40A3C5752B98D4FE0073F754 = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				4091472A2B98E2AD0082E226 /* App */,
-				4091472D2B98E3100082E226 /* ViewModels */,
-				4091472C2B98E2F50082E226 /* Model */,
+				43588F812BA8A688002CB1BB /* ViewModels */,
+				43588F822BA8A692002CB1BB /* Models */,
 				4091472B2B98E2BF0082E226 /* Views */,
 				40A3C5872B98D5000073F754 /* Preview Content */,
 			);
@@ -97,6 +83,20 @@
 				40A3C5882B98D5000073F754 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		43588F812BA8A688002CB1BB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		43588F822BA8A692002CB1BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
