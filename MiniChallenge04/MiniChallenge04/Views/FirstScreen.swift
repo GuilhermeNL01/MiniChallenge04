@@ -39,7 +39,7 @@ struct FirstScreen: View {
                 
             })
         }
-        
+        .navigationBarBackButtonHidden()
         
         
         
