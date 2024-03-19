@@ -17,6 +17,11 @@
 		43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA62BA8AB99002CB1BB /* FileWhatever.swift */; };
 		43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */; };
 		9C1937B62BA8C2DA00DDB19C /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */; };
+		9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36430D2BA8D95B0011FF6E /* Map.swift */; };
+		9C3643102BAA0EDD0011FF6E /* MyPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */; };
+		9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643112BAA280A0011FF6E /* Cena_transition.swift */; };
+		9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643132BAA2C390011FF6E /* Cena_transition2.swift */; };
+		9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		43588FA62BA8AB99002CB1BB /* FileWhatever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhatever.swift; sourceTree = "<group>"; };
 		43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhateverTwo.swift; sourceTree = "<group>"; };
 		9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		9C36430D2BA8D95B0011FF6E /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPreviewView.swift; sourceTree = "<group>"; };
+		9C3643112BAA280A0011FF6E /* Cena_transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition.swift; sourceTree = "<group>"; };
+		9C3643132BAA2C390011FF6E /* Cena_transition2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition2.swift; sourceTree = "<group>"; };
+		9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +79,11 @@
 				408228042BA9C195002E846E /* FirstScreen */,
 				40A3C5832B98D4FE0073F754 /* ContentView.swift */,
 				9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */,
+				9C36430D2BA8D95B0011FF6E /* Map.swift */,
+				9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */,
+				9C3643112BAA280A0011FF6E /* Cena_transition.swift */,
+				9C3643132BAA2C390011FF6E /* Cena_transition2.swift */,
+				9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,11 +212,16 @@
 			files = (
 				40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */,
 				40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */,
+				9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */,
 				43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */,
+				9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */,
 				40A3C5842B98D4FE0073F754 /* ContentView.swift in Sources */,
+				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,
 				9C1937B62BA8C2DA00DDB19C /* CreditsView.swift in Sources */,
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
+				9C3643102BAA0EDD0011FF6E /* MyPreviewView.swift in Sources */,
+				9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */,
 				40D15D872BA8AD7000A7EB1B /* FirstScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
