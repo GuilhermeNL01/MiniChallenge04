@@ -9,40 +9,64 @@ import SwiftUI
 
 struct FirstScreen: View {
     var body: some View {
-        ZStack{
-            
-            BackgroundImageView()
-            Black()
-                .opacity(0.88)
-            
-            Text("PLACEHOLDER")
-                .font(.largeTitle)
-                .foregroundStyle(.white)
-                .opacity(0.8)
-            
-            VStack{
+        NavigationStack{
+            ZStack{
                 
-                Image("Logo")
-                    .padding(.init(top: 70, leading: 70, bottom: 592, trailing: 497))
+                BackgroundImageView()
+                Black()
+                    .opacity(0.88)
+                
+                Text("PLACEHOLDER")
+                    .font(.largeTitle)
+                    .foregroundStyle(.white)
+                    .opacity(0.8)
+                
+                VStack{
+                    HStack{
+                        
+                        Image("Logo")
+                            .padding(70)
+                        Spacer()
+                    }
+                    Spacer()
+                }
+                HStack{
+                    
+                    VStack{
+                        Spacer()
+                        NavigationLink{
+                            // botao
+                        } label: {
+                            Image("Start")
+                                .resizable()
+                                .aspectRatio( contentMode: .fit)
+                                .scaledToFit()
+                                .frame(width: 285, height: 119)
+                                .scaledToFit()
+                                .padding(.bottom, 20)
+                        }
+                        
+                        NavigationLink{
+                            CreditsView()
+                        } label: {
+                            Image("Credits")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .scaledToFit()
+                                .frame(width: 285, height: 119)
+                                .scaledToFit()
+                                .padding(.horizontal, 60)
+                            
+                        }
+                        .padding(.bottom, 60)
+                    }
+                    Spacer()
+                }
+                .navigationBarBackButtonHidden()
                 
             }
             
-            
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image("Start")
-                    .padding(EdgeInsets.init(top: 498, leading: 70, bottom: 217, trailing: 839))
-                
-            })
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                Image("Credits")
-                    .padding(EdgeInsets.init(top: 645, leading: 70, bottom: 70, trailing: 839))
-                
-            })
         }
-        .navigationBarBackButtonHidden()
-        
-        
-        
     }
 }
 
