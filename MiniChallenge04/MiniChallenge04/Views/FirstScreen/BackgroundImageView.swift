@@ -10,6 +10,7 @@ import SwiftUI
 struct BackgroundImageView: View {
     var body: some View {
         Image("Background")
+            .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             .edgesIgnoringSafeArea(.all)

@@ -44,6 +44,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		408228042BA9C195002E846E /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */,
+				40D15D8A2BA8B4BF00A7EB1B /* Black.swift */,
+				40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */,
+			);
+			path = FirstScreen;
+			sourceTree = "<group>";
+		};
 		4091472A2B98E2AD0082E226 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +66,8 @@
 		4091472B2B98E2BF0082E226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				408228042BA9C195002E846E /* FirstScreen */,
 				40A3C5832B98D4FE0073F754 /* ContentView.swift */,
-				40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */,
-				40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */,
-				40D15D8A2BA8B4BF00A7EB1B /* Black.swift */,
 				9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */,
 			);
 			path = Views;

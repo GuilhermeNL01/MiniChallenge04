@@ -19,14 +19,25 @@ struct CreditsView: View {
                     Image("Return")
                         .padding(EdgeInsets.init(top: 40, leading: 40, bottom: 723, trailing: 969))
                 })*/
-                
-                NavigationLink{
-                    FirstScreen()
-                } label: {
-                    Image("Return")
-                        .padding(EdgeInsets.init(top: 40, leading: 40, bottom: 723, trailing: 969))
+                HStack{
+                    VStack{
+                        NavigationLink{
+                            FirstScreen()
+                        } label: {
+                            Image("Return")
+                                .resizable()
+                                .aspectRatio( contentMode: .fit)
+                                .scaledToFit()
+                                .frame(width: 285, height: 119)
+                                .scaledToFit()
+                                .padding(70)
+
+                            //                        .padding(EdgeInsets.init(top: 40, leading: 40, bottom: 723, trailing: 969))
+                        }
+                        Spacer()
+                    }
+                    Spacer()
                 }
-                
                 Image("WhiteRectangle")
                     .padding(EdgeInsets(.init(top: 232, leading: 70, bottom: 539, trailing: 714)))
                 Image("Rectangle")
@@ -51,6 +62,7 @@ struct CreditsView: View {
                     .padding(EdgeInsets(top: 70, leading: 376, bottom: 674, trailing: 377))
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
