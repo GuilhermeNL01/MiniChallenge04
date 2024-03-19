@@ -15,57 +15,78 @@ struct CreditsView: View {
                 Black()
                     .opacity(0.88)
                 
-                /*Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Image("Return")
-                        .padding(EdgeInsets.init(top: 40, leading: 40, bottom: 723, trailing: 969))
-                })*/
+
                 HStack{
                     VStack{
                         NavigationLink{
                             FirstScreen()
                         } label: {
                             Image("Return")
-                                .resizable()
-                                .aspectRatio( contentMode: .fit)
-                                .scaledToFit()
-                                .frame(width: 285, height: 119)
-                                .scaledToFit()
-                                .padding(70)
 
-                            //                        .padding(EdgeInsets.init(top: 40, leading: 40, bottom: 723, trailing: 969))
+                                .scaledToFit()
+                                .padding(.top,60)
+                                .padding(.leading,40)
                         }
                         Spacer()
                     }
                     Spacer()
                 }
-                Image("WhiteRectangle")
-                    .padding(EdgeInsets(.init(top: 232, leading: 70, bottom: 539, trailing: 714)))
-                Image("Rectangle")
-                    .padding(EdgeInsets(.init(top: 335, leading: 70, bottom: 416, trailing: 714)))
-                Image("Rectangle")
-                    .padding(EdgeInsets(.init(top: 451.33, leading: 70, bottom: 299.67, trailing: 714)))
-                Image("Rectangle")
-                    .padding(EdgeInsets(.init(top: 567.67, leading: 70, bottom: 183.33, trailing: 714)))
-                Image("Rectangle")
-                    .padding(EdgeInsets(.init(top: 684, leading: 70, bottom: 67, trailing: 714)))
-                Image("WhiteRectangle")
-                    .padding(EdgeInsets(.init(top: 232, leading: 714, bottom: 539, trailing: 70)))
-                Image("Rectangle")
-                    .padding(EdgeInsets(.init(top: 335, leading: 714, bottom: 416, trailing: 70)))
-                Image("WhiteRectangle")
-                    .padding(EdgeInsets(.init(top: 478, leading: 714, bottom: 293, trailing: 70)))
-                Image("Rectangle")
-                    .padding(EdgeInsets(.init(top: 581, leading: 714, bottom: 170, trailing: 70)))
-                Image("Rectangle")
-                    .padding(EdgeInsets(.init(top: 684, leading: 714, bottom: 67, trailing: 70)))
-                Image("LightRectangle")
-                    .padding(EdgeInsets(top: 70, leading: 376, bottom: 674, trailing: 377))
+                VStack{
+                    
+                    Image("WhiteRectangle")
+                        .padding(.top)
+                        .padding(.bottom, 40)
+                    
+                    HStack{
+                        
+                        VStack{
+                            
+                            Image("WhiteRectangle")
+                                .padding(.leading,70)
+                                .padding(.bottom)
+                                
+                            Image("Rectangle")
+                                .padding(.leading,70)
+                                .padding(.bottom)
+                            Image("Rectangle")
+                                .padding(.leading,70)
+                                .padding(.bottom)
+                            Image("Rectangle")
+                                .padding(.leading,70)
+                            Image("Rectangle")
+                                .padding(.leading,70)
+                                .padding(.top)
+                            
+                        }
+                        Spacer()
+                        VStack{
+                            Image("WhiteRectangle")
+                                .padding(.trailing,70)
+                                .padding(.bottom)
+                            Image("Rectangle")
+                                .padding(.trailing,70)
+                                .padding(.bottom, 40)
+                                
+                               
+                            Image("WhiteRectangle")
+                                .padding(.trailing,70)
+                                .padding(.bottom)
+                            Image("Rectangle")
+                                .padding(.trailing,70)
+                                
+                            Image("Rectangle")
+                                .padding(.trailing,70)
+                                .padding(.top)
+                            
+                        }
+                    }
+                    
+                    .navigationBarBackButtonHidden()
+                }
             }
         }
-        .navigationBarBackButtonHidden()
     }
 }
-
 #Preview {
     CreditsView()
 }

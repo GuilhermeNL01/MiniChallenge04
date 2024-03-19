@@ -58,17 +58,6 @@ struct FirstScreen: View {
                                 .padding(.horizontal, 60)
                             
                         }
-                        //                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                        //                        Image("Credits")
-                        //                            .resizable()
-                        //                            .aspectRatio(contentMode: .fit)
-                        //                            .scaledToFit()
-                        //                            .frame(width: 285, height: 119)
-                        //                            .scaledToFit()
-                        //                            .padding(.horizontal, 60)
-                        //
-                        //
-                        //                    })
                         .padding(.bottom, 60)
                     }
                     Spacer()
