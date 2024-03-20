@@ -8,43 +8,50 @@
 import Foundation
 import SpriteKit
 
-protocol Views: SKScene{
+protocol Scenes: SKScene{
     var dialogos:[DialogueBox] {get set}
     var cenario: SKSpriteNode {get set}
-    
-    func proximoDialogo()
 }
 
-extension Views{
-    func proximoDialogo(){
+extension Scenes{
+    func proximoDialogo(_ clearFirst: Bool? = nil){
         limparDialogos()
+        
+        if clearFirst == true{
+            if dialogos.count != 0{
+                dialogos.remove(at: 0)
+            }
+        }
         
         if let dialogo = dialogos.first{
             exibirMensagem(dialogo: dialogo)
         }
     }
     
-    func framingDialogueBox(personagem: Personagem, mensagem: String){
-        
-        let fundoMoldura = SKSpriteNode(imageNamed: "moldura")
-        let moldura = SKSpriteNode(imageNamed: "\(personagem.rawValue)Falando1")
-        
-        if mensagem != "\n..."{
-            let spriteSheet = [
-                SKTexture(imageNamed: "\(personagem.rawValue)Falando1"),
-                SKTexture(imageNamed: "\(personagem.rawValue)Falando2"),
-                SKTexture(imageNamed: "\(personagem.rawValue)Falando3"),
-            ]
-            moldura.run(.repeatForever(.animate(with: spriteSheet, timePerFrame: 0.18)))
+    func framingDialogueBox(_ hasNameTag: Bool? = nil){
+        if hasNameTag == true{
+            let nameTag = SKSpriteNode(imageNamed: "NameTag")
+            nameTag.name = "nameTag"
+            nameTag.anchorPoint = CGPoint(x: 0, y: 0)
+            nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.06)
+            nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.24)
+            self.addChild(nameTag)
         }
         
-        self.addChild(moldura)
-        self.addChild(fundoMoldura)
+        let textBox = SKSpriteNode(imageNamed: "TextBox")
+        textBox.name = "textBox"
+        textBox.anchorPoint = CGPoint(x: 0, y: 0)
+        textBox.size = CGSize(width: larguraTela * 0.96, height: alturaTela * 0.2)
+        textBox.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.03)
+        self.addChild(textBox)
     }
     
     func limparDialogos(){
         if let animacaoTexto = self.childNode(withName: "animacaoTexto"){
             animacaoTexto.removeFromParent()
+        }
+        if let personagem = self.childNode(withName: "personagem"){
+            personagem.removeFromParent()
         }
     }
     
@@ -54,18 +61,37 @@ extension Views{
         }
         
         var personagem:SKLabelNode? = nil
-        if dialogo.mensageiro == .protagonista{
+        
+        switch dialogo.mensageiro {
+        case .protagonista:
             personagem = SKLabelNode(text: "Carrie")
             personagem?.fontColor = .red
-        } else if dialogo.mensageiro == .investigadoUm {
+            break
+        case .investigadoUm:
             personagem = SKLabelNode(text: "Investigado Um")
             personagem?.fontColor = .systemYellow
-        } else if dialogo.mensageiro == .investigadoDois {
+            break
+        case .investigadoDois:
             personagem = SKLabelNode(text: "Investigado Dois")
-            personagem?.fontColor = .systemGreen
-        } else if dialogo.mensageiro == .investigadoTres {
-            personagem = SKLabelNode(text: "Investigado Tres")
-            personagem?.fontColor = .systemBlue
+            personagem?.fontColor = .systemYellow
+        case .investigadoTres:
+            personagem = SKLabelNode(text: "Investigado Três")
+            personagem?.fontColor = .systemYellow
+            break
+        }
+        
+        // treating the character text block
+        if let personagem = personagem {
+            personagem.name = "personagem"
+            personagem.fontName = fonteNegrito
+            if let nameTag = self.childNode(withName: "nameTag"){
+                personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.26)
+            } else {
+//                personagem.position = CGPoint (x: larguraTela / 8, y: alturaTela / 5)
+            }
+            personagem.zPosition = 10
+            personagem.fontSize = 24
+            self.addChild(personagem)
         }
         
         let animacaoTexto = TextAnimation()
@@ -73,21 +99,15 @@ extension Views{
         animacaoTexto.zPosition = 10
         animacaoTexto.name = "animacaoTexto"
         animacaoTexto.textAnimation(text: dialogo.mensagem)
-        animacaoTexto.preferredMaxLayoutWidth = larguraTela / 1.1
         
         if animacaoTexto.lineCount == 1 {
-            animacaoTexto.position.y = alturaTela/3.34
+            animacaoTexto.position.y = alturaTela/5.5
         } else if animacaoTexto.lineCount == 2{
-            animacaoTexto.position.y = alturaTela/3.1
+            animacaoTexto.position.y = alturaTela/4.7
         } else {
-            animacaoTexto.position.y = alturaTela/2.9
+            animacaoTexto.position.y = alturaTela/5.4
         }
-        
-        if larguraTela <= 667 && alturaTela <= 375{
-            animacaoTexto.position.x = larguraTela/13
-        } else {
-            animacaoTexto.position.x = larguraTela/9
-        }
+        animacaoTexto.position.x = larguraTela/8.5
         
         self.addChild(animacaoTexto)
         

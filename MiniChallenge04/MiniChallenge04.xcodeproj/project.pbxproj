@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31093E3D2BAB4A1D00E3B7AF /* Utils in Resources */ = {isa = PBXBuildFile; fileRef = 31093E3C2BAB4A1D00E3B7AF /* Utils */; };
+		31093E402BAB4A3F00E3B7AF /* ContextGameView in Resources */ = {isa = PBXBuildFile; fileRef = 31093E3E2BAB4A3F00E3B7AF /* ContextGameView */; };
 		40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */; };
-		40A3C5842B98D4FE0073F754 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3C5832B98D4FE0073F754 /* ContentView.swift */; };
 		40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5852B98D5000073F754 /* Assets.xcassets */; };
 		40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5882B98D5000073F754 /* Preview Assets.xcassets */; };
 		40D15D872BA8AD7000A7EB1B /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */; };
@@ -16,7 +17,6 @@
 		40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D8A2BA8B4BF00A7EB1B /* Black.swift */; };
 		43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA62BA8AB99002CB1BB /* FileWhatever.swift */; };
 		43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */; };
-		9C1937B62BA8C2DA00DDB19C /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */; };
 		9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36430D2BA8D95B0011FF6E /* Map.swift */; };
 		9C3643102BAA0EDD0011FF6E /* MyPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */; };
 		9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643112BAA280A0011FF6E /* Cena_transition.swift */; };
@@ -25,9 +25,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		40A3C57E2B98D4FE0073F754 /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31093E3C2BAB4A1D00E3B7AF /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
+		31093E3E2BAB4A3F00E3B7AF /* ContextGameView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ContextGameView; sourceTree = "<group>"; };
+		31093E442BAB4A6400E3B7AF /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		40A3C57E2B98D4FE0073F754 /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MiniChallenge04.app; path = "/Users/enrique-mac/Repos/MiniChallenge04/MiniChallenge04/build/Debug-iphoneos/MiniChallenge04.app"; sourceTree = "<absolute>"; };
 		40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge04App.swift; sourceTree = "<group>"; };
-		40A3C5832B98D4FE0073F754 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40A3C5852B98D5000073F754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40A3C5882B98D5000073F754 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
@@ -35,7 +37,6 @@
 		40D15D8A2BA8B4BF00A7EB1B /* Black.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Black.swift; sourceTree = "<group>"; };
 		43588FA62BA8AB99002CB1BB /* FileWhatever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhatever.swift; sourceTree = "<group>"; };
 		43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhateverTwo.swift; sourceTree = "<group>"; };
-		9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		9C36430D2BA8D95B0011FF6E /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPreviewView.swift; sourceTree = "<group>"; };
 		9C3643112BAA280A0011FF6E /* Cena_transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition.swift; sourceTree = "<group>"; };
@@ -54,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31093E452BAB4A6400E3B7AF /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				31093E442BAB4A6400E3B7AF /* CreditsView.swift */,
+			);
+			path = Credits;
+			sourceTree = "<group>";
+		};
 		408228042BA9C195002E846E /* FirstScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,9 +85,9 @@
 		4091472B2B98E2BF0082E226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31093E452BAB4A6400E3B7AF /* Credits */,
 				408228042BA9C195002E846E /* FirstScreen */,
-				40A3C5832B98D4FE0073F754 /* ContentView.swift */,
-				9C1937B52BA8C2DA00DDB19C /* CreditsView.swift */,
+				31093E3E2BAB4A3F00E3B7AF /* ContextGameView */,
 				9C36430D2BA8D95B0011FF6E /* Map.swift */,
 				9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */,
 				9C3643112BAA280A0011FF6E /* Cena_transition.swift */,
@@ -92,16 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				40A3C5802B98D4FE0073F754 /* MiniChallenge04 */,
-				40A3C57F2B98D4FE0073F754 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		40A3C57F2B98D4FE0073F754 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				40A3C57E2B98D4FE0073F754 /* MiniChallenge04.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		40A3C5802B98D4FE0073F754 /* MiniChallenge04 */ = {
@@ -111,6 +111,7 @@
 				43588F812BA8A688002CB1BB /* ViewModels */,
 				43588F822BA8A692002CB1BB /* Models */,
 				4091472B2B98E2BF0082E226 /* Views */,
+				31093E3C2BAB4A1D00E3B7AF /* Utils */,
 				40A3C5872B98D5000073F754 /* Preview Content */,
 			);
 			path = MiniChallenge04;
@@ -184,7 +185,7 @@
 				Base,
 			);
 			mainGroup = 40A3C5752B98D4FE0073F754;
-			productRefGroup = 40A3C57F2B98D4FE0073F754 /* Products */;
+			productRefGroup = 40A3C5752B98D4FE0073F754;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -198,6 +199,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31093E3D2BAB4A1D00E3B7AF /* Utils in Resources */,
+				31093E402BAB4A3F00E3B7AF /* ContextGameView in Resources */,
 				40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */,
 				40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */,
 			);
@@ -216,9 +219,7 @@
 				43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */,
 				9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */,
-				40A3C5842B98D4FE0073F754 /* ContentView.swift in Sources */,
 				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,
-				9C1937B62BA8C2DA00DDB19C /* CreditsView.swift in Sources */,
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
 				9C3643102BAA0EDD0011FF6E /* MyPreviewView.swift in Sources */,
 				9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */,
@@ -356,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = M9H5R689TD;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -390,7 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = M9H5R689TD;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

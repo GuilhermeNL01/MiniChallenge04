@@ -10,3 +10,5 @@ import SpriteKit
 
 let alturaTela = UIScreen.main.bounds.height
 let larguraTela = UIScreen.main.bounds.width
+let fonteNegrito = "HelveticaNeue-Bold"
+let fonteRegular = "HelveticaNeue"
