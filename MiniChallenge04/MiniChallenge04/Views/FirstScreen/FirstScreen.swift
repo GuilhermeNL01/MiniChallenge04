@@ -44,7 +44,9 @@ struct FirstScreen: View {
                     VStack{
                         Spacer()
                         NavigationLink{
-                            // botao
+                            SpriteView(scene: contextGameScene)
+                                .ignoresSafeArea()
+                                .navigationBarBackButtonHidden()
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -71,10 +73,7 @@ struct FirstScreen: View {
                     }
                     Spacer()
                 }
-                .navigationBarBackButtonHidden()
-                
             }
-            
         }
     }
 }
