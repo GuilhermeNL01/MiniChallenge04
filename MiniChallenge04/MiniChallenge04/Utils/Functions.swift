@@ -12,17 +12,18 @@ import SpriteKit
 class TextAnimation: SKLabelNode {
     
     var lineCount:Int = 1
-    let labelNode = SKLabelNode(fontNamed: "PressStart2P-Regular")
+    let labelNode = SKLabelNode()
     
     func textAnimation(text: String){
         
         // Step 1: Set up SpriteKit scene
-        labelNode.fontSize = 16
+        labelNode.fontSize = 20
+        labelNode.fontName = fonteRegular
         labelNode.position = CGPoint(x: frame.maxX/14, y: frame.midY/0.9)
         labelNode.horizontalAlignmentMode = .left // Set the horizontal alignment to left
         labelNode.verticalAlignmentMode = .top // Set the vertical alignment to top
         labelNode.numberOfLines = 0  // Permitir mÃºltiplas linhas
-        labelNode.preferredMaxLayoutWidth = larguraTela / 1.1 //frame.maxX - (frame.maxX/7)
+        labelNode.preferredMaxLayoutWidth = larguraTela * 0.7 //frame.maxX - (frame.maxX/7)
         addChild(labelNode)
         
         
@@ -41,7 +42,7 @@ class TextAnimation: SKLabelNode {
             let characters = Array(words[index1])
             
             let font = UIFont(name: labelNode.fontName ?? "", size: labelNode.fontSize)
-            let wordWidth = (word + " " as NSString).size(withAttributes: [.font: font ?? ""]).width
+            let wordWidth = (word + " " as NSString).size().width
             
             // Check if the word exceeds the preferred width and start a new line
             if (lineWidth + wordWidth) >= labelNode.preferredMaxLayoutWidth {

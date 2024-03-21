@@ -6,8 +6,22 @@
 //
 
 import SwiftUI
+import _SpriteKit_SwiftUI
 
 struct FirstScreen: View {
+    
+//    var contextGameScene: ContextGameScene{
+//        let scene = ContextGameScene(size: CGSize(width: larguraTela, height: alturaTela))
+//        scene.scaleMode = .fill
+//        
+//        return scene
+//    }
+    
+    var videoCutsceneScene: VideoCutsceneScene {
+        let scene = VideoCutsceneScene(size: CGSize(width: larguraTela, height: alturaTela))
+        scene.scaleMode = .fill
+        return scene
+    }
     var body: some View {
         NavigationStack{
             ZStack{
@@ -35,7 +49,9 @@ struct FirstScreen: View {
                     VStack{
                         Spacer()
                         NavigationLink{
-                            // botao
+                            SpriteView(scene: videoCutsceneScene)
+                                .ignoresSafeArea()
+                                .navigationBarBackButtonHidden()
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -62,10 +78,7 @@ struct FirstScreen: View {
                     }
                     Spacer()
                 }
-                .navigationBarBackButtonHidden()
-                
             }
-            
         }
     }
 }
