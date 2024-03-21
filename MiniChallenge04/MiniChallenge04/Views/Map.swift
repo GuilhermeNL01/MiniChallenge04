@@ -43,7 +43,7 @@ class Map: SKScene{
         
         if touchedNode.name == "Hotel" {
             let cenaTransition = CenaTransition(size: CGSize(width: screenWidth, height: screenHeight))
-            myView.presentScene(cenaTransition)
+            myView.presentScene(cenaTransition, transition: .fade(with: .black, duration: 1.0))
         }
         if touchedNode.name == "Pier" {
             let cenaTransition2 = CenaTransition2(size: CGSize(width: screenWidth, height: screenHeight))
