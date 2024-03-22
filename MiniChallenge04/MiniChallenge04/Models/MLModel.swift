@@ -12,6 +12,8 @@ class MLModel: ObservableObject{
 //    @Published var promptIn: String = Place(npc: <#T##NPC#>, background: <#T##String#>, object: <#T##String#>, choices: <#T##[Int]#>, sceneNumber: <#T##Int#>, successIndicator: <#T##Int#>, mlText: <#T##String#>)
     @Published var promptOut = SKLabelNode(text: "")
     
+    //Comentário desnecessário
+    
     func classify(){
         do{
             let model = try EmotionsML(configuration: .init())
