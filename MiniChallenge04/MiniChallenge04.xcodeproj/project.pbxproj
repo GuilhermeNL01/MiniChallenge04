@@ -30,6 +30,8 @@
 		9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */; };
 		9C36431C2BACB0380011FF6E /* Npc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431B2BACB0380011FF6E /* Npc.swift */; };
 		9C36431E2BACB09B0011FF6E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431D2BACB09B0011FF6E /* Place.swift */; };
+		9C3643212BADFBE70011FF6E /* SideScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643202BADFBE70011FF6E /* SideScreens.swift */; };
+		9C3643232BAE01BB0011FF6E /* PreviewSideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643222BAE01BB0011FF6E /* PreviewSideView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition3.swift; sourceTree = "<group>"; };
 		9C36431B2BACB0380011FF6E /* Npc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Npc.swift; sourceTree = "<group>"; };
 		9C36431D2BACB09B0011FF6E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		9C3643202BADFBE70011FF6E /* SideScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideScreens.swift; sourceTree = "<group>"; };
+		9C3643222BAE01BB0011FF6E /* PreviewSideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSideView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 		4091472B2B98E2BF0082E226 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9C36431F2BADFBBC0011FF6E /* SideScreen */,
 				40B793E32BAC95CB000C27DC /* Cutscene */,
 				31093E582BAB4EDB00E3B7AF /* CreditsView */,
 				408228042BA9C195002E846E /* FirstScreen */,
@@ -186,6 +191,15 @@
 				9C36431D2BACB09B0011FF6E /* Place.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9C36431F2BADFBBC0011FF6E /* SideScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9C3643202BADFBE70011FF6E /* SideScreens.swift */,
+				9C3643222BAE01BB0011FF6E /* PreviewSideView.swift */,
+			);
+			path = SideScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,10 +274,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */,
+				9C3643212BADFBE70011FF6E /* SideScreens.swift in Sources */,
 				40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */,
 				31093E522BAB4EBB00E3B7AF /* Scenes.swift in Sources */,
 				31093E532BAB4EBB00E3B7AF /* Functions.swift in Sources */,
 				31093E512BAB4EBB00E3B7AF /* VariaveisGlobais.swift in Sources */,
+				9C3643232BAE01BB0011FF6E /* PreviewSideView.swift in Sources */,
 				31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */,
 				31093E472BAB4DDC00E3B7AF /* ContextGameScene.swift in Sources */,
 				9C36431C2BACB0380011FF6E /* Npc.swift in Sources */,
