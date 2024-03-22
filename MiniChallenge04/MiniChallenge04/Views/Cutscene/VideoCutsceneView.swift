@@ -103,12 +103,17 @@ class VideoCutsceneScene: SKScene {
         }
     }
     
-    private func goToNextScene(){
+    private func goToNextScene() {
         nextScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-        if let nextScene{
+        if let nextScene = nextScene {
             spriteKitPath.append(nextScene)
+            // Parar o vídeo antes de mudar de cena
+            videoPlayer?.pause()
+            // Remover a camada do player de vídeo
+            videoPlayerLayer?.removeFromSuperlayer()
         }
     }
+
     
 }
 
