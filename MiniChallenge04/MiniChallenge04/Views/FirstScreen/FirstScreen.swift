@@ -10,15 +10,16 @@ import _SpriteKit_SwiftUI
 
 struct FirstScreen: View {
     
-    var contextGameScene: ContextGameScene{
-        let scene = ContextGameScene(size: CGSize(width: larguraTela, height: alturaTela))
+    var cutscene: SKScene{
+        let scene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
         scene.scaleMode = .fill
         
         return scene
     }
+    @State var spriteKitPath: [SKScene] = []
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: $spriteKitPath){
             ZStack{
                 
                 BackgroundImageView()
@@ -43,10 +44,8 @@ struct FirstScreen: View {
                     
                     VStack{
                         Spacer()
-                        NavigationLink{
-                            SpriteView(scene: contextGameScene)
-                                .ignoresSafeArea()
-                                .navigationBarBackButtonHidden()
+                        Button{
+                            spriteKitPath.append(cutscene)
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -73,6 +72,10 @@ struct FirstScreen: View {
                     }
                     Spacer()
                 }
+            }.navigationDestination(for: SKScene.self) { scene in
+                SpriteView(scene: scene)
+                    .ignoresSafeArea()
+                    .navigationBarBackButtonHidden()
             }
         }
     }
