@@ -9,7 +9,31 @@ import Foundation
 
 struct NPC {
     var name: String
-    var images: [String]
-    var lines: [String] 
+    var images: [String] = []
     
+    init(_ character: GameCharacter) {
+        self.name = character.rawValue
+        assignImages(character: character)
+    }
+    
+    private mutating func assignImages(character: GameCharacter){
+        switch character{
+
+        case .main:
+            self.images = []
+        case .butcher:
+            self.images = []
+        case .victimsWife:
+            self.images = []
+        case .receptionist:
+            self.images = []
+        }
+    }
+    
+    enum GameCharacter: String{
+        case main = "Carrie"
+        case butcher = "Butcher"
+        case victimsWife = "Helena"
+        case receptionist = "Receptionist"
+    }
 }

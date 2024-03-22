@@ -33,9 +33,10 @@ class ContextGameScene: SKScene, Scenes{
     ]
     
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
-    var nextScene: SKScene?
+    var nextScene: SKScene? // the scene after this one
+    var _model = ContextModel() // creating a model object to define game properties
     
-    @Binding var spriteKitPath: [SKScene]
+    @Binding var spriteKitPath: [SKScene] // the path of navigation views
     
     init(path: Binding<[SKScene]>, size: CGSize) {
         _spriteKitPath = path
