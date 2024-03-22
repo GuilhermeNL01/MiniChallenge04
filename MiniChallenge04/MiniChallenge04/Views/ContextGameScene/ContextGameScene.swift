@@ -11,14 +11,15 @@ import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
     var dialogos: [DialogueBox] = [
-        DialogueBox(mensagem: "Oi", mensageiro: .protagonista),
-        DialogueBox(mensagem: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", mensageiro: .investigadoDois),
+//        DialogueBox(mensagem: "Oi", mensageiro: .mainCharacter),
+//        DialogueBox(mensagem: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", mensageiro: .victimsWife),
     ]
     
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
-    var nextScene: SKScene?
+    var nextScene: SKScene? // the scene after this one
+    var _model = ContextModel() // creating a model object to define game properties
     
-    @Binding var spriteKitPath: [SKScene]
+    @Binding var spriteKitPath: [SKScene] // the path of navigation views
     
     init(path: Binding<[SKScene]>, size: CGSize) {
         _spriteKitPath = path
