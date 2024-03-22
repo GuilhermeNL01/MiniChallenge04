@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
     var dialogos: [DialogueBox] = [
@@ -15,8 +16,18 @@ class ContextGameScene: SKScene, Scenes{
     ]
     
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
+    var nextScene: SKScene?
     
-    let test = SKLabelNode(text: "Testee")
+    @Binding var spriteKitPath: [SKScene]
+    
+    init(path: Binding<[SKScene]>, size: CGSize) {
+        _spriteKitPath = path
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMove(to view: SKView) {
         backgroundColor = .black
@@ -31,12 +42,22 @@ class ContextGameScene: SKScene, Scenes{
         addChild(cenario)
     }
     
+    private func goToNextScene(){
+        nextScene = Map(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
+        if let nextScene{
+            spriteKitPath.append(nextScene)
+        }
+    }
+    
 }
 
 extension ContextGameScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        proximoDialogo(true)
-        print(touch.location(in: self))
+        if dialogos.count > 1{
+            proximoDialogo(true)
+        } else {
+            goToNextScene()
+        }
     }
 }

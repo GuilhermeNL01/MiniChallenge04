@@ -25,7 +25,6 @@
 		43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA62BA8AB99002CB1BB /* FileWhatever.swift */; };
 		43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */; };
 		9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36430D2BA8D95B0011FF6E /* Map.swift */; };
-		9C3643102BAA0EDD0011FF6E /* MyPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */; };
 		9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643112BAA280A0011FF6E /* Cena_transition.swift */; };
 		9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643132BAA2C390011FF6E /* Cena_transition2.swift */; };
 		9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */; };
@@ -51,7 +50,6 @@
 		43588FA62BA8AB99002CB1BB /* FileWhatever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhatever.swift; sourceTree = "<group>"; };
 		43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhateverTwo.swift; sourceTree = "<group>"; };
 		9C36430D2BA8D95B0011FF6E /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
-		9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPreviewView.swift; sourceTree = "<group>"; };
 		9C3643112BAA280A0011FF6E /* Cena_transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition.swift; sourceTree = "<group>"; };
 		9C3643132BAA2C390011FF6E /* Cena_transition2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition2.swift; sourceTree = "<group>"; };
 		9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition3.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				408228042BA9C195002E846E /* FirstScreen */,
 				31093E572BAB4ED200E3B7AF /* ContextGameScene */,
 				9C36430D2BA8D95B0011FF6E /* Map.swift */,
-				9C36430F2BAA0EDD0011FF6E /* MyPreviewView.swift */,
 				9C3643112BAA280A0011FF6E /* Cena_transition.swift */,
 				9C3643132BAA2C390011FF6E /* Cena_transition2.swift */,
 				9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */,
@@ -270,7 +267,6 @@
 				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,
 				31093E492BAB4E5B00E3B7AF /* CreditsView.swift in Sources */,
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
-				9C3643102BAA0EDD0011FF6E /* MyPreviewView.swift in Sources */,
 				9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */,
 				40B793E52BAC95EE000C27DC /* VideoCutsceneView.swift in Sources */,
 				31093E542BAB4EBB00E3B7AF /* Character.swift in Sources */,
