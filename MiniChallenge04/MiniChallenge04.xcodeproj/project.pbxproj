@@ -28,6 +28,8 @@
 		9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643112BAA280A0011FF6E /* Cena_transition.swift */; };
 		9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643132BAA2C390011FF6E /* Cena_transition2.swift */; };
 		9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */; };
+		9C36431C2BACB0380011FF6E /* Npc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431B2BACB0380011FF6E /* Npc.swift */; };
+		9C36431E2BACB09B0011FF6E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431D2BACB09B0011FF6E /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		9C3643112BAA280A0011FF6E /* Cena_transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition.swift; sourceTree = "<group>"; };
 		9C3643132BAA2C390011FF6E /* Cena_transition2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition2.swift; sourceTree = "<group>"; };
 		9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition3.swift; sourceTree = "<group>"; };
+		9C36431B2BACB0380011FF6E /* Npc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Npc.swift; sourceTree = "<group>"; };
+		9C36431D2BACB09B0011FF6E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				43588FA62BA8AB99002CB1BB /* FileWhatever.swift */,
+				9C36431B2BACB0380011FF6E /* Npc.swift */,
+				9C36431D2BACB09B0011FF6E /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,7 +266,9 @@
 				31093E512BAB4EBB00E3B7AF /* VariaveisGlobais.swift in Sources */,
 				31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */,
 				31093E472BAB4DDC00E3B7AF /* ContextGameScene.swift in Sources */,
+				9C36431C2BACB0380011FF6E /* Npc.swift in Sources */,
 				9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */,
+				9C36431E2BACB09B0011FF6E /* Place.swift in Sources */,
 				43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */,
 				9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* FileWhatever.swift in Sources */,
