@@ -12,7 +12,6 @@ class CenaTransition: SKScene {
     var characterNode: SKSpriteNode!
     var cameraNode: SKCameraNode!
     var background: SKSpriteNode!
-    var dialogos: [DialogueBox] = []
     
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Background")
@@ -21,7 +20,7 @@ class CenaTransition: SKScene {
         addChild(background)
         
         characterNode = SKSpriteNode(imageNamed: "character")
-        characterNode.position = CGPoint(x: frame.midX - 200, y: frame.midY)
+        characterNode.position = CGPoint(x: frame.midX - 200, y: background.frame.minY + characterNode.size.height / 2)
         addChild(characterNode)
         
         cameraNode = SKCameraNode()
@@ -41,11 +40,12 @@ class CenaTransition: SKScene {
                 let zoomInAction = SKAction.scale(to: 0.8, duration: 1.0)
                 cameraNode.run(zoomInAction)
                 
-                let centerPosition = CGPoint(x: background.position.x, y: background.position.y)
-                let moveAction = SKAction.move(to: centerPosition, duration: 1.0)
+                // Calcular a posição do chão do plano de fundo
+                let groundPosition = CGPoint(x: background.position.x, y: background.frame.minY + characterNode.size.height / 2)
+                
+                // Criar uma ação para mover o personagem para o chão
+                let moveAction = SKAction.move(to: groundPosition, duration: 1.0)
                 characterNode.run(moveAction)
-                
-                
             }
         }
     }
