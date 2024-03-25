@@ -136,7 +136,11 @@ extension VideoCutsceneScene{
     
     // Função para lidar com o aplicativo em primeiro plano
     @objc func appWillEnterForeground() {
-        isPlayingInBackground = false
-        videoPlayer?.play()
+        if scene?.isFocused ?? false {
+            isPlayingInBackground = false
+            videoPlayer?.play()
+        } else {
+            videoPlayer?.pause()
+        }
     }
 }
