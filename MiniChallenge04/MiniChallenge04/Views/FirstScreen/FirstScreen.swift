@@ -10,12 +10,17 @@ import _SpriteKit_SwiftUI
 
 struct FirstScreen: View {
     
-    var cutscene: SKScene{
-        let scene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-        scene.scaleMode = .fill
-        
-        return scene
+    var firstScene = SKScene()
+    
+    var checkPoint: [String: Int] {
+        get {
+            UserDefaults.standard.value(forKey: "checkPoint") as! [String : Int]
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "checkPoint")
+        }
     }
+    
     @State var spriteKitPath: [SKScene] = []
     
     var body: some View {
@@ -45,7 +50,8 @@ struct FirstScreen: View {
                     VStack{
                         Spacer()
                         Button{
-                            spriteKitPath.append(cutscene)
+                            verifyCheckPoint()
+                            spriteKitPath.append(firstScene)
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -78,7 +84,37 @@ struct FirstScreen: View {
                     .navigationBarBackButtonHidden()
             }
         }
+        
     }
+    
+    mutating func verifyCheckPoint(){
+        var lastPoint: (String, Int)
+        
+        for checkPoints in checkPoint{
+            lastPoint = checkPoints
+        }
+        
+        switch lastPoint{
+        case ("Hotel", 0):
+            firstScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
+            break
+        case ("Hotel", 1):
+            <#code#>
+            break
+        case ("Hotel", _):
+            <#code#>
+            break
+        case (_, _):
+            <#code#>
+            break
+            
+        default:
+            firstScene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
+            break
+        }
+        firstScene.scaleMode = .fill
+    }
+    
 }
 
 #Preview {
