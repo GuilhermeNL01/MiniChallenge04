@@ -10,9 +10,11 @@ import Foundation
 struct NPC {
     var name: String
     var images: [String] = []
+    var type: GameCharacter
     
     init(_ character: GameCharacter) {
         self.name = character.rawValue
+        self.type = character
         assignImages(character: character)
     }
     

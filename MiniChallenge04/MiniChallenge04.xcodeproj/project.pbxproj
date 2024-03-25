@@ -22,10 +22,10 @@
 		40D15D872BA8AD7000A7EB1B /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */; };
 		40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */; };
 		40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D8A2BA8B4BF00A7EB1B /* Black.swift */; };
+		434050A02BAE222500D4C793 /* Test.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4340509F2BAE222500D4C793 /* Test.mlmodel */; };
 		43588FA72BA8AB99002CB1BB /* ContextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA62BA8AB99002CB1BB /* ContextModel.swift */; };
 		43588FA92BA8ABA4002CB1BB /* FileWhateverTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */; };
-		43A1CF022BADFB7E0056E11C /* MLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1CF012BADFB7E0056E11C /* MLModel.swift */; };
-		43A1CF042BADFBC50056E11C /* EmotionsML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 43A1CF032BADFBC50056E11C /* EmotionsML.mlmodel */; };
+		43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1CF012BADFB7E0056E11C /* MachineLearningModel.swift */; };
 		9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36430D2BA8D95B0011FF6E /* Map.swift */; };
 		9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643112BAA280A0011FF6E /* Cena_transition.swift */; };
 		9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643132BAA2C390011FF6E /* Cena_transition2.swift */; };
@@ -45,16 +45,16 @@
 		40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge04App.swift; sourceTree = "<group>"; };
 		40A3C5852B98D5000073F754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40A3C5882B98D5000073F754 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		40B793C82BAB58E8000C27DC /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MiniChallenge04.app; path = "/Users/enrique-mac/Repos/MiniChallenge04/MiniChallenge04/build/Debug-iphoneos/MiniChallenge04.app"; sourceTree = "<absolute>"; };
 		40B793E42BAC95EE000C27DC /* VideoCutsceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCutsceneView.swift; sourceTree = "<group>"; };
 		40B793E62BAC9977000C27DC /* P.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = P.mp4; sourceTree = "<group>"; };
 		40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
 		40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		40D15D8A2BA8B4BF00A7EB1B /* Black.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Black.swift; sourceTree = "<group>"; };
+		4340509F2BAE222500D4C793 /* Test.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Test.mlmodel; sourceTree = "<group>"; };
 		43588FA62BA8AB99002CB1BB /* ContextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextModel.swift; sourceTree = "<group>"; };
 		43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWhateverTwo.swift; sourceTree = "<group>"; };
-		43A1CF012BADFB7E0056E11C /* MLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLModel.swift; sourceTree = "<group>"; };
-		43A1CF032BADFBC50056E11C /* EmotionsML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionsML.mlmodel; sourceTree = "<group>"; };
+		43A1CF012BADFB7E0056E11C /* MachineLearningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningModel.swift; sourceTree = "<group>"; };
+		43A1CF052BAE18730056E11C /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C36430D2BA8D95B0011FF6E /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		9C3643112BAA280A0011FF6E /* Cena_transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition.swift; sourceTree = "<group>"; };
 		9C3643132BAA2C390011FF6E /* Cena_transition2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition2.swift; sourceTree = "<group>"; };
@@ -140,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				40A3C5802B98D4FE0073F754 /* MiniChallenge04 */,
+				43A1CF052BAE18730056E11C /* MiniChallenge04.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,8 +188,8 @@
 				43588FA62BA8AB99002CB1BB /* ContextModel.swift */,
 				9C36431B2BACB0380011FF6E /* Npc.swift */,
 				9C36431D2BACB09B0011FF6E /* Place.swift */,
-				43A1CF012BADFB7E0056E11C /* MLModel.swift */,
-				43A1CF032BADFBC50056E11C /* EmotionsML.mlmodel */,
+				43A1CF012BADFB7E0056E11C /* MachineLearningModel.swift */,
+				4340509F2BAE222500D4C793 /* Test.mlmodel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,7 +211,7 @@
 			);
 			name = MiniChallenge04;
 			productName = MiniChallenge04;
-			productReference = 40B793C82BAB58E8000C27DC /* MiniChallenge04.app */;
+			productReference = 43A1CF052BAE18730056E11C /* MiniChallenge04.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -271,8 +272,8 @@
 				31093E512BAB4EBB00E3B7AF /* VariaveisGlobais.swift in Sources */,
 				31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */,
 				31093E472BAB4DDC00E3B7AF /* ContextGameScene.swift in Sources */,
-				43A1CF042BADFBC50056E11C /* EmotionsML.mlmodel in Sources */,
-				43A1CF022BADFB7E0056E11C /* MLModel.swift in Sources */,
+				434050A02BAE222500D4C793 /* Test.mlmodel in Sources */,
+				43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */,
 				9C36431C2BACB0380011FF6E /* Npc.swift in Sources */,
 				9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */,
 				319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */,

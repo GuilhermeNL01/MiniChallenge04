@@ -62,23 +62,8 @@ extension Scenes{
         
         var personagem:SKLabelNode? = nil
         
-        switch dialogo.mensageiro {
-        case .mainCharacter:
-            personagem = SKLabelNode(text: dialogo.mensageiro.rawValue)
-            personagem?.fontColor = .red
-            break
-        case .butcher:
-            personagem = SKLabelNode(text: dialogo.mensageiro.rawValue)
-            personagem?.fontColor = .systemYellow
-            break
-        case .victimsWife:
-            personagem = SKLabelNode(text: dialogo.mensageiro.rawValue)
-            personagem?.fontColor = .systemYellow
-        case .receptionist:
-            personagem = SKLabelNode(text: dialogo.mensageiro.rawValue)
-            personagem?.fontColor = .systemYellow
-            break
-        }
+        personagem = SKLabelNode(text: dialogo.mensageiro.name)
+        personagem?.fontColor = dialogo.mensageiro.type == .main ? .red : .yellow
         
         // treating the character text block
         if let personagem = personagem {
