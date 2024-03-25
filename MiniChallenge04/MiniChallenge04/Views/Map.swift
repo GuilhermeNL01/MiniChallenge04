@@ -36,9 +36,8 @@ class Map: SKScene{
     }
     
     private func buildMap(){
-        background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-        background.name = "Background"
-        addChild(background)
+    
+        setupBack()
         hotel.position = CGPoint(x: frame.size.width * 0.23, y: frame.size.height * 0.65)
         hotel.name = "Hotel"
         addChild(hotel)
@@ -51,6 +50,12 @@ class Map: SKScene{
             myView = view
         }
         addChild(butcher)
+    }
+    
+    private func setupBack(){
+        background.size = size
+        background.anchorPoint = CGPoint(x: 0, y: 0)
+        addChild(background)
     }
     
     private func goToNextScene(sceneName: String){
