@@ -34,24 +34,23 @@ class FirstScreenViewModel: ObservableObject{
             lastPoint = checkPoints
         }
         
-        switch lastPoint{
-        case ("Hotel", 0):
-            firstScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-            break
-        case ("Hotel", 1):
-            <#code#>
-            break
-        case ("Hotel", _):
-            <#code#>
-            break
-        case (_, _):
-            <#code#>
-            break
-            
-        default:
-            firstScene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-            break
-        }
+//        switch lastPoint{
+//        case ("Hotel", 0):
+////            firstScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
+//            break
+//        case ("Hotel", 1):
+//            break
+//        case ("Hotel", _):
+//
+//            break
+//        case (_, _):
+//
+//            break
+//            
+//        default:
+////            firstScene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
+//            break
+//        }
         firstScene.scaleMode = .fill
     }
 }

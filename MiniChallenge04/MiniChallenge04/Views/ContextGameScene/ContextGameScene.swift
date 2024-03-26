@@ -10,7 +10,7 @@ import SpriteKit
 import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
-    @Binding var spriteKitPath: [SKScene] // the path of navigation views
+//    @Binding var spriteKitPath: [SKScene] // the path of navigation views
     
     var carrie = NPC(.main)
     
