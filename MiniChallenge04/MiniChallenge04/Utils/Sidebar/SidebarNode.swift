@@ -14,10 +14,11 @@ class SidebarNode: SKNode{
     
     override init() {
         super.init()
-        upperSidebar.position = CGPoint(x: 0, y: 173)
+        upperSidebar.position = CGPoint(x: 0, y: alturaTela * 0.218)
         addChild(upperSidebar)
-        bottomSidebar.position = CGPoint(x: 0, y: -111)
+        bottomSidebar.position = CGPoint(x: 0, y: -alturaTela * 0.146)
         addChild(bottomSidebar)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

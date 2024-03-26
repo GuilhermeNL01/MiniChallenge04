@@ -45,7 +45,7 @@ class MachineLearningModel: ObservableObject{
             }
             label.fontColor = .red
         } catch {
-            print("No Emotion Detected")
+            label.text = "No Emotion Detected"
         }
     }
     
