@@ -14,22 +14,8 @@ class Map: SKScene{
     var pier = SKSpriteNode(imageNamed: "PierImage")
     var butcher = SKSpriteNode(imageNamed: "ButcherImage")
     
-    
-    let screenWidth: CGFloat = UIScreen.main.bounds.width
-    let screenHeight: CGFloat = UIScreen.main.bounds.width
     var myView: SKView = SKView()
     var nextScene: SKScene?
-    
-    @Binding var spriteKitPath: [SKScene]
-    
-    init(path: Binding<[SKScene]>, size: CGSize) {
-        _spriteKitPath = path
-        super.init(size: size)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func didMove(to view: SKView) {
         buildMap()
@@ -73,7 +59,7 @@ class Map: SKScene{
         default: break
         }
         if let nextScene{
-            spriteKitPath.append(nextScene)
+            self.view?.presentScene(nextScene)
         }
     }
     

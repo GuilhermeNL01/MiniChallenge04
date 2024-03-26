@@ -13,7 +13,7 @@ struct FirstScreen: View {
     @StateObject var vm = FirstScreenViewModel()
     
     var body: some View {
-        NavigationStack(path: $vm.spriteKitPath){
+        NavigationStack{
             ZStack{
                 
                 BackgroundImageView()
@@ -38,9 +38,11 @@ struct FirstScreen: View {
                     
                     VStack{
                         Spacer()
-                        Button{
-                            vm.verifyCheckPoint()
-                            vm.spriteKitPath.append(vm.firstScene)
+                        
+                        NavigationLink{
+                            SpriteView(scene: vm.firstScene)
+                                .ignoresSafeArea()
+                                .navigationBarBackButtonHidden()
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -67,10 +69,6 @@ struct FirstScreen: View {
                     }
                     Spacer()
                 }
-            }.navigationDestination(for: SKScene.self) { scene in
-                SpriteView(scene: scene)
-                    .ignoresSafeArea()
-                    .navigationBarBackButtonHidden()
             }
         }
         

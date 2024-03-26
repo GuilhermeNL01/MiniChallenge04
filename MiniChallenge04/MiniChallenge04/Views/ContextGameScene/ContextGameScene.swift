@@ -10,8 +10,6 @@ import SpriteKit
 import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
-//    @Binding var spriteKitPath: [SKScene] // the path of navigation views
-    
     var carrie = NPC(.main)
     
     var dialogos: [DialogueBox] = []
@@ -19,18 +17,6 @@ class ContextGameScene: SKScene, Scenes{
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
     var nextScene: SKScene? // the scene after this one
     var _model = ContextModel() // creating a model object to define game properties
-    
-    @ObservedObject var ml = MachineLearningModel()
-    @Binding var spriteKitPath: [SKScene] // the path of navigation views
-    
-    init(path: Binding<[SKScene]>, size: CGSize) {
-        _spriteKitPath = path
-        super.init(size: size)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func didMove(to view: SKView) {
         
@@ -48,9 +34,9 @@ class ContextGameScene: SKScene, Scenes{
     }
     
     private func goToNextScene(){
-        nextScene = Map(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
+        nextScene = Map(size: CGSize(width: larguraTela, height: alturaTela))
         if let nextScene{
-            spriteKitPath.append(nextScene)
+            self.view?.presentScene(nextScene)
         }
     }
     

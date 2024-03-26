@@ -18,6 +18,7 @@ class Score: SKNode{
     
     override init() {
         super.init()
+        scoreVisor.size = CGSize(width: larguraTela * 0.09, height: alturaTela * 0.27)
         self.addChild(scoreVisor)
     }
     
