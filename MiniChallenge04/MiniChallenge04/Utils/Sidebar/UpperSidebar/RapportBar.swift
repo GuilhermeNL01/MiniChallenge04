@@ -9,11 +9,12 @@ import Foundation
 import SpriteKit
 
 class RapportBar: SKNode{
-    let background = SKSpriteNode(imageNamed: "RapportBG")
+    private let background = SKSpriteNode(imageNamed: "RapportBG")
     let mlModel = MachineLearningModel()
     
     override init(){
         super.init()
+        background.size = CGSize(width: larguraTela * 0.26, height: alturaTela * 0.27)
         self.addChild(background)
         mlModel.label.fontSize = 20
         mlModel.label.fontName = fonteMedium

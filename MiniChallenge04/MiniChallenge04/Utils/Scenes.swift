@@ -9,7 +9,6 @@ import Foundation
 import SpriteKit
 
 protocol Scenes: SKScene{
-    var spriteKitPath: [SKScene] {get set}
     var dialogos:[DialogueBox] {get set}
     var cenario: SKSpriteNode {get set}
 }

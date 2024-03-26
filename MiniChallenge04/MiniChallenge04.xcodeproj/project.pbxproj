@@ -17,6 +17,8 @@
 		311A0F7E2BB1E6AD00193C3D /* RapportTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F7D2BB1E6AD00193C3D /* RapportTestScene.swift */; };
 		311A0F812BB1F9C200193C3D /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F802BB1F9C200193C3D /* Score.swift */; };
 		311A0F832BB2040B00193C3D /* UpperSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F822BB2040B00193C3D /* UpperSidebar.swift */; };
+		311A0F852BB31FB000193C3D /* BottomSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F842BB31FB000193C3D /* BottomSidebar.swift */; };
+		311A0F882BB32CC500193C3D /* SidebarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F872BB32CC500193C3D /* SidebarNode.swift */; };
 		319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319ED1412BAE005A002DCCF2 /* Weapons.swift */; };
 		40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */; };
 		40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5852B98D5000073F754 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		311A0F7D2BB1E6AD00193C3D /* RapportTestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapportTestScene.swift; sourceTree = "<group>"; };
 		311A0F802BB1F9C200193C3D /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		311A0F822BB2040B00193C3D /* UpperSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperSidebar.swift; sourceTree = "<group>"; };
+		311A0F842BB31FB000193C3D /* BottomSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSidebar.swift; sourceTree = "<group>"; };
+		311A0F872BB32CC500193C3D /* SidebarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarNode.swift; sourceTree = "<group>"; };
 		319ED1412BAE005A002DCCF2 /* Weapons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapons.swift; sourceTree = "<group>"; };
 		40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge04App.swift; sourceTree = "<group>"; };
 		40A3C5852B98D5000073F754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 				31093E4E2BAB4EBB00E3B7AF /* Functions.swift */,
 				31093E4D2BAB4EBB00E3B7AF /* Scenes.swift */,
 				31093E4C2BAB4EBB00E3B7AF /* VariaveisGlobais.swift */,
-				311A0F7F2BB1F98600193C3D /* UpperSidebar */,
+				311A0F862BB3241100193C3D /* Sidebar */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -132,6 +136,16 @@
 				311A0F822BB2040B00193C3D /* UpperSidebar.swift */,
 			);
 			path = UpperSidebar;
+			sourceTree = "<group>";
+		};
+		311A0F862BB3241100193C3D /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				311A0F7F2BB1F98600193C3D /* UpperSidebar */,
+				311A0F842BB31FB000193C3D /* BottomSidebar.swift */,
+				311A0F872BB32CC500193C3D /* SidebarNode.swift */,
+			);
+			path = Sidebar;
 			sourceTree = "<group>";
 		};
 		408228042BA9C195002E846E /* FirstScreen */ = {
@@ -306,6 +320,7 @@
 				311A0F832BB2040B00193C3D /* UpperSidebar.swift in Sources */,
 				31093E472BAB4DDC00E3B7AF /* ContextGameScene.swift in Sources */,
 				434050A02BAE222500D4C793 /* Test.mlmodel in Sources */,
+				311A0F852BB31FB000193C3D /* BottomSidebar.swift in Sources */,
 				43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */,
 				9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */,
 				9C36431C2BACB0380011FF6E /* Npc.swift in Sources */,
@@ -322,6 +337,7 @@
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
 				9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */,
 				40B793E52BAC95EE000C27DC /* VideoCutsceneView.swift in Sources */,
+				311A0F882BB32CC500193C3D /* SidebarNode.swift in Sources */,
 				40D15D872BA8AD7000A7EB1B /* FirstScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

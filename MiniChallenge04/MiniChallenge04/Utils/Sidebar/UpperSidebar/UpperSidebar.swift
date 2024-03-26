@@ -15,8 +15,9 @@ class UpperSidebar: SKNode{
     override init() {
         super.init()
         
+        rapport.position = CGPoint(x: -larguraTela * 0.05, y: 0)
         self.addChild(rapport)
-        score.position = CGPoint(x: 182, y: 0)
+        score.position = CGPoint(x: larguraTela * 0.09, y: 0)
         score.scoreVisor.anchorPoint = CGPoint(x: 0, y: 0.5)
         self.addChild(score)
         

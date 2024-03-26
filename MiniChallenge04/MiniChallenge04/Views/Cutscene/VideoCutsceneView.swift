@@ -17,23 +17,10 @@ class VideoCutsceneScene: SKScene {
     var videoPlayerLayer: AVPlayerLayer?
     var skipButton: UIButton?
     var isPlayingInBackground = false
-    @Binding var spriteKitPath: [SKScene]
     var nextScene: SKScene?
-    
-    init(path: Binding<[SKScene]>, size: CGSize) {
-        _spriteKitPath = path
-        super.init(size: size)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-   
     
     override func didMove(to view: SKView) {
         initializeView()
-
 
 
         //Observadores para os estados do dispositivos
@@ -104,15 +91,18 @@ class VideoCutsceneScene: SKScene {
     }
     
     private func goToNextScene() {
-        nextScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-        if let nextScene = nextScene {
-            spriteKitPath.append(nextScene)
-            // Parar o vídeo antes de mudar de cena
-            videoPlayer?.pause()
-            // Remover a camada do player de vídeo
-            videoPlayerLayer?.removeFromSuperlayer()
+            nextScene = ContextGameScene(size: CGSize(width: larguraTela, height: alturaTela))
+            if let nextScene = nextScene {
+                self.view?.presentScene(nextScene)
+                // Parar o vídeo antes de mudar de cena
+                videoPlayer?.pause()
+                // Remover a camada do player de vídeo
+                videoPlayerLayer?.removeFromSuperlayer()
+            }
         }
-    }
+
+
+    
 
     
 }

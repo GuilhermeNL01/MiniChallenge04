@@ -10,21 +10,20 @@ import SwiftUI
 import SpriteKit
 
 class FirstScreenViewModel: ObservableObject{
-    var firstScene = SKScene()
+    @Published var presentScenes = false
+    var firstScene = RapportTestScene(size: CGSize(width: larguraTela, height: alturaTela))
     
     var checkPoint: [String: Int] {
         get {
-            UserDefaults.standard.value(forKey: "checkPoint") as! [String : Int]
+            UserDefaults.standard.value(forKey: "checkPoint") as? [String : Int] ?? [:]
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: "checkPoint")
         }
     }
     
-    var spriteKitPath: [SKScene] = []
-    
     init() {
-        verifyCheckPoint()
+//        verifyCheckPoint()
     }
     
     func verifyCheckPoint(){

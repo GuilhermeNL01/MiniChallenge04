@@ -9,24 +9,18 @@ import Foundation
 import SpriteKit
 import SwiftUI
 
-class RapportTestScene: SKScene{
-//    var rapport = RapportBar()
-//    var sideScore = Score()
-    var upperSidebar = UpperSidebar()
-    @Binding var spriteKitPath: [SKScene]
+class RapportTestScene: SKScene, Scenes{
+    var dialogos: [DialogueBox] = [DialogueBox(mensagem: "oi", mensageiro: .init(.main))]
     
-    init(spriteKitPath: Binding<[SKScene]>, size: CGSize) {
-        _spriteKitPath = spriteKitPath
-        super.init(size: size)
-    }
+    var cenario: SKSpriteNode = SKSpriteNode()
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    var sidebar = SidebarNode()
+
     override func didMove(to view: SKView) {
-        addChild(upperSidebar)
-        upperSidebar.position = CGPoint(x: larguraTela * 0.6, y: alturaTela * 0.7)
+        sidebar.position = CGPoint(x: larguraTela * 0.79, y: alturaTela * 0.6)
+        addChild(sidebar)
+        framingDialogueBox(true)
+        proximoDialogo()
     }
     
     
@@ -34,7 +28,10 @@ class RapportTestScene: SKScene{
 
 extension RapportTestScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        upperSidebar.rapport.mlModel.classify(prompt: "Joy")
-        upperSidebar.score.score += 1
+        sidebar.upperSidebar.rapport.mlModel.classify(prompt: "Joy")
+        sidebar.upperSidebar.score.score += 1
+        sidebar.bottomSidebar.insight1.text = "• ainausc"
     }
 }
+
+
