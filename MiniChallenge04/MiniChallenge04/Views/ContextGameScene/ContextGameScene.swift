@@ -10,6 +10,7 @@ import SpriteKit
 import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
+//    @Binding var spriteKitPath: [SKScene] // the path of navigation views
     
     var carrie = NPC(.main)
     
@@ -19,6 +20,7 @@ class ContextGameScene: SKScene, Scenes{
     var nextScene: SKScene? // the scene after this one
     var _model = ContextModel() // creating a model object to define game properties
     
+    @ObservedObject var ml = MachineLearningModel()
     @Binding var spriteKitPath: [SKScene] // the path of navigation views
     
     init(path: Binding<[SKScene]>, size: CGSize) {
@@ -31,6 +33,7 @@ class ContextGameScene: SKScene, Scenes{
     }
     
     override func didMove(to view: SKView) {
+        
         buildDialogues()
         backgroundColor = .black
         setupCenario()

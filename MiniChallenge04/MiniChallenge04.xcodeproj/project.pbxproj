@@ -36,6 +36,7 @@
 		9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */; };
 		9C36431C2BACB0380011FF6E /* Npc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431B2BACB0380011FF6E /* Npc.swift */; };
 		9C36431E2BACB09B0011FF6E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431D2BACB09B0011FF6E /* Place.swift */; };
+		9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cena_transition3.swift; sourceTree = "<group>"; };
 		9C36431B2BACB0380011FF6E /* Npc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Npc.swift; sourceTree = "<group>"; };
 		9C36431D2BACB09B0011FF6E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				43588FA82BA8ABA4002CB1BB /* FileWhateverTwo.swift */,
+				9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				31093E472BAB4DDC00E3B7AF /* ContextGameScene.swift in Sources */,
 				434050A02BAE222500D4C793 /* Test.mlmodel in Sources */,
 				43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */,
+				9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */,
 				9C36431C2BACB0380011FF6E /* Npc.swift in Sources */,
 				311A0F7E2BB1E6AD00193C3D /* RapportTestScene.swift in Sources */,
 				9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */,
