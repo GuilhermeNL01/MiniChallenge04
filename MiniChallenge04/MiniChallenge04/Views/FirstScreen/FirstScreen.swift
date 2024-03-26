@@ -10,21 +10,10 @@ import _SpriteKit_SwiftUI
 
 struct FirstScreen: View {
     
-    var firstScene = SKScene()
-    
-    var checkPoint: [String: Int] {
-        get {
-            UserDefaults.standard.value(forKey: "checkPoint") as! [String : Int]
-        }
-        set {
-            UserDefaults.standard.setValue(newValue, forKey: "checkPoint")
-        }
-    }
-    
-    @State var spriteKitPath: [SKScene] = []
+    @StateObject var vm = FirstScreenViewModel()
     
     var body: some View {
-        NavigationStack(path: $spriteKitPath){
+        NavigationStack(path: $vm.spriteKitPath){
             ZStack{
                 
                 BackgroundImageView()
@@ -50,8 +39,8 @@ struct FirstScreen: View {
                     VStack{
                         Spacer()
                         Button{
-                            verifyCheckPoint()
-                            spriteKitPath.append(firstScene)
+                            vm.verifyCheckPoint()
+                            vm.spriteKitPath.append(vm.firstScene)
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -86,35 +75,6 @@ struct FirstScreen: View {
         }
         
     }
-    
-    mutating func verifyCheckPoint(){
-        var lastPoint: (String, Int)
-        
-        for checkPoints in checkPoint{
-            lastPoint = checkPoints
-        }
-        
-        switch lastPoint{
-        case ("Hotel", 0):
-            firstScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-            break
-        case ("Hotel", 1):
-            <#code#>
-            break
-        case ("Hotel", _):
-            <#code#>
-            break
-        case (_, _):
-            <#code#>
-            break
-            
-        default:
-            firstScene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-            break
-        }
-        firstScene.scaleMode = .fill
-    }
-    
 }
 
 #Preview {
