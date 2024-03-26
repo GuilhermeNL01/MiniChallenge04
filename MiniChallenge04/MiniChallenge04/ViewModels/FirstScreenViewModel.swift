@@ -11,7 +11,7 @@ import SpriteKit
 
 class FirstScreenViewModel: ObservableObject{
     @Published var presentScenes = false
-    var firstScene = RapportTestScene(size: CGSize(width: larguraTela, height: alturaTela))
+    var firstScene = VideoCutsceneScene(size: CGSize(width: larguraTela, height: alturaTela))
     
     var checkPoint: [String: Int] {
         get {
