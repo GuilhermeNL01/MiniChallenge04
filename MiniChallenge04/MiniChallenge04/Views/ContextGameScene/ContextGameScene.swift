@@ -21,6 +21,7 @@ class ContextGameScene: SKScene, Scenes{
     var _model = ContextModel() // creating a model object to define game properties
     
     @ObservedObject var ml = MachineLearningModel()
+    @Binding var spriteKitPath: [SKScene] // the path of navigation views
     
     init(path: Binding<[SKScene]>, size: CGSize) {
         _spriteKitPath = path
@@ -38,8 +39,6 @@ class ContextGameScene: SKScene, Scenes{
         setupCenario()
         framingDialogueBox(true)
         proximoDialogo()
-        ml.label.position = CGPoint(x: 500, y: 500)
-        addChild(ml.label)
     }
     
     private func setupCenario(){
@@ -83,8 +82,6 @@ extension ContextGameScene{
         guard let touch = touches.first else { return }
         if dialogos.count > 1{
             proximoDialogo(true)
-            ml.promptIn = dialogos.first?.mensagem
-            ml.reclassify(promptIn: ml.promptIn!)
             
         } else {
             goToNextScene()

@@ -13,6 +13,10 @@
 		31093E522BAB4EBB00E3B7AF /* Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31093E4D2BAB4EBB00E3B7AF /* Scenes.swift */; };
 		31093E532BAB4EBB00E3B7AF /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31093E4E2BAB4EBB00E3B7AF /* Functions.swift */; };
 		31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31093E502BAB4EBB00E3B7AF /* DialogueBox.swift */; };
+		311A0F7C2BB1E46700193C3D /* RapportBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F7B2BB1E46700193C3D /* RapportBar.swift */; };
+		311A0F7E2BB1E6AD00193C3D /* RapportTestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F7D2BB1E6AD00193C3D /* RapportTestScene.swift */; };
+		311A0F812BB1F9C200193C3D /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F802BB1F9C200193C3D /* Score.swift */; };
+		311A0F832BB2040B00193C3D /* UpperSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F822BB2040B00193C3D /* UpperSidebar.swift */; };
 		319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319ED1412BAE005A002DCCF2 /* Weapons.swift */; };
 		40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */; };
 		40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5852B98D5000073F754 /* Assets.xcassets */; };
@@ -42,6 +46,10 @@
 		31093E4D2BAB4EBB00E3B7AF /* Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenes.swift; sourceTree = "<group>"; };
 		31093E4E2BAB4EBB00E3B7AF /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		31093E502BAB4EBB00E3B7AF /* DialogueBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogueBox.swift; sourceTree = "<group>"; };
+		311A0F7B2BB1E46700193C3D /* RapportBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapportBar.swift; sourceTree = "<group>"; };
+		311A0F7D2BB1E6AD00193C3D /* RapportTestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RapportTestScene.swift; sourceTree = "<group>"; };
+		311A0F802BB1F9C200193C3D /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		311A0F822BB2040B00193C3D /* UpperSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperSidebar.swift; sourceTree = "<group>"; };
 		319ED1412BAE005A002DCCF2 /* Weapons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapons.swift; sourceTree = "<group>"; };
 		40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge04App.swift; sourceTree = "<group>"; };
 		40A3C5852B98D5000073F754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 				31093E4E2BAB4EBB00E3B7AF /* Functions.swift */,
 				31093E4D2BAB4EBB00E3B7AF /* Scenes.swift */,
 				31093E4C2BAB4EBB00E3B7AF /* VariaveisGlobais.swift */,
+				311A0F7F2BB1F98600193C3D /* UpperSidebar */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -102,6 +111,27 @@
 				31093E482BAB4E5A00E3B7AF /* CreditsView.swift */,
 			);
 			path = CreditsView;
+			sourceTree = "<group>";
+		};
+		311A0F7A2BB1DEDC00193C3D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9C36430D2BA8D95B0011FF6E /* Map.swift */,
+				9C3643112BAA280A0011FF6E /* Cena_transition.swift */,
+				9C3643132BAA2C390011FF6E /* Cena_transition2.swift */,
+				9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		311A0F7F2BB1F98600193C3D /* UpperSidebar */ = {
+			isa = PBXGroup;
+			children = (
+				311A0F7B2BB1E46700193C3D /* RapportBar.swift */,
+				311A0F802BB1F9C200193C3D /* Score.swift */,
+				311A0F822BB2040B00193C3D /* UpperSidebar.swift */,
+			);
+			path = UpperSidebar;
 			sourceTree = "<group>";
 		};
 		408228042BA9C195002E846E /* FirstScreen */ = {
@@ -130,10 +160,8 @@
 				31093E582BAB4EDB00E3B7AF /* CreditsView */,
 				408228042BA9C195002E846E /* FirstScreen */,
 				31093E572BAB4ED200E3B7AF /* ContextGameScene */,
-				9C36430D2BA8D95B0011FF6E /* Map.swift */,
-				9C3643112BAA280A0011FF6E /* Cena_transition.swift */,
-				9C3643132BAA2C390011FF6E /* Cena_transition2.swift */,
-				9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */,
+				311A0F7A2BB1DEDC00193C3D /* Map */,
+				311A0F7D2BB1E6AD00193C3D /* RapportTestScene.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,16 +297,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */,
+				311A0F7C2BB1E46700193C3D /* RapportBar.swift in Sources */,
 				40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */,
 				31093E522BAB4EBB00E3B7AF /* Scenes.swift in Sources */,
 				31093E532BAB4EBB00E3B7AF /* Functions.swift in Sources */,
 				31093E512BAB4EBB00E3B7AF /* VariaveisGlobais.swift in Sources */,
 				31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */,
+				311A0F832BB2040B00193C3D /* UpperSidebar.swift in Sources */,
 				31093E472BAB4DDC00E3B7AF /* ContextGameScene.swift in Sources */,
 				434050A02BAE222500D4C793 /* Test.mlmodel in Sources */,
 				43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */,
 				9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */,
 				9C36431C2BACB0380011FF6E /* Npc.swift in Sources */,
+				311A0F7E2BB1E6AD00193C3D /* RapportTestScene.swift in Sources */,
 				9C3643122BAA280A0011FF6E /* Cena_transition.swift in Sources */,
 				319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */,
 				9C36431E2BACB09B0011FF6E /* Place.swift in Sources */,
@@ -286,6 +317,7 @@
 				9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* ContextModel.swift in Sources */,
 				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,
+				311A0F812BB1F9C200193C3D /* Score.swift in Sources */,
 				31093E492BAB4E5B00E3B7AF /* CreditsView.swift in Sources */,
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
 				9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */,
