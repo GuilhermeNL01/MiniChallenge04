@@ -17,7 +17,7 @@ class RapportTestScene: SKScene, Scenes{
     var sidebar = SidebarNode()
 
     override func didMove(to view: SKView) {
-        sidebar.position = CGPoint(x: larguraTela * 0.79, y: alturaTela * 0.6)
+        sidebar.position = CGPoint(x: larguraTela * 0.79, y: alturaTela * 0.612)
         addChild(sidebar)
         framingDialogueBox(true)
         proximoDialogo()
@@ -31,6 +31,15 @@ extension RapportTestScene{
         sidebar.upperSidebar.rapport.mlModel.classify(prompt: "Joy")
         sidebar.upperSidebar.score.score += 1
         sidebar.bottomSidebar.insight1.text = "• ainausc"
+        if sidebar.bottomSidebar.insight1.text != ""{
+            sidebar.bottomSidebar.insight2.text = "• ola"
+        }
+        if sidebar.bottomSidebar.insight2.text != ""{
+            sidebar.bottomSidebar.insight3.text = "• tudo"
+        }
+        if sidebar.bottomSidebar.insight3.text != ""{
+            sidebar.bottomSidebar.insight4.text = "• bom?"
+        }
     }
 }
 

@@ -33,8 +33,8 @@ extension Scenes{
             let nameTag = SKSpriteNode(imageNamed: "NameTag")
             nameTag.name = "nameTag"
             nameTag.anchorPoint = CGPoint(x: 0, y: 0)
-            nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.06)
-            nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.24)
+            nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.08)
+            nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.23)
             self.addChild(nameTag)
         }
         

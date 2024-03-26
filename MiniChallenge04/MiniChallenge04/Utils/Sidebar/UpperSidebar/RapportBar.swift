@@ -14,7 +14,7 @@ class RapportBar: SKNode{
     
     override init(){
         super.init()
-        background.size = CGSize(width: larguraTela * 0.26, height: alturaTela * 0.27)
+        background.size = CGSize(width: larguraTela * 0.263, height: alturaTela * 0.261)
         self.addChild(background)
         mlModel.label.fontSize = 20
         mlModel.label.fontName = fonteMedium
