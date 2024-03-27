@@ -10,18 +10,15 @@ import SpriteKit
 import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
-    var carrie = NPC(.main)
-    
     var dialogos: [DialogueBox] = []
+    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "OfficeBG")
     
-    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
+    var carrie = NPC(.main)
     var nextScene: SKScene? // the scene after this one
     var _model = ContextModel() // creating a model object to define game properties
     
     override func didMove(to view: SKView) {
-        
         buildDialogues()
-        backgroundColor = .black
         setupCenario()
         framingDialogueBox(true)
         proximoDialogo()
@@ -31,13 +28,6 @@ class ContextGameScene: SKScene, Scenes{
         cenario.size = size
         cenario.anchorPoint = CGPoint(x: 0, y: 0)
         addChild(cenario)
-    }
-    
-    private func goToNextScene(){
-        nextScene = Map(size: CGSize(width: larguraTela, height: alturaTela))
-        if let nextScene{
-            self.view?.presentScene(nextScene)
-        }
     }
     
     private func buildDialogues(){
@@ -60,17 +50,15 @@ class ContextGameScene: SKScene, Scenes{
             DialogueBox(mensagem: "......", mensageiro: carrie),
             DialogueBox(mensagem: "Anyways! I'm all set. Let's start by picking the first location to investigate.", mensageiro: carrie),]
     }
-    
 }
 
 extension ContextGameScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
         if dialogos.count > 1{
             proximoDialogo(true)
             
         } else {
-            goToNextScene()
+            trocarCena(nextScene: Map(), transicao: true, duracao: 0.5)
         }
     }
 }
