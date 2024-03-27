@@ -9,9 +9,9 @@ import SpriteKit
 
 class DialogueBox{
     var mensagem: String
-    var mensageiro: Personagem
+    var mensageiro: NPC
     
-    init(mensagem: String, mensageiro: Personagem) {
+    init(mensagem: String, mensageiro: NPC) {
         self.mensagem = mensagem
         self.mensageiro = mensageiro
     }
@@ -20,7 +20,7 @@ class DialogueBox{
 class Decisao: DialogueBox{
     var alternativa : (Alternativa, Alternativa, Alternativa)
     
-    init(alternativa: (Alternativa, Alternativa, Alternativa), mensagem: String, mensageiro: Personagem) {
+    init(alternativa: (Alternativa, Alternativa, Alternativa), mensagem: String, mensageiro: NPC) {
         self.alternativa = alternativa
         super.init(mensagem: mensagem, mensageiro: mensageiro)
     }

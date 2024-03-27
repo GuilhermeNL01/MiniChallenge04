@@ -9,11 +9,11 @@ import Foundation
 
 struct Place {
     
-    var npc: NPC
+    var name: String
     var background: String
     var object: String
+    var npc: NPC?
     var choices: [Int]
-    var sceneNumber: Int
     var successIndicator: Int
     var mlText: String
     

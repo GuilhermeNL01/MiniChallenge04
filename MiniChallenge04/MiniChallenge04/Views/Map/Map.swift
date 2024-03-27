@@ -14,31 +14,16 @@ class Map: SKScene{
     var pier = SKSpriteNode(imageNamed: "PierImage")
     var butcher = SKSpriteNode(imageNamed: "ButcherImage")
     
-    
-    let screenWidth: CGFloat = UIScreen.main.bounds.width
-    let screenHeight: CGFloat = UIScreen.main.bounds.width
     var myView: SKView = SKView()
     var nextScene: SKScene?
-    
-    @Binding var spriteKitPath: [SKScene]
-    
-    init(path: Binding<[SKScene]>, size: CGSize) {
-        _spriteKitPath = path
-        super.init(size: size)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func didMove(to view: SKView) {
         buildMap()
     }
     
     private func buildMap(){
-        background.position = CGPoint(x: frame.size.width / 2, y: frame.size.height / 2)
-        background.name = "Background"
-        addChild(background)
+    
+        setupBack()
         hotel.position = CGPoint(x: frame.size.width * 0.23, y: frame.size.height * 0.65)
         hotel.name = "Hotel"
         addChild(hotel)
@@ -51,6 +36,12 @@ class Map: SKScene{
             myView = view
         }
         addChild(butcher)
+    }
+    
+    private func setupBack(){
+        background.size = size
+        background.anchorPoint = CGPoint(x: 0, y: 0)
+        addChild(background)
     }
     
     private func goToNextScene(sceneName: String){
@@ -68,7 +59,7 @@ class Map: SKScene{
         default: break
         }
         if let nextScene{
-            spriteKitPath.append(nextScene)
+            self.view?.presentScene(nextScene)
         }
     }
     

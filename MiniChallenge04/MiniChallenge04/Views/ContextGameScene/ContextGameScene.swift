@@ -10,26 +10,17 @@ import SpriteKit
 import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
-    var dialogos: [DialogueBox] = [
-        DialogueBox(mensagem: "Oi", mensageiro: .protagonista),
-        DialogueBox(mensagem: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", mensageiro: .investigadoDois),
-    ]
+    var carrie = NPC(.main)
+    
+    var dialogos: [DialogueBox] = []
     
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
-    var nextScene: SKScene?
-    
-    @Binding var spriteKitPath: [SKScene]
-    
-    init(path: Binding<[SKScene]>, size: CGSize) {
-        _spriteKitPath = path
-        super.init(size: size)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var nextScene: SKScene? // the scene after this one
+    var _model = ContextModel() // creating a model object to define game properties
     
     override func didMove(to view: SKView) {
+        
+        buildDialogues()
         backgroundColor = .black
         setupCenario()
         framingDialogueBox(true)
@@ -43,10 +34,31 @@ class ContextGameScene: SKScene, Scenes{
     }
     
     private func goToNextScene(){
-        nextScene = Map(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
+        nextScene = Map(size: CGSize(width: larguraTela, height: alturaTela))
         if let nextScene{
-            spriteKitPath.append(nextScene)
+            self.view?.presentScene(nextScene)
         }
+    }
+    
+    private func buildDialogues(){
+        dialogos = [
+            DialogueBox(mensagem: "It has been a while since I last got to gear up for the investigation of a murder case! I can't help but feel a little excited…", mensageiro: carrie),
+            DialogueBox(mensagem: "Well, I mean… I'd be more excited if I wasn't the only one being sent, but I guess the other officers can't be bothered to tag along when the case is set in a place like that. ", mensageiro: carrie),
+            DialogueBox(mensagem: "… Aldrich, huh? What a place… It's probably the most neglected city in the whole state. This isn't the first murder case that the locals have witnessed, and I'm sure it won't be the last.", mensageiro: carrie),
+            DialogueBox(mensagem: "At least, not when criminal activity is so rampant there, with all those gangs and under the table businesses, if you know what I mean…", mensageiro: carrie),
+            DialogueBox(mensagem: "This murder case is different though! Or so I have been told. Seems like neither the victim, Peter Brooke, nor their closest connections had any association with the criminal side of Aldrich.", mensageiro: carrie),
+            DialogueBox(mensagem: "And that's unheard of. At least in that city… I guess that explains why the police are intervening this time, when they usually turn a blind eye to… uh, well… any crime that takes place there…?", mensageiro: carrie),
+            DialogueBox(mensagem: "No, that's not right… Truthfully, everyone, not only the police, turns a blind eye to pretty much everything that has Aldrich's name mentioned, not only crime.", mensageiro: carrie),
+            DialogueBox(mensagem: "Whatever. I can't do much about that… ", mensageiro: carrie),
+            DialogueBox(mensagem: "But I sure can do something about this case! Well then, I should go over the information I have so far.", mensageiro: carrie),
+            DialogueBox(mensagem: "For starters, my superiors have pointed out three locations of interest that I should investigate.", mensageiro: carrie),
+            DialogueBox(mensagem: "Also, Aldrich is a small town, and the locals are pretty familiar with one another. So, interrogating three locals should be enough.", mensageiro: carrie),
+            DialogueBox(mensagem: "Visiting those places and interrogating those locals should be enough to also give me some clues about what was used as the murder weapon.", mensageiro: carrie),
+            DialogueBox(mensagem: "Alright. By the end of it, I should have at least a hunch about who might be the culprit, where the crime took place, and what weapon was used to murder Peter Brooke.", mensageiro: carrie),
+            DialogueBox(mensagem: "Oh! And… Apparently, there's a group of rebellious Friedkin that has settled in the city. Maybe I should keep an eye out for that.", mensageiro: carrie),
+            DialogueBox(mensagem: "I mean, who knows! Maybe… Maybe I'll be able to avenge my mom…", mensageiro: carrie),
+            DialogueBox(mensagem: "......", mensageiro: carrie),
+            DialogueBox(mensagem: "Anyways! I'm all set. Let's start by picking the first location to investigate.", mensageiro: carrie),]
     }
     
 }
@@ -56,6 +68,7 @@ extension ContextGameScene{
         guard let touch = touches.first else { return }
         if dialogos.count > 1{
             proximoDialogo(true)
+            
         } else {
             goToNextScene()
         }

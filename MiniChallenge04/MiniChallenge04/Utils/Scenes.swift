@@ -33,8 +33,8 @@ extension Scenes{
             let nameTag = SKSpriteNode(imageNamed: "NameTag")
             nameTag.name = "nameTag"
             nameTag.anchorPoint = CGPoint(x: 0, y: 0)
-            nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.06)
-            nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.24)
+            nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.08)
+            nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.23)
             self.addChild(nameTag)
         }
         
@@ -62,23 +62,8 @@ extension Scenes{
         
         var personagem:SKLabelNode? = nil
         
-        switch dialogo.mensageiro {
-        case .protagonista:
-            personagem = SKLabelNode(text: "Carrie")
-            personagem?.fontColor = .red
-            break
-        case .investigadoUm:
-            personagem = SKLabelNode(text: "Investigado Um")
-            personagem?.fontColor = .systemYellow
-            break
-        case .investigadoDois:
-            personagem = SKLabelNode(text: "Investigado Dois")
-            personagem?.fontColor = .systemYellow
-        case .investigadoTres:
-            personagem = SKLabelNode(text: "Investigado Três")
-            personagem?.fontColor = .systemYellow
-            break
-        }
+        personagem = SKLabelNode(text: dialogo.mensageiro.name)
+        personagem?.fontColor = dialogo.mensageiro.type == .main ? .red : .yellow
         
         // treating the character text block
         if let personagem = personagem {

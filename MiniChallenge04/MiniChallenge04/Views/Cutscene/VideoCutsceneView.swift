@@ -17,23 +17,10 @@ class VideoCutsceneScene: SKScene {
     var videoPlayerLayer: AVPlayerLayer?
     var skipButton: UIButton?
     var isPlayingInBackground = false
-    @Binding var spriteKitPath: [SKScene]
     var nextScene: SKScene?
-    
-    init(path: Binding<[SKScene]>, size: CGSize) {
-        _spriteKitPath = path
-        super.init(size: size)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-   
     
     override func didMove(to view: SKView) {
         initializeView()
-
 
 
         //Observadores para os estados do dispositivos
@@ -72,7 +59,7 @@ class VideoCutsceneScene: SKScene {
                 
                 let borderLayer = CALayer()
                 borderLayer.frame = self.view?.bounds ?? CGRect.zero
-                borderLayer.backgroundColor = UIColor.black.cgColor
+             //   borderLayer.backgroundColor = UIColor.black.cgColor
                 self.view?.layer.addSublayer(borderLayer)
                 self.view?.layer.insertSublayer(self.videoPlayerLayer!, above: borderLayer)
                 
@@ -103,12 +90,20 @@ class VideoCutsceneScene: SKScene {
         }
     }
     
-    private func goToNextScene(){
-        nextScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-        if let nextScene{
-            spriteKitPath.append(nextScene)
+    private func goToNextScene() {
+            nextScene = ContextGameScene(size: CGSize(width: larguraTela, height: alturaTela))
+            if let nextScene = nextScene {
+                self.view?.presentScene(nextScene)
+                // Parar o vídeo antes de mudar de cena
+                videoPlayer?.pause()
+                // Remover a camada do player de vídeo
+                videoPlayerLayer?.removeFromSuperlayer()
+            }
         }
-    }
+
+
+    
+
     
 }
 
@@ -131,7 +126,11 @@ extension VideoCutsceneScene{
     
     // Função para lidar com o aplicativo em primeiro plano
     @objc func appWillEnterForeground() {
-        isPlayingInBackground = false
-        videoPlayer?.play()
+        if scene?.isFocused ?? false {
+            isPlayingInBackground = false
+            videoPlayer?.play()
+        } else {
+            videoPlayer?.pause()
+        }
     }
 }
