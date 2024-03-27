@@ -44,6 +44,7 @@ extension Scenes{
         textBox.size = CGSize(width: larguraTela * 0.96, height: alturaTela * 0.2)
         textBox.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.03)
         self.addChild(textBox)
+        
     }
     
     func limparDialogos(){
