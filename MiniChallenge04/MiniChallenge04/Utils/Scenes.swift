@@ -28,7 +28,7 @@ extension Scenes{
         }
     }
     
-    func framingDialogueBox(_ hasNameTag: Bool? = nil){
+    func framingDialogueBox(_ hasNameTag: Bool? = nil, _ isresazing: Bool? = nil){
         if hasNameTag == true{
             let nameTag = SKSpriteNode(imageNamed: "NameTag")
             nameTag.name = "nameTag"
@@ -43,6 +43,13 @@ extension Scenes{
         textBox.anchorPoint = CGPoint(x: 0, y: 0)
         textBox.size = CGSize(width: larguraTela * 0.96, height: alturaTela * 0.2)
         textBox.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.03)
+        if let isresazing{
+            if isresazing{
+                textBox.size = CGSize(width: larguraTela * 0.768, height: alturaTela * 0.16)
+                textBox.position = CGPoint(x: larguraTela * 0.11, y: alturaTela * 0.11783)
+            }
+        }
+       
         self.addChild(textBox)
     }
     
@@ -54,6 +61,15 @@ extension Scenes{
             personagem.removeFromParent()
         }
     }
+    
+//    func reSizing(growing: Bool){
+//        if growing{
+//            
+//        }
+//        else{
+//            var dialogueBox = SKSpriteNode()
+//        }
+//    }
     
     private func exibirMensagem(dialogo:DialogueBox){
         if let personagem = self.childNode(withName: "personagem"){

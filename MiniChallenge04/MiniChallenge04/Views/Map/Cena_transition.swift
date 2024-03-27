@@ -35,6 +35,8 @@ class CenaTransition: SKScene, Scenes {
         
         cameraNode.position = CGPoint(x: frame.midX, y: frame.midY)
         
+//        buildDialogues()
+        
         //setupCenario()
 //        framingDialogueBox(true)
 //        proximoDialogo()
@@ -45,12 +47,22 @@ class CenaTransition: SKScene, Scenes {
             let location = touch.location(in: self)
             let touchedNode = self.atPoint(location)
             
+            guard touches.first != nil else { return }
+            if dialogos.count > 1{
+                proximoDialogo(true)
+            } else {
+                //goToNextScene()
+            }
+            
             if touchedNode == characterNode {
                 let zoomInAction = SKAction.scale(to: 0.8, duration: 1.0)
                 let dialogueIn = SKAction.run {
-                    self.framingDialogueBox(true)
+                    self.framingDialogueBox(true, true)
                     self.proximoDialogo()
+                    self.buildDialogues()
                 }
+                
+                
                 cameraNode.run(SKAction.sequence([zoomInAction, dialogueIn]))
 //                cameraNode.run(zoomInAction)
                 
