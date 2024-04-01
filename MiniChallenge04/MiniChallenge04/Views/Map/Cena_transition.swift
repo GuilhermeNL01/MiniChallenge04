@@ -28,12 +28,12 @@ class CenaTransition: SKScene, Scenes {
         characterNode.position = CGPoint(x: frame.midX - 200, y: background.frame.minY + characterNode.size.height / 2)
         addChild(characterNode)
         
-        cameraNode = SKCameraNode()
-        camera = cameraNode
-        addChild(cameraNode)
-        self.camera = cameraNode
-        
-        cameraNode.position = CGPoint(x: frame.midX, y: frame.midY)
+//        cameraNode = SKCameraNode()
+//        camera = cameraNode
+//        addChild(cameraNode)
+//        self.camera = cameraNode
+//        
+//        cameraNode.position = CGPoint(x: frame.midX, y: frame.midY)
         
 //        buildDialogues()
         
@@ -55,15 +55,17 @@ class CenaTransition: SKScene, Scenes {
             }
             
             if touchedNode == characterNode {
-                let zoomInAction = SKAction.scale(to: 0.8, duration: 1.0)
+                let zoomInAction = SKAction.scale(to: 1.2, duration: 1.0)
                 let dialogueIn = SKAction.run {
-                    self.framingDialogueBox(true, true)
+                    self.framingDialogueBox(true)
                     self.proximoDialogo()
+//                  self.exibirMensagem(dialogo: DialogueBox(mensagem: "", mensageiro: NPC(.victimsWife)), true)
                     self.buildDialogues()
                 }
                 
                 
-                cameraNode.run(SKAction.sequence([zoomInAction, dialogueIn]))
+                background.run(SKAction.sequence([zoomInAction, dialogueIn]))
+                characterNode.run(SKAction.sequence([zoomInAction, dialogueIn]))
 //                cameraNode.run(zoomInAction)
                 
                 // Calcular a posição do chão do plano de fundo

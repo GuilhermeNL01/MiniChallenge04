@@ -68,16 +68,7 @@ extension Scenes{
         }
     }
     
-//    func reSizing(growing: Bool){
-//        if growing{
-//            
-//        }
-//        else{
-//            var dialogueBox = SKSpriteNode()
-//        }
-//    }
-    
-    private func exibirMensagem(dialogo:DialogueBox){
+    private func exibirMensagem(dialogo:DialogueBox, _ isresazing: Bool? = nil){
         if let personagem = self.childNode(withName: "personagem"){
             personagem.removeFromParent()
         }
@@ -93,6 +84,12 @@ extension Scenes{
             personagem.fontName = fonteNegrito
             if let nameTag = self.childNode(withName: "nameTag"){
                 personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.26)
+                if let isresazing{
+                    if isresazing{
+                        personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 4), y: alturaTela * 0.30)
+                    }
+                }
+                
             } else {
 //                personagem.position = CGPoint (x: larguraTela / 8, y: alturaTela / 5)
             }
