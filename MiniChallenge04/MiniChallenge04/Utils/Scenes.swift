@@ -35,6 +35,12 @@ extension Scenes{
             nameTag.anchorPoint = CGPoint(x: 0, y: 0)
             nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.06)
             nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.24)
+            if let isresazing{
+                if isresazing{
+                    nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.06)
+                    nameTag.position = CGPoint(x: larguraTela * 0.11, y: alturaTela * 0.28)
+                }
+            }
             self.addChild(nameTag)
         }
         
@@ -46,7 +52,7 @@ extension Scenes{
         if let isresazing{
             if isresazing{
                 textBox.size = CGSize(width: larguraTela * 0.768, height: alturaTela * 0.16)
-                textBox.position = CGPoint(x: larguraTela * 0.11, y: alturaTela * 0.11783)
+                textBox.position = CGPoint(x: larguraTela * 0.11 , y: alturaTela * 0.11783)
             }
         }
        
