@@ -9,6 +9,7 @@ import Foundation
 import SpriteKit
 
 protocol Scenes: SKScene{
+    var path: [SKScene] {get set}
     var dialogos:[DialogueBox] {get set}
     var cenario: SKSpriteNode {get set}
 }
@@ -99,16 +100,11 @@ extension Scenes{
         
     }
     
-    func trocarCena(nextScene: SKScene, transicao: Bool, duracao: Double){
+    func trocarCena(nextScene: SKScene){
         nextScene.size = self.size
         nextScene.scaleMode = .aspectFill
         nextScene.backgroundColor = .black
-        if transicao{
-            let transition = SKTransition.fade(withDuration: TimeInterval(duracao))
-            self.view?.presentScene(nextScene, transition: transition)
-        } else {
-            self.view?.presentScene((nextScene))
-        }
+        path.append(nextScene)
     }
     
 }

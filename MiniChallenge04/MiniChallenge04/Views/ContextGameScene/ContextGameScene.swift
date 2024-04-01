@@ -10,21 +10,32 @@ import SpriteKit
 import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
+    @Binding var path: [SKScene]
+    
     var dialogos: [DialogueBox] = []
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "OfficeBG")
     
     var carrie = NPC(.main)
-    var nextScene: SKScene? // the scene after this one
     var _model = ContextModel() // creating a model object to define game properties
     
+    init(path: Binding<[SKScene]>){
+        _path = path
+        super.init(size: CGSize(width: larguraTela, height: alturaTela))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func didMove(to view: SKView) {
+        print("a")
         buildDialogues()
-        setupCenario()
+        setupScene()
         framingDialogueBox(true)
         proximoDialogo()
     }
     
-    private func setupCenario(){
+    private func setupScene(){
         cenario.size = size
         cenario.anchorPoint = CGPoint(x: 0, y: 0)
         addChild(cenario)
@@ -56,9 +67,8 @@ extension ContextGameScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if dialogos.count > 1{
             proximoDialogo(true)
-            
         } else {
-            trocarCena(nextScene: Map(), transicao: true, duracao: 0.5)
+            trocarCena(nextScene: Map(path: $path))
         }
     }
 }

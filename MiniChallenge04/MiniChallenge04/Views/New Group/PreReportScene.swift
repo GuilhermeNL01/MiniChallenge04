@@ -7,12 +7,24 @@
 
 import Foundation
 import SpriteKit
+import SwiftUI
 
 class PreReportScene: SKScene, Scenes{
+    @Binding var path: [SKScene]
+    
     var dialogos: [DialogueBox] = []
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "OfficeBG")
     
     var carrie = NPC(.main)
+    
+    init(path: Binding<[SKScene]>){
+        _path = path
+        super.init(size: CGSize(width: larguraTela, height: alturaTela))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMove(to view: SKView) {
         buildScene()
@@ -46,7 +58,7 @@ extension PostReportScene{
         if dialogos.count > 1{
             proximoDialogo(true)
         } else {
-            trocarCena(nextScene: ContextGameScene(), transicao: true, duracao: 2)
+            trocarCena(nextScene: ContextGameScene(path: $path))
         }
     }
 }
