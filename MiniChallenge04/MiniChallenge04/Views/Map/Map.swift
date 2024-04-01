@@ -10,12 +10,22 @@ import SwiftUI
 
 class Map: SKScene{
     var background = SKSpriteNode(imageNamed: "MapBackground")
-    var hotel = SKSpriteNode(imageNamed: "HotelImage")
-    var pier = SKSpriteNode(imageNamed: "PierImage")
-    var butcher = SKSpriteNode(imageNamed: "ButcherImage")
+    var hotel = SKSpriteNode(imageNamed: "HotelAvailable")
+    var pier = SKSpriteNode(imageNamed: "PierAvailable")
+    var butcher = SKSpriteNode(imageNamed: "ButcherAvailable")
     
     var myView: SKView = SKView()
     var nextScene: SKScene?
+    @Binding var path: [SKScene]
+    
+    init(path: Binding<[SKScene]>){
+        _path = path
+        super.init(size: CGSize(width: larguraTela, height: alturaTela))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMove(to view: SKView) {
         buildMap()
@@ -59,7 +69,7 @@ class Map: SKScene{
         default: break
         }
         if let nextScene{
-            self.view?.presentScene(nextScene)
+            path.append(nextScene)
         }
     }
     

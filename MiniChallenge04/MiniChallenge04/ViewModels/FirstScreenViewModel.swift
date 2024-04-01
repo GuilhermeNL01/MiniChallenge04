@@ -11,7 +11,7 @@ import SpriteKit
 
 class FirstScreenViewModel: ObservableObject{
     @Published var presentScenes = false
-    var firstScene = ContextGameScene(size: CGSize(width: larguraTela, height: alturaTela))
+//    var firstScene = VideoCutsceneScene(size: CGSize(width: larguraTela, height: alturaTela))
     
     var checkPoint: [String: Int] {
         get {
@@ -50,7 +50,7 @@ class FirstScreenViewModel: ObservableObject{
 ////            firstScene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
 //            break
 //        }
-        firstScene.scaleMode = .fill
+//        firstScene.scaleMode = .fill
     }
 }
 

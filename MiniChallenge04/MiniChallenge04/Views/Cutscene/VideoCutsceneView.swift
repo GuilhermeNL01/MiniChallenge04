@@ -18,6 +18,16 @@ class VideoCutsceneScene: SKScene {
     var skipButton: UIButton?
     var isPlayingInBackground = false
     var nextScene: SKScene?
+    @Binding var path: [SKScene]
+    
+    init(path: Binding<[SKScene]>) {
+        _path = path
+        super.init(size: CGSize(width: larguraTela, height: alturaTela))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMove(to view: SKView) {
         initializeView()
@@ -59,7 +69,7 @@ class VideoCutsceneScene: SKScene {
                 
                 let borderLayer = CALayer()
                 borderLayer.frame = self.view?.bounds ?? CGRect.zero
-                borderLayer.backgroundColor = UIColor.black.cgColor
+             //   borderLayer.backgroundColor = UIColor.black.cgColor
                 self.view?.layer.addSublayer(borderLayer)
                 self.view?.layer.insertSublayer(self.videoPlayerLayer!, above: borderLayer)
                 
@@ -91,15 +101,14 @@ class VideoCutsceneScene: SKScene {
     }
     
     private func goToNextScene() {
-            nextScene = ContextGameScene(size: CGSize(width: larguraTela, height: alturaTela))
-            if let nextScene = nextScene {
-                self.view?.presentScene(nextScene)
-                // Parar o vídeo antes de mudar de cena
-                videoPlayer?.pause()
-                // Remover a camada do player de vídeo
-                videoPlayerLayer?.removeFromSuperlayer()
-            }
-        }
+        nextScene = ContextGameScene(path: $path)
+        guard let nextScene else { return }
+        // Parar o vídeo antes de mudar de cena
+        videoPlayer?.pause()
+        // Remover a camada do player de vídeo
+        videoPlayerLayer?.removeFromSuperlayer()
+        path.append(nextScene)
+    }
 
 
     
@@ -110,7 +119,7 @@ class VideoCutsceneScene: SKScene {
 extension VideoCutsceneScene{
     // Função para realizar alguma ação quando o vídeo acabar
     @objc func videoDidEnd() {
-        goToNextScene()
+//        goToNextScene()
     }
     
     // Função para ação do botão de Skip
