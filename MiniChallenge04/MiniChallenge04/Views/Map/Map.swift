@@ -10,9 +10,9 @@ import SwiftUI
 
 class Map: SKScene{
     var background = SKSpriteNode(imageNamed: "MapBackground")
-    var hotel = SKSpriteNode(imageNamed: "HotelImage")
-    var pier = SKSpriteNode(imageNamed: "PierImage")
-    var butcher = SKSpriteNode(imageNamed: "ButcherImage")
+    var hotel = SKSpriteNode(imageNamed: "HotelAvailable")
+    var pier = SKSpriteNode(imageNamed: "PierAvailable")
+    var butcher = SKSpriteNode(imageNamed: "ButcherAvailable")
     
     var myView: SKView = SKView()
     var nextScene: SKScene?
