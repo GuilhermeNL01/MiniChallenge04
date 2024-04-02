@@ -30,6 +30,8 @@
 		40D15D872BA8AD7000A7EB1B /* FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */; };
 		40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */; };
 		40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D15D8A2BA8B4BF00A7EB1B /* Black.swift */; };
+		40F474CA2BBC3373008BC450 /* VideoCutscene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F474C92BBC3373008BC450 /* VideoCutscene2.swift */; };
+		40F474CD2BBC364D008BC450 /* E.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 40F474CC2BBC364D008BC450 /* E.mp4 */; };
 		434050A02BAE222500D4C793 /* Test.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4340509F2BAE222500D4C793 /* Test.mlmodel */; };
 		43588FA72BA8AB99002CB1BB /* ContextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43588FA62BA8AB99002CB1BB /* ContextModel.swift */; };
 		43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A1CF012BADFB7E0056E11C /* MachineLearningModel.swift */; };
@@ -66,6 +68,9 @@
 		40D15D862BA8AD7000A7EB1B /* FirstScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreen.swift; sourceTree = "<group>"; };
 		40D15D882BA8B36000A7EB1B /* BackgroundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImageView.swift; sourceTree = "<group>"; };
 		40D15D8A2BA8B4BF00A7EB1B /* Black.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Black.swift; sourceTree = "<group>"; };
+		40F474C92BBC3373008BC450 /* VideoCutscene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCutscene2.swift; sourceTree = "<group>"; };
+		40F474CB2BBC3432008BC450 /* E.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = E.mp4; sourceTree = "<group>"; };
+		40F474CC2BBC364D008BC450 /* E.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = E.mp4; sourceTree = "<group>"; };
 		4340509F2BAE222500D4C793 /* Test.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Test.mlmodel; sourceTree = "<group>"; };
 		43588FA62BA8AB99002CB1BB /* ContextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextModel.swift; sourceTree = "<group>"; };
 		43A1CF012BADFB7E0056E11C /* MachineLearningModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineLearningModel.swift; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 		40A3C5752B98D4FE0073F754 = {
 			isa = PBXGroup;
 			children = (
+				40F474CC2BBC364D008BC450 /* E.mp4 */,
 				40A3C5802B98D4FE0073F754 /* MiniChallenge04 */,
 				43A1CF052BAE18730056E11C /* MiniChallenge04.app */,
 			);
@@ -224,8 +230,10 @@
 		40B793E32BAC95CB000C27DC /* Cutscene */ = {
 			isa = PBXGroup;
 			children = (
+				40F474CB2BBC3432008BC450 /* E.mp4 */,
 				40B793E62BAC9977000C27DC /* P.mp4 */,
 				40B793E42BAC95EE000C27DC /* VideoCutsceneView.swift */,
+				40F474C92BBC3373008BC450 /* VideoCutscene2.swift */,
 			);
 			path = Cutscene;
 			sourceTree = "<group>";
@@ -308,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F474CD2BBC364D008BC450 /* E.mp4 in Resources */,
 				40B793E72BAC9990000C27DC /* P.mp4 in Resources */,
 				40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */,
 				40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */,
@@ -345,6 +354,7 @@
 				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,
 				311A0F812BB1F9C200193C3D /* Score.swift in Sources */,
 				311A0F8F2BB49D1800193C3D /* PostReportScene.swift in Sources */,
+				40F474CA2BBC3373008BC450 /* VideoCutscene2.swift in Sources */,
 				31093E492BAB4E5B00E3B7AF /* CreditsView.swift in Sources */,
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
 				9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */,
