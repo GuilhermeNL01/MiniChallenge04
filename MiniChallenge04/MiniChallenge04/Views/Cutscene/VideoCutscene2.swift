@@ -101,13 +101,9 @@ class VideoCutscene2: SKScene {
     }
     
     private func goToNextScene() {
-       // nextScene = FirstScreen(path: $path)
-        guard let nextScene else { return }
-        // Parar o vídeo antes de mudar de cena
         videoPlayer?.pause()
-        // Remover a camada do player de vídeo
         videoPlayerLayer?.removeFromSuperlayer()
-        path.append(nextScene)
+        path.removeAll()
     }
 
 
