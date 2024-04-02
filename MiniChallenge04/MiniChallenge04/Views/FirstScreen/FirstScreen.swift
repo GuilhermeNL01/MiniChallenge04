@@ -41,7 +41,7 @@ struct FirstScreen: View {
                         Spacer()
                         
                         Button{
-                            path.append(VideoCutscene2(path: $path))
+                            path.append(VideoCutsceneScene(path: $path))
                         } label: {
                             Image("Start")
                                 .resizable()
