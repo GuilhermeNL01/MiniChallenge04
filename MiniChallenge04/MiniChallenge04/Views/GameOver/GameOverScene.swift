@@ -10,6 +10,8 @@ import SwiftUI
 
 class GameOverScene: SKScene {
     
+    // MARK: - Propriedades
+    
     var background = SKSpriteNode(imageNamed: "GameOverBG")
     var overlayNode = SKShapeNode(rectOf: CGSize(width: larguraTela, height: alturaTela))
     var textLabels = [SKLabelNode]()
@@ -24,11 +26,14 @@ class GameOverScene: SKScene {
         "Maybe I should retrace my steps, and make sure I get  ",
         "everything right.  "
     ]
-
+    
     var currentLineIndex = 0
     var dialogueFinished = false
     
     @Binding var path: [SKScene]
+    
+    // MARK: - Init Path
+    
     init(path: Binding<[SKScene]>) {
         _path = path
         super.init(size: CGSize(width: larguraTela, height: alturaTela))
@@ -38,11 +43,14 @@ class GameOverScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Construção da Cena
+    
     override func didMove(to view: SKView) {
         setupBack()
         setupTimerForOverlay()
     }
     
+    // Background da Cena
     private func setupBack(){
         background.size = size
         background.anchorPoint = CGPoint(x: 0, y: 0)
@@ -50,10 +58,11 @@ class GameOverScene: SKScene {
     }
     
     private func setupTimerForOverlay() {
-        let timer = Timer(timeInterval: 2, target: self, selector: #selector(setupOverlay), userInfo: nil, repeats: false)
+        let timer = Timer(timeInterval: 1, target: self, selector: #selector(setupOverlay), userInfo: nil, repeats: false)
         RunLoop.main.add(timer, forMode: .common)
     }
     
+    // Overlay da Cena
     @objc private func setupOverlay() {
         overlayNode.fillColor = UIColor.black
         overlayNode.alpha = 0
@@ -70,6 +79,8 @@ class GameOverScene: SKScene {
         }
     }
     
+    // MARK: - Display do Texto
+    
     private func setupTextLabel(atPosition position: CGPoint) -> SKLabelNode {
         let textLabel = SKLabelNode(fontNamed: "Arial")
         textLabel.fontSize = 35
@@ -82,7 +93,7 @@ class GameOverScene: SKScene {
         addChild(textLabel)
         return textLabel
     }
-
+    
     private func displayNextDialogueLine() {
         guard currentLineIndex < dialogueLines.count else {
             dialogueFinished = true
@@ -94,7 +105,27 @@ class GameOverScene: SKScene {
         }
         
         let currentLine = dialogueLines[currentLineIndex]
-        let lineHeight: CGFloat = 90
+        var lineHeight: CGFloat = 90
+        
+        switch currentLine {
+        case "The report was received by my superiors,I feel like  ":
+            lineHeight = 60
+        case "there's an even heavier weight on my shoulders now...  ":
+            lineHeight = 62
+        case "I can't help but think that this case isn't over yet, but why?  ":
+            lineHeight = 80
+        case "Did I miss something?  ",
+            "Maybe I misinterpreted someone?  ":
+            lineHeight = 80
+        case   "… Was I wrong?  ":
+            lineHeight = 90
+        case "Maybe I should retrace my steps, and make sure I get  ":
+            lineHeight = 100
+        case  "everything right.  ":
+            lineHeight = 100
+        default:
+            break
+        }
         
         let positionY = size.height - CGFloat(textLabels.count + 1) * lineHeight
         let newTextLabel = setupTextLabel(atPosition: CGPoint(x: size.width / 2, y: positionY))
@@ -110,10 +141,14 @@ class GameOverScene: SKScene {
             self.displayNextDialogueLine()
         }
     }
-
+    
+    
+    // MARK: - Botão Try Again
+    
     private func buttonTapped(){
         path.removeAll()
     }
+    
     private func addButton() {
         let button = SKSpriteNode(imageNamed: "TryAgain")
         button.position = CGPoint(x: size.width / 2, y: 100)
@@ -121,6 +156,9 @@ class GameOverScene: SKScene {
         button.name = "button"
         addChild(button)
     }
+    
+    // MARK: - Toques
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
@@ -130,7 +168,4 @@ class GameOverScene: SKScene {
             }
         }
     }
-
-    }
-
-
+}
