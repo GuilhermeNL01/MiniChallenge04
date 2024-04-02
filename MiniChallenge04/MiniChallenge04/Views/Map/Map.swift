@@ -13,6 +13,9 @@ class Map: SKScene{
     var hotel = SKSpriteNode(imageNamed: "HotelAvailable")
     var pier = SKSpriteNode(imageNamed: "PierAvailable")
     var butcher = SKSpriteNode(imageNamed: "ButcherAvailable")
+    var hotelModel = Place(name: "Hotel", background: "", object: "", choices: [3], successIndicator: 6, mlText: "")
+    var pierModel = Place(name: "Pier", background: "", object: "", choices: [3], successIndicator: 6, mlText: "")
+    var butcherModel = Place(name: "Butcher", background: "", object: "", choices: [3], successIndicator: 6, mlText: "")
     
     var myView: SKView = SKView()
     var nextScene: SKScene?
@@ -58,13 +61,58 @@ class Map: SKScene{
         
         switch sceneName{
         case "Hotel":
-            nextScene = CenaTransition(size: CGSize(width: larguraTela, height: alturaTela))
+            self.run(.sequence([
+                .wait(forDuration: 0.1),
+                .run {
+                    self.hotel.texture = SKTexture(imageNamed: "HotelSelected")
+                },
+                .wait(forDuration: 0.1),
+                .run {
+                    self.nextScene = CenaTransition(size: CGSize(width: larguraTela, height: alturaTela))
+                }
+            ]))
+            
+            self.hotelModel.hasViseted = true
+            if self.hotelModel.hasViseted == true{
+                self.hotel.texture = SKTexture(imageNamed: "HotelInactive")
+                self.hotel.isUserInteractionEnabled = false
+            }
+                    
             break
         case "Pier":
-            nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
+            self.run(.sequence([
+                .wait(forDuration: 0.1),
+                .run {
+                    self.pier.texture = SKTexture(imageNamed: "PierSelected")
+                },
+                .wait(forDuration: 0.1),
+                .run{
+                    self.nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
+                }
+            ]))
+            
+            self.pierModel.hasViseted = true
+            if self.pierModel.hasViseted == true{
+                self.pier.texture = SKTexture(imageNamed: "PierInactive")
+            }
             break
         case "Butcher":
-            nextScene = CenaTransition3(size: CGSize(width: larguraTela, height: alturaTela))
+            self.run(.sequence([
+                .wait(forDuration: 0.1),
+                .run {
+                    self.butcher.texture = SKTexture(imageNamed: "ButcherSelected")
+                },
+                .wait(forDuration: 0.1),
+                .run {
+                    self.nextScene = CenaTransition3(size: CGSize(width: larguraTela, height: alturaTela))
+                }
+            ]))
+            
+            self.butcherModel.hasViseted = true
+            if self.butcherModel.hasViseted == true{
+                self.butcher.texture = SKTexture(imageNamed: "ButcherInactive")
+            }
+            
             break
         default: break
         }

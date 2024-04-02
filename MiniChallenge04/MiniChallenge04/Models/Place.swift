@@ -16,5 +16,12 @@ struct Place {
     var choices: [Int]
     var successIndicator: Int
     var mlText: String
-    
+    var hasViseted: Bool{
+        get{
+            return UserDefaults.standard.bool(forKey: "hasViseted")
+        }
+        set{
+            UserDefaults.standard.setValue(newValue, forKey: "hasViseted")
+        }
+    }
 }
