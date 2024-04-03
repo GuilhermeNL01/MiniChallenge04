@@ -1,14 +1,14 @@
+////
+////  RapportTestView.swift
+////  MiniChallenge04
+////
+////  Created by Enrique Carvalho on 25/03/24.
+////
 //
-//  RapportTestView.swift
-//  MiniChallenge04
+//import Foundation
+//import SpriteKit
+//import SwiftUI
 //
-//  Created by Enrique Carvalho on 25/03/24.
-//
-
-import Foundation
-import SpriteKit
-import SwiftUI
-
 //class RapportTestScene: SKScene, Scenes{
 //    @Binding var path: [SKScene]
 //    
@@ -21,7 +21,7 @@ import SwiftUI
 //    override func didMove(to view: SKView) {
 //        sidebar.position = CGPoint(x: larguraTela * 0.79, y: alturaTela * 0.612)
 //        addChild(sidebar)
-//        framingDialogueBox(true)
+//        framingDialogueBox()
 //        proximoDialogo()
 //    }
 //    
