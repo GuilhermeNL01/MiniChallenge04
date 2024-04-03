@@ -67,7 +67,7 @@ extension ContextGameScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard touches.first != nil else { return }
         if dialogos.count > 1{
-            proximoDialogo(true)
+            proximoDialogo()
         } else {
             trocarCena(nextScene: Map(path: $path))
         }

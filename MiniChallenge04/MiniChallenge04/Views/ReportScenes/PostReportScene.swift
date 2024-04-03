@@ -57,7 +57,7 @@ class PostReportScene: SKScene, Scenes{
 extension PreReportScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if dialogos.count > 1{
-            proximoDialogo(true)
+            proximoDialogo()
         } else {
             trocarCena(nextScene: ContextGameScene(path: $path))
         }

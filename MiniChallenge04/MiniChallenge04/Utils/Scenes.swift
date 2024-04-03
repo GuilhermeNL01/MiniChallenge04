@@ -15,13 +15,11 @@ protocol Scenes: SKScene{
 }
 
 extension Scenes{
-    func proximoDialogo(_ clearFirst: Bool? = nil){
+    func proximoDialogo(){
         limparDialogos()
         
-        if clearFirst == true{
-            if dialogos.count != 0{
-                dialogos.remove(at: 0)
-            }
+        if dialogos.count > 0{
+            dialogos.remove(at: 0)
         }
         
         if let dialogo = dialogos.first{
@@ -35,6 +33,13 @@ extension Scenes{
     }
     
     func framingDialogueBox(){
+        let blur = SKSpriteNode(imageNamed: "dialogueBlur")
+        blur.name = "dialogueBlur"
+        blur.anchorPoint = CGPoint(x: 0, y: 0)
+        blur.size = CGSize(width: larguraTela, height: alturaTela * 0.57)
+        blur.position = CGPoint(x: 0, y: 0)
+        self.addChild(blur)
+        
         let nameTag = SKSpriteNode(imageNamed: "NameTag")
         nameTag.name = "nameTag"
         nameTag.anchorPoint = CGPoint(x: 0, y: 0)
@@ -49,6 +54,10 @@ extension Scenes{
         textBox.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.03)
         self.addChild(textBox)
         
+        blur.alpha = 0
+        nameTag.alpha = 0
+        textBox.alpha = 0
+        showDialogueAnimation()
     }
     
     func limparDialogos(){
@@ -73,6 +82,9 @@ extension Scenes{
         if let animacaoTexto = self.childNode(withName: "animacaoTexto"){
             animacaoTexto.run(.fadeOut(withDuration: 0.3))
         }
+        if let blur = self.childNode(withName: "dialogueBlur"){
+            blur.run(.fadeOut(withDuration: 0.3))
+        }
     }
     
     func showDialogueAnimation(){
@@ -87,6 +99,9 @@ extension Scenes{
         }
         if let animacaoTexto = self.childNode(withName: "animacaoTexto"){
             animacaoTexto.run(.fadeIn(withDuration: 0.3))
+        }
+        if let blur = self.childNode(withName: "dialogueBlur"){
+            blur.run(.fadeIn(withDuration: 0.3))
         }
     }
     

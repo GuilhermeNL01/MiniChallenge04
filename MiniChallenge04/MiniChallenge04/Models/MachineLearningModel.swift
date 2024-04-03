@@ -16,34 +16,45 @@ class MachineLearningModel: ObservableObject{
         label.removeFromParent()
     }
     
-    func classify(prompt: String){
+    func classify(prompt: String, npc: NPC){
         do{
             let model = try Test(configuration: .init())
             let prediction = try model.prediction(text: prompt)
             
             switch prediction.label{
             case "0":
-                label.text = "Sad"
+                if npc.type == .receptionist{
+                    label.text = "Sad"
+                }
                 break
             case "1":
-                label.text = "Joy"
+                if npc.type == .receptionist{
+                    label.text = "Joy"
+                }
                 break
             case "2":
-                label.text = "Love"
+                if npc.type == .receptionist{
+                    label.text = "Love"
+                }
                 break
             case "3":
-                label.text = "Anger"
+                if npc.type == .receptionist{
+                    label.text = "Anger"
+                }
                 break
             case "4":
-                label.text = "Fear"
+                if npc.type == .receptionist{
+                    label.text = "Fear"
+                }
                 break
             case "5":
-                label.text = "Surprise"
+                if npc.type == .receptionist{
+                    label.text = "Good, she's been caught off guard. But I shouldn't put too much pressure on her for now.."
+                }
                 break
             default:
                 break
             }
-            label.fontColor = .red
         } catch {
             label.text = "No Emotion Detected"
         }
