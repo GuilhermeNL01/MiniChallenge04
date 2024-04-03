@@ -5,6 +5,13 @@
 //  Created by Guilherme Nunes Lobo on 02/04/24.
 //
 
+//
+//  GameOverScene.swift
+//  MiniChallenge04
+//
+//  Created by Guilherme Nunes Lobo on 02/04/24.
+//
+
 import SpriteKit
 import SwiftUI
 
@@ -83,7 +90,7 @@ class GameOverScene: SKScene {
     
     private func setupTextLabel(atPosition position: CGPoint) -> SKLabelNode {
         let textLabel = SKLabelNode(fontNamed: "Arial")
-        textLabel.fontSize = 35
+        textLabel.fontSize = size.width * 0.03
         textLabel.fontColor = .white
         textLabel.horizontalAlignmentMode = .center
         textLabel.verticalAlignmentMode = .top
@@ -105,25 +112,25 @@ class GameOverScene: SKScene {
         }
         
         let currentLine = dialogueLines[currentLineIndex]
-        var lineHeight: CGFloat = 90
+        var lineHeight: CGFloat = size.height * 0.09
         
         switch currentLine {
         case "The report was received by my superiors,I feel like  ":
-            lineHeight = 60
+            lineHeight = size.height * 0.04
         case "there's an even heavier weight on my shoulders now...  ":
-            lineHeight = 62
+            lineHeight = size.height * 0.042
         case "I can't help but think that this case isn't over yet, but why?  ":
-            lineHeight = 80
+            lineHeight = size.height * 0.06
         case "Did I miss something?  ":
-            lineHeight = 90
+            lineHeight = size.height * 0.07
         case  "Maybe I misinterpreted someone?  ":
-            lineHeight = 83
+            lineHeight = size.height * 0.068
         case   "… Was I wrong?  ":
-            lineHeight = 90
+            lineHeight = size.height * 0.08
         case "Maybe I should retrace my steps, and make sure I get  ":
-            lineHeight = 95
+            lineHeight = size.height * 0.09
         case  "everything right.  ":
-            lineHeight = 90
+            lineHeight = size.height * 0.09
         default:
             break
         }
@@ -152,7 +159,7 @@ class GameOverScene: SKScene {
     
     private func addButton() {
         let button = SKSpriteNode(imageNamed: "TryAgain")
-        button.position = CGPoint(x: size.width / 2, y: 100)
+        button.position = CGPoint(x: size.width / 2, y: size.height * 0.1) // Ajuste da posição do botão com base na altura da tela
         button.zPosition = 3
         button.name = "button"
         addChild(button)
