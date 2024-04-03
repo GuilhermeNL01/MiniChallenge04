@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import SpriteKit
 
 struct NPC {
-    var name: String
-    var images: [String] = []
+    var name: String?
+    var node: SKSpriteNode?
     var type: GameCharacter
     
     init(_ character: GameCharacter) {
@@ -22,13 +23,19 @@ struct NPC {
         switch character{
 
         case .main:
-            self.images = []
+            self.node = SKSpriteNode(imageNamed: "character")
+            break
         case .butcher:
-            self.images = []
+            self.node = SKSpriteNode(imageNamed: "character")
+            break
         case .victimsWife:
-            self.images = []
+            self.node = SKSpriteNode(imageNamed: "character")
+            break
         case .receptionist:
-            self.images = []
+            self.node = SKSpriteNode(imageNamed: "carmenBloomSprite")
+            break
+        case .info:
+            self.node = nil
         }
     }
     
@@ -37,5 +44,6 @@ struct NPC {
         case butcher = "Butcher"
         case victimsWife = "Helena"
         case receptionist = "Receptionist"
+        case info // hides nametag in scenes
     }
 }

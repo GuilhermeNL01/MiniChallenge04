@@ -10,7 +10,7 @@ import SpriteKit
 import CoreML
 
 class MachineLearningModel: ObservableObject{
-    @Published var label: SKLabelNode = SKLabelNode(text: "test")
+    @Published var label: SKLabelNode = SKLabelNode(text: "")
     
     func stopClassifying(){
         label.removeFromParent()

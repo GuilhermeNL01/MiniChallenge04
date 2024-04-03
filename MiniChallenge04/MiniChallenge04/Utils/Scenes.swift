@@ -26,18 +26,21 @@ extension Scenes{
         
         if let dialogo = dialogos.first{
             exibirMensagem(dialogo: dialogo)
+            if dialogo.mensageiro.type == .info{
+                hideNameTag()
+            } else {
+                showsNameTag()
+            }
         }
     }
     
-    func framingDialogueBox(_ hasNameTag: Bool? = nil){
-        if hasNameTag == true{
-            let nameTag = SKSpriteNode(imageNamed: "NameTag")
-            nameTag.name = "nameTag"
-            nameTag.anchorPoint = CGPoint(x: 0, y: 0)
-            nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.08)
-            nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.23)
-            self.addChild(nameTag)
-        }
+    func framingDialogueBox(){
+        let nameTag = SKSpriteNode(imageNamed: "NameTag")
+        nameTag.name = "nameTag"
+        nameTag.anchorPoint = CGPoint(x: 0, y: 0)
+        nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.08)
+        nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.23)
+        self.addChild(nameTag)
         
         let textBox = SKSpriteNode(imageNamed: "TextBox")
         textBox.name = "textBox"
@@ -57,6 +60,44 @@ extension Scenes{
         }
     }
     
+    func hideDialogueAnimation(){
+        if let nameTag = self.childNode(withName: "nameTag"){
+            nameTag.run(.fadeOut(withDuration: 0.3))
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.run(.fadeOut(withDuration: 0.3))
+        }
+        if let textBox = self.childNode(withName: "textBox"){
+            textBox.run(.fadeOut(withDuration: 0.3))
+        }
+        if let animacaoTexto = self.childNode(withName: "animacaoTexto"){
+            animacaoTexto.run(.fadeOut(withDuration: 0.3))
+        }
+    }
+    
+    func showDialogueAnimation(){
+        if let nameTag = self.childNode(withName: "nameTag"){
+            nameTag.run(.fadeIn(withDuration: 0.3))
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.run(.fadeIn(withDuration: 0.3))
+        }
+        if let textBox = self.childNode(withName: "textBox"){
+            textBox.run(.fadeIn(withDuration: 0.3))
+        }
+        if let animacaoTexto = self.childNode(withName: "animacaoTexto"){
+            animacaoTexto.run(.fadeIn(withDuration: 0.3))
+        }
+    }
+    
+    // change to next scene
+    func trocarCena(nextScene: SKScene){
+        nextScene.size = self.size
+        nextScene.scaleMode = .aspectFill
+        nextScene.backgroundColor = .black
+        path.append(nextScene)
+    }
+    
     private func exibirMensagem(dialogo:DialogueBox){
         if let personagem = self.childNode(withName: "personagem"){
             personagem.removeFromParent()
@@ -73,12 +114,11 @@ extension Scenes{
             personagem.fontName = fonteNegrito
             if let nameTag = self.childNode(withName: "nameTag"){
                 personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.26)
-            } else {
-//                personagem.position = CGPoint (x: larguraTela / 8, y: alturaTela / 5)
+                self.addChild(personagem)
+                personagem.isHidden = nameTag.isHidden
             }
             personagem.zPosition = 10
             personagem.fontSize = 24
-            self.addChild(personagem)
         }
         
         let animacaoTexto = TextAnimation()
@@ -100,11 +140,24 @@ extension Scenes{
         
     }
     
-    func trocarCena(nextScene: SKScene){
-        nextScene.size = self.size
-        nextScene.scaleMode = .aspectFill
-        nextScene.backgroundColor = .black
-        path.append(nextScene)
+    // toggles nametag visibility
+    private func hideNameTag(){
+        if let nametag = self.childNode(withName: "nameTag"){
+            nametag.isHidden = true
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.isHidden = true
+        }
+    }
+    
+    // toggles nametag visibility
+    private func showsNameTag(){
+        if let nametag = self.childNode(withName: "nameTag"){
+            nametag.isHidden = false
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.isHidden = false
+        }
     }
     
 }

@@ -31,7 +31,7 @@ class ContextGameScene: SKScene, Scenes{
         print("a")
         buildDialogues()
         setupScene()
-        framingDialogueBox(true)
+        framingDialogueBox()
         proximoDialogo()
     }
     

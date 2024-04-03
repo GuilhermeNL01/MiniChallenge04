@@ -30,7 +30,7 @@ class PreReportScene: SKScene, Scenes{
         buildScene()
         buildDialogues()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            self.framingDialogueBox(true)
+            self.framingDialogueBox()
             self.proximoDialogo()
         }
     }

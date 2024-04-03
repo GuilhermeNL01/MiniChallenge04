@@ -50,7 +50,7 @@ class VideoCutscene2: SKScene {
     private func loadVideo() {
         // Execução assíncrona do processamento do vídeo
         DispatchQueue.global().async {
-            guard let videoURL = Bundle.main.url(forResource: "E", withExtension: "mp4") else {
+            guard let videoURL = Bundle.main.url(forResource: "Epilogue", withExtension: "mp4") else {
                 print("Vídeo não encontrado")
                 return
             }
