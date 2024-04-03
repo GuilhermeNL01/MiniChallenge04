@@ -114,15 +114,16 @@ class GameOverScene: SKScene {
             lineHeight = 62
         case "I can't help but think that this case isn't over yet, but why?  ":
             lineHeight = 80
-        case "Did I miss something?  ",
-            "Maybe I misinterpreted someone?  ":
-            lineHeight = 80
+        case "Did I miss something?  ":
+            lineHeight = 90
+        case  "Maybe I misinterpreted someone?  ":
+            lineHeight = 83
         case   "… Was I wrong?  ":
             lineHeight = 90
         case "Maybe I should retrace my steps, and make sure I get  ":
-            lineHeight = 100
+            lineHeight = 95
         case  "everything right.  ":
-            lineHeight = 100
+            lineHeight = 90
         default:
             break
         }

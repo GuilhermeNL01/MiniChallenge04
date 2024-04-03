@@ -41,7 +41,7 @@ struct FirstScreen: View {
                         Spacer()
                         
                         Button{
-                            path.append(GameOverScene(path: $path))
+                            path.append(VideoCutsceneScene(path: $path))
                         } label: {
                             Image("Start")
                                 .resizable()
