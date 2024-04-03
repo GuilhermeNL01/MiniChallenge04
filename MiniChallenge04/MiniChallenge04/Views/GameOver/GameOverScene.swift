@@ -5,13 +5,6 @@
 //  Created by Guilherme Nunes Lobo on 02/04/24.
 //
 
-//
-//  GameOverScene.swift
-//  MiniChallenge04
-//
-//  Created by Guilherme Nunes Lobo on 02/04/24.
-//
-
 import SpriteKit
 import SwiftUI
 
