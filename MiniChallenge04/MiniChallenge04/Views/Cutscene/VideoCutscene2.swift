@@ -1,8 +1,8 @@
 //
-//  VideoCutsceneView.swift
+//  VideoCutscene2.swift
 //  MiniChallenge04
 //
-//  Created by Guilherme Nunes Lobo on 21/03/24.
+//  Created by Guilherme Nunes Lobo on 02/04/24.
 //
 
 
@@ -11,7 +11,7 @@ import SwiftUI
 import SpriteKit
 import AVFoundation
 
-class VideoCutsceneScene: SKScene {
+class VideoCutscene2: SKScene {
     
     var videoPlayer: AVPlayer?
     var videoPlayerLayer: AVPlayerLayer?
@@ -50,7 +50,7 @@ class VideoCutsceneScene: SKScene {
     private func loadVideo() {
         // Execução assíncrona do processamento do vídeo
         DispatchQueue.global().async {
-            guard let videoURL = Bundle.main.url(forResource: "P", withExtension: "mp4") else {
+            guard let videoURL = Bundle.main.url(forResource: "E", withExtension: "mp4") else {
                 print("Vídeo não encontrado")
                 return
             }
@@ -101,13 +101,9 @@ class VideoCutsceneScene: SKScene {
     }
     
     private func goToNextScene() {
-        nextScene = ContextGameScene(path: $path)
-        guard let nextScene else { return }
-        // Parar o vídeo antes de mudar de cena
         videoPlayer?.pause()
-        // Remover a camada do player de vídeo
         videoPlayerLayer?.removeFromSuperlayer()
-        path.append(nextScene)
+        path.removeAll()
     }
 
 
@@ -116,7 +112,7 @@ class VideoCutsceneScene: SKScene {
     
 }
 
-extension VideoCutsceneScene{
+extension VideoCutscene2{
     // Função para realizar alguma ação quando o vídeo acabar
     @objc func videoDidEnd() {
         goToNextScene()
