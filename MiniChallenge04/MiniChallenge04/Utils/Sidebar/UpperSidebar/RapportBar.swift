@@ -18,7 +18,11 @@ class RapportBar: SKNode{
         self.addChild(background)
         mlModel.label.fontSize = 20
         mlModel.label.fontName = fonteMedium
-        mlModel.label.position = CGPoint(x: 0, y: -10)
+        mlModel.label.position = CGPoint(x: 0, y: -34)
+        mlModel.label.verticalAlignmentMode = .center
+        mlModel.label.preferredMaxLayoutWidth = 237
+        mlModel.label.lineBreakMode = .byWordWrapping
+        mlModel.label.numberOfLines = 0
         self.addChild(mlModel.label)
     }
     

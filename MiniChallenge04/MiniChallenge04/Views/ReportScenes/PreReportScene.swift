@@ -30,7 +30,7 @@ class PreReportScene: SKScene, Scenes{
         buildScene()
         buildDialogues()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            self.framingDialogueBox(true)
+            self.framingDialogueBox()
             self.proximoDialogo()
         }
     }
@@ -56,7 +56,7 @@ class PreReportScene: SKScene, Scenes{
 extension PostReportScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if dialogos.count > 1{
-            proximoDialogo(true)
+            proximoDialogo()
         } else {
             trocarCena(nextScene: ContextGameScene(path: $path))
         }

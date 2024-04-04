@@ -31,7 +31,7 @@ class ContextGameScene: SKScene, Scenes{
         print("a")
         buildDialogues()
         setupScene()
-        framingDialogueBox(true)
+        framingDialogueBox()
         proximoDialogo()
     }
     
@@ -65,8 +65,9 @@ class ContextGameScene: SKScene, Scenes{
 
 extension ContextGameScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard touches.first != nil else { return }
         if dialogos.count > 1{
-            proximoDialogo(true)
+            proximoDialogo()
         } else {
             trocarCena(nextScene: Map(path: $path))
         }

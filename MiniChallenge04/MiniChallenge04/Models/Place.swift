@@ -23,5 +23,15 @@ struct Place {
         set{
             UserDefaults.standard.setValue(newValue, forKey: "hasViseted")
         }
+   
+    init(name: String, background: String, object: String, npc: NPC? = nil, choices: [Int], successIndicator: Int, mlText: String) {
+        self.name = name
+        self.background = background
+        self.object = object
+        self.npc = npc
+        self.choices = choices
+        self.successIndicator = successIndicator
+        self.mlText = mlText
     }
 }
+
