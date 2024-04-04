@@ -12,11 +12,7 @@ class MasterNode: SKNode {
     let weaponPhoto = SKSpriteNode(imageNamed: "PhotoFrame")
     let locationPhoto = SKSpriteNode(imageNamed: "PhotoFrame")
     
-    let suspicionsNode = SuspicionsNode()
-    let squareNode = SquareNode()
-    
     func config() {
-//        self.isUserInteractionEnabled = true
         setupPhotos()
         cluesArea()
     }
@@ -29,15 +25,15 @@ class MasterNode: SKNode {
         let positionGrayBoxY = grayBox.position.y
         let positionGrayBoxX = grayBox.position.x
         
-        suspectPhoto.name = "Jangelo"
+        suspectPhoto.name = "suspectPhoto"
         suspectPhoto.position.y = positionGrayBoxY+200
         suspectPhoto.position.x = positionGrayBoxX-120
         
-        weaponPhoto.name = "Jangelo2"
+        weaponPhoto.name = "weaponPhoto"
         weaponPhoto.position.y = positionGrayBoxY
         weaponPhoto.position.x = positionGrayBoxX+120
         
-        locationPhoto.name = "Jangelo3"
+        locationPhoto.name = "locationPhoto"
         locationPhoto.position.y = positionGrayBoxY-200
         locationPhoto.position.x = positionGrayBoxX-120
     
@@ -71,6 +67,62 @@ class MasterNode: SKNode {
         self.addChild(cluesBox)
         self.addChild(cluesLabeling)
     }
+    
+    func receiveNode(pickedSquare: Int, selectedPhoto: SKSpriteNode){
+        switch pickedSquare{
+        case 1:
+            if selectedPhoto.name == PhotoNames.suspect.rawValue{
+                guard let image = UIImage(named: "ButcherImage") else { return }
+                suspectPhoto.texture = SKTexture(image: image)
+            }
+            if selectedPhoto.name == PhotoNames.weapon.rawValue{
+                guard let image = UIImage(named: "ButcherImage") else { return }
+                weaponPhoto.texture = SKTexture(image: image)
+            }
+            if selectedPhoto.name == PhotoNames.location.rawValue{
+                guard let image = UIImage(named: "ButcherImage") else { return }
+                locationPhoto.texture = SKTexture(image: image)
+            }
+            break
+        
+        case 2:
+            if selectedPhoto.name == PhotoNames.suspect.rawValue{
+                guard let image = UIImage(named: "PierImage") else { return }
+                suspectPhoto.texture = SKTexture(image: image)
+            }
+            if selectedPhoto.name == PhotoNames.weapon.rawValue{
+                guard let image = UIImage(named: "PierImage") else { return }
+                weaponPhoto.texture = SKTexture(image: image)
+            }
+            if selectedPhoto.name == PhotoNames.location.rawValue{
+                guard let image = UIImage(named: "PierImage") else { return }
+                locationPhoto.texture = SKTexture(image: image)
+            }
+            break
+            
+        default:
+            if selectedPhoto.name == PhotoNames.suspect.rawValue{
+                guard let image = UIImage(named: "HotelImage") else { return }
+                suspectPhoto.texture = SKTexture(image: image)
+            }
+            if selectedPhoto.name == PhotoNames.weapon.rawValue{
+                guard let image = UIImage(named: "HotelImage") else { return }
+                weaponPhoto.texture = SKTexture(image: image)
+            }
+            if selectedPhoto.name == PhotoNames.location.rawValue{
+                guard let image = UIImage(named: "HotelImage") else { return }
+                locationPhoto.texture = SKTexture(image: image)
+            }
+            break
+        }
+        
+        enum PhotoNames: String{
+            case suspect = "suspectPhoto"
+            case weapon = "weaponPhoto"
+            case location = "locationPhoto"
+            
+        }
+    }
 
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        guard let touch = touches.first else { return }
@@ -81,14 +133,15 @@ class MasterNode: SKNode {
 //        switch node {
 //        case suspectPhoto:
 //            print("Somewhat")
-//            squareNode.squaringNode()
+////            squareNode.squaringNode()
 //        case weaponPhoto:
 //            print("Whatever")
 ////            squareNode.squaringNode2()
 //        case locationPhoto:
 //            print("Somewhever")
 //        default:
-//            squareNode.squaringNode()
+////            squareNode.squaringNode()
+//            break
 //        }
 //    }
     

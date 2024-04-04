@@ -9,9 +9,12 @@ import Foundation
 import SpriteKit
 
 class SquareNode: SKNode{
-    var newNode = SKSpriteNode()
+    var squareNode: SKSpriteNode
+    var score: Int
     
-    override init() {
+    init(imageNamed: String, score: Int) {
+        squareNode = SKSpriteNode(imageNamed: imageNamed)
+        self.score = score
         super.init()
         squaringNode()
 //        changeNode()
@@ -22,18 +25,10 @@ class SquareNode: SKNode{
     }
     
     func squaringNode(){
-        newNode.size = CGSize(width: 361, height: 111.33)
-        newNode.color = .red
-        newNode.name = "Helloe"
+        squareNode.size = CGSize(width: 361, height: 111.33)
         
-        addChild(newNode)
+        addChild(squareNode)
     }
-    
-    func changeNode(){
-        let node = UIImage(named: "CluesBox")
-        newNode.texture = SKTexture(image: node!)
-    }
-    
 }
 
 //        self.name = "Whatever"

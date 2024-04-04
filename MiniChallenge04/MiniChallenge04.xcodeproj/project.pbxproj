@@ -106,6 +106,9 @@
 				31093E4E2BAB4EBB00E3B7AF /* Functions.swift */,
 				31093E4D2BAB4EBB00E3B7AF /* Scenes.swift */,
 				31093E4C2BAB4EBB00E3B7AF /* VariaveisGlobais.swift */,
+				43700D3E2BBC7E1400A323CC /* SuspicionsNode.swift */,
+				43700D402BBC7EB800A323CC /* SquareNode.swift */,
+				438535862BBC94AE0006B3CC /* MasterNode.swift */,
 				311A0F862BB3241100193C3D /* Sidebar */,
 			);
 			path = Utils;
@@ -234,9 +237,6 @@
 			children = (
 				9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */,
 				43FEAB322BB49886002A35F8 /* ScreenReportViewModel.swift */,
-				43700D3E2BBC7E1400A323CC /* SuspicionsNode.swift */,
-				43700D402BBC7EB800A323CC /* SquareNode.swift */,
-				438535862BBC94AE0006B3CC /* MasterNode.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
