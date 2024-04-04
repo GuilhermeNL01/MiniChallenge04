@@ -41,7 +41,7 @@ struct FirstScreen: View {
                         Spacer()
                         
                         Button{
-                            path.append(HotelScene(path: $path))
+                            path.append(Map(path: $path))
                         } label: {
                             Image("Start")
                                 .resizable()
