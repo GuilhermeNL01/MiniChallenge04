@@ -41,7 +41,7 @@ struct FirstScreen: View {
                         Spacer()
                         
                         Button{
-                            path.append(Map(path: $path))
+                            path.append(ScreenReport(size: CGSize(width: larguraTela, height: alturaTela)))
                         } label: {
                             Image("Start")
                                 .resizable()

@@ -23,6 +23,12 @@
 		311A0F8F2BB49D1800193C3D /* PostReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F8E2BB49D1800193C3D /* PostReportScene.swift */; };
 		311A783F2BBDC63C00377F08 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A783E2BBDC63C00377F08 /* GameplayScene.swift */; };
 		311A78482BBDEC5400377F08 /* Hotel in Resources */ = {isa = PBXBuildFile; fileRef = 311A78472BBDEC5400377F08 /* Hotel */; };
+		311A78622BBF2FAD00377F08 /* ScreenReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A785C2BBF2FAD00377F08 /* ScreenReport.swift */; };
+		311A78632BBF2FAD00377F08 /* SquareNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A785D2BBF2FAD00377F08 /* SquareNode.swift */; };
+		311A78642BBF2FAD00377F08 /* SuspicionsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */; };
+		311A78652BBF2FAD00377F08 /* MasterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A785F2BBF2FAD00377F08 /* MasterNode.swift */; };
+		311A78662BBF2FAD00377F08 /* ScreenReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A78602BBF2FAD00377F08 /* ScreenReportModel.swift */; };
+		311A78672BBF2FAD00377F08 /* ScreenReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A78612BBF2FAD00377F08 /* ScreenReportViewModel.swift */; };
 		319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319ED1412BAE005A002DCCF2 /* Weapons.swift */; };
 		4032C04F2BBC79C500E6C2FF /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C04E2BBC79C500E6C2FF /* GameOverScene.swift */; };
 		4032C0702BBF167300E6C2FF /* ButcherDialogueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C06F2BBF167300E6C2FF /* ButcherDialogueScene.swift */; };
@@ -64,6 +70,12 @@
 		311A0F8E2BB49D1800193C3D /* PostReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReportScene.swift; sourceTree = "<group>"; };
 		311A783E2BBDC63C00377F08 /* GameplayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
 		311A78472BBDEC5400377F08 /* Hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hotel; sourceTree = "<group>"; };
+		311A785C2BBF2FAD00377F08 /* ScreenReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenReport.swift; sourceTree = "<group>"; };
+		311A785D2BBF2FAD00377F08 /* SquareNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareNode.swift; sourceTree = "<group>"; };
+		311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspicionsNode.swift; sourceTree = "<group>"; };
+		311A785F2BBF2FAD00377F08 /* MasterNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterNode.swift; sourceTree = "<group>"; };
+		311A78602BBF2FAD00377F08 /* ScreenReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenReportModel.swift; sourceTree = "<group>"; };
+		311A78612BBF2FAD00377F08 /* ScreenReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenReportViewModel.swift; sourceTree = "<group>"; };
 		319ED1412BAE005A002DCCF2 /* Weapons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapons.swift; sourceTree = "<group>"; };
 		4032C04E2BBC79C500E6C2FF /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		4032C06C2BBF15DD00E6C2FF /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +122,9 @@
 				31093E4D2BAB4EBB00E3B7AF /* Scenes.swift */,
 				311A783E2BBDC63C00377F08 /* GameplayScene.swift */,
 				31093E4C2BAB4EBB00E3B7AF /* VariaveisGlobais.swift */,
+				311A785F2BBF2FAD00377F08 /* MasterNode.swift */,
+				311A785D2BBF2FAD00377F08 /* SquareNode.swift */,
+				311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */,
 				311A0F862BB3241100193C3D /* Sidebar */,
 			);
 			path = Utils;
@@ -218,6 +233,7 @@
 				311A0F7A2BB1DEDC00193C3D /* Map */,
 				311A0F8D2BB49C5800193C3D /* ReportScenes */,
 				311A0F7D2BB1E6AD00193C3D /* RapportTestScene.swift */,
+				311A785C2BBF2FAD00377F08 /* ScreenReport.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -266,6 +282,7 @@
 		43588F812BA8A688002CB1BB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				311A78612BBF2FAD00377F08 /* ScreenReportViewModel.swift */,
 				9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */,
 			);
 			path = ViewModels;
@@ -274,6 +291,7 @@
 		43588F822BA8A692002CB1BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				311A78602BBF2FAD00377F08 /* ScreenReportModel.swift */,
 				43588FA62BA8AB99002CB1BB /* ContextModel.swift */,
 				9C36431B2BACB0380011FF6E /* Npc.swift */,
 				9C36431D2BACB09B0011FF6E /* Place.swift */,
@@ -358,10 +376,13 @@
 			files = (
 				40D15D8B2BA8B4BF00A7EB1B /* Black.swift in Sources */,
 				311A0F7C2BB1E46700193C3D /* RapportBar.swift in Sources */,
+				311A78672BBF2FAD00377F08 /* ScreenReportViewModel.swift in Sources */,
+				311A78632BBF2FAD00377F08 /* SquareNode.swift in Sources */,
 				311A0F8C2BB4900E00193C3D /* PreReportScene.swift in Sources */,
 				40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */,
 				31093E522BAB4EBB00E3B7AF /* Scenes.swift in Sources */,
 				4032C0702BBF167300E6C2FF /* ButcherDialogueScene.swift in Sources */,
+				311A78652BBF2FAD00377F08 /* MasterNode.swift in Sources */,
 				31093E532BAB4EBB00E3B7AF /* Functions.swift in Sources */,
 				31093E512BAB4EBB00E3B7AF /* VariaveisGlobais.swift in Sources */,
 				31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */,
@@ -371,9 +392,11 @@
 				311A0F852BB31FB000193C3D /* BottomSidebar.swift in Sources */,
 				311A783F2BBDC63C00377F08 /* GameplayScene.swift in Sources */,
 				43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */,
+				311A78622BBF2FAD00377F08 /* ScreenReport.swift in Sources */,
 				9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */,
 				9C36431C2BACB0380011FF6E /* Npc.swift in Sources */,
 				311A0F7E2BB1E6AD00193C3D /* RapportTestScene.swift in Sources */,
+				311A78662BBF2FAD00377F08 /* ScreenReportModel.swift in Sources */,
 				319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */,
 				4032C04F2BBC79C500E6C2FF /* GameOverScene.swift in Sources */,
 				9C36431E2BACB09B0011FF6E /* Place.swift in Sources */,
@@ -383,6 +406,7 @@
 				311A0F812BB1F9C200193C3D /* Score.swift in Sources */,
 				311A0F8F2BB49D1800193C3D /* PostReportScene.swift in Sources */,
 				40F474CA2BBC3373008BC450 /* VideoCutscene2.swift in Sources */,
+				311A78642BBF2FAD00377F08 /* SuspicionsNode.swift in Sources */,
 				31093E492BAB4E5B00E3B7AF /* CreditsView.swift in Sources */,
 				40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */,
 				9C36430E2BA8D95B0011FF6E /* Map.swift in Sources */,
