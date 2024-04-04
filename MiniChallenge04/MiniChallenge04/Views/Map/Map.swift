@@ -58,13 +58,13 @@ class Map: SKScene{
         
         switch sceneName{
         case "Hotel":
-            nextScene = HotelScene(path: $path)
+         //   nextScene = HotelScene(path: $path)
             break
         case "Pier":
             nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
             break
         case "Butcher":
-            nextScene = CenaTransition3(size: CGSize(width: larguraTela, height: alturaTela))
+            nextScene = ButcherDialogueScene(path: $path)
             break
         default: break
         }
