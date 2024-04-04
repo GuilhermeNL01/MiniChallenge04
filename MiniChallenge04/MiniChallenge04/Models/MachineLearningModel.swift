@@ -28,8 +28,9 @@ class MachineLearningModel: ObservableObject{
                 }
                 break
             case "1":
+                label.text = "Joy"
                 if npc.type == .receptionist{
-                    label.text = "Joy"
+                    label.text = "Good, she's been caught off guard. But I shouldn't put too much pressure on her for now..."
                 }
                 break
             case "2":
@@ -38,8 +39,9 @@ class MachineLearningModel: ObservableObject{
                 }
                 break
             case "3":
+                label.text = "Anger"
                 if npc.type == .receptionist{
-                    label.text = "Anger"
+                    label.text = "She is pleased with the subject change, but is this actually the best approach possible here?"
                 }
                 break
             case "4":

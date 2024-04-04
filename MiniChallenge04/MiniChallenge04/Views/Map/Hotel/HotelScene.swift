@@ -1,8 +1,8 @@
 //
-//  Cena_transition.swift
+//  Hotel.swift
 //  MiniChallenge04
 //
-//  Created by Victor Assis on 19/03/24.
+//  Created by Enrique Carvalho on 03/04/24.
 //
 
 import SpriteKit
@@ -11,10 +11,18 @@ import SwiftUI
 class HotelScene: SKScene, GameplayScene {
     @Binding var path: [SKScene]
     
-    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
+    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "hotelBarBackground")
     
     var dialogos: [DialogueBox] = []
     var dialogueCount = 0
+    
+    var choice1 = Choice(text: "Threaten with legal consequences", score: 0)
+    var choice2 = Choice(text: "Convince with legal facts", score: 2)
+    var choice3 = Choice(text: "Change the subject", score: 1)
+    var choicesNode: MultiChoicesNode
+    
+    private var phase: Int = 1
+    
     
     let carrie = NPC(.main)
     var suspect = NPC(.receptionist)
@@ -26,6 +34,7 @@ class HotelScene: SKScene, GameplayScene {
     
     init(path: Binding<[SKScene]>){
         _path = path
+        choicesNode = MultiChoicesNode(choice1: choice1, choice2: choice2, choice3: choice3)
         super.init(size: CGSize(width: larguraTela, height: alturaTela))
     }
     
@@ -44,6 +53,101 @@ class HotelScene: SKScene, GameplayScene {
         if let character = suspect.node {
             character.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
             addChild(character)
+        }
+    }
+    
+    
+    func switchConversation(){
+        switch dialogueCount{
+        case 19:
+            if !disableTouch{
+                interrogationStart()
+            }
+            break
+        case 40:
+            sidebar.ml.classify(prompt: "I'm surprised, officer. I wasn't expecting you to change the subject like that.", npc: suspect)
+            dialogueCount += 1
+            addChild(choicesNode)
+            choicesNode.appear()
+        case 46:
+            if choicesNode.selectedChoice?.score == 1{
+                sidebar.upperSidebar.score.score = 1
+                sidebar.ml.classify(prompt: "Whatever you say, Miss officer.", npc: suspect)
+            } else if choicesNode.selectedChoice?.score == 2{
+                sidebar.upperSidebar.score.score = 2
+                sidebar.ml.classify(prompt: "She is pleased with the subject change, but is this actually the best approach possible here?", npc: suspect)
+            }
+            proximoDialogo()
+            dialogueCount += 1
+        case 47:
+            if choicesNode.selectedChoice?.score == 0{
+                sidebar.ml.classify(prompt: "Hearing that from you is actually a little infuriating, really…", npc: suspect)
+            } else if choicesNode.selectedChoice?.score == 2 {
+                sidebar.bottomSidebar.insight1.text = "• Carmen was out, supposedly seeing Elena, during the night of the crime."
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    self.sidebar.bottomSidebar.insight2.text = "• Looks like she is close friends with Elena Brooke, the victim’s wife."
+                }
+            }
+            proximoDialogo()
+            dialogueCount += 1
+        case 52:
+            sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
+            addChild(choicesNode)
+            choicesNode.appear()
+//            proximoDialogo()
+//            dialogueCount += 1
+        default:
+            if !disableTouch{
+                if dialogos.count >= 1{
+                    proximoDialogo()
+                    dialogueCount += 1
+                } else {
+                trocarCena(nextScene: Map(path: $path))
+                }
+            }
+        }
+    }
+    
+    func rebuildDialogues(score: Int){
+        switch score{
+        case 0:
+            choice1Selected()
+            break
+        case 2:
+            choice2Selected()
+            break
+        default:
+            choice3Selected()
+            break
+        }
+    }
+}
+
+// handling touch and dialogue building
+extension HotelScene{
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        let touchedNode = self.atPoint(location) // first node in hierarchy
+        let nodes = self.nodes(at: location) // all nodes in hierarchy
+        
+        let touchedChoice = nodes.contains { node in // verify if there is any choice node in nodes
+            node is ChoiceNode
+        }
+        
+        if touchedChoice{
+            let choice = nodes.first(where: { node in
+                node is ChoiceNode
+            }) as? ChoiceNode
+            choicesNode.selectedChoice = choice?.choice
+            choicesNode.removeFromParent()
+            if let score = choice?.choice.score{
+                rebuildDialogues(score: score)
+                proximoDialogo()
+            }
+        } else {
+            sceneHandler(touchedNode: touchedNode)
+            print(dialogueCount)
         }
     }
     
@@ -72,7 +176,7 @@ class HotelScene: SKScene, GameplayScene {
         dialogos.append(contentsOf: [
             DialogueBox(mensagem: "I'm Carmen Bloom. I work in the hotel as an entertainer, singing at night for the clients of the bar. And I suppose most employees here would also describe me as the bar manager, in a way…", mensageiro: suspect), // change carmen's name
             DialogueBox(mensagem: "…Nice to meet you. Well then, let's begin.", mensageiro: suspect),
-             // Beginning phase 1
+            // Beginning phase 1
             DialogueBox(mensagem: "Well then, ma'am, could you start by telling me what you know about the case?", mensageiro: carrie),
             DialogueBox(mensagem: "Of course. Well, I think everyone in Aldrich is aware that Peter Brooke was killed a few nights ago…", mensageiro: suspect),
             DialogueBox(mensagem: "As far as the gossip goes, the local fishermen seem to have found his body in a boat near the pier in the morning. He also had a pocket knife with him, apparently.", mensageiro: suspect),
@@ -96,46 +200,77 @@ class HotelScene: SKScene, GameplayScene {
             DialogueBox(mensagem: "Yes, but you also never said you did. And even now, you still won't say it. So, what's up with that, Miss Bloom?", mensageiro: carrie),
             // sidebar
             DialogueBox(mensagem: "I'm surprised, officer. I wasn't expecting you to change the subject like that.", mensageiro: suspect),
-            DialogueBox(mensagem: "Good, she's been caught off guard. But I shouldn't put too much pressure on her for now...", mensageiro: info), // ml reply
         ])
     }
-    
-    
-    
-    func switchConversation(){
-        switch dialogueCount{
-        case 19:
-            if !disableTouch{
-                interrogationStart()
-            }
-            break
-        case 40:
-            sidebar.ml.classify(prompt: "I'm surprised, officer. I wasn't expecting you to change the subject like that.", npc: suspect)
-            proximoDialogo()
-            dialogueCount += 1
-        default:
-            if !disableTouch{
-                if dialogos.count > 1{
-                    proximoDialogo()
-                    dialogueCount += 1
-                } else {
-                    print("acabou")
-                    //                trocarCena(nextScene: <#T##SKScene#>)
-                }
-            }
+
+    func choice1Selected(){
+        if phase == 1{
+            dialogos.append(contentsOf: [
+                DialogueBox(mensagem: "Well, Carmen... Here's something else you might find surprising: did you know that, legally speaking, obstruction of justice can lead up to 6 years in prison?", mensageiro: carrie),
+                DialogueBox(mensagem: "Oh, you're funny, Miss officer. They sent a single detective to solve an unusual murder case in Aldrich. Do you really think they'll care about sending me to prison over, well, not talking?", mensageiro: suspect),
+                DialogueBox(mensagem: "Hearing that from you is actually a little infuriating, really…", mensageiro: suspect),
+            ])
+            dialogueCount += 4
+            phase2Dialogues()
+            phase += 1
+        } else if phase == 2{
+            dialogos.append(contentsOf: [
+                DialogueBox(mensagem: "Oh? From that response I'd have to assume you are covering for her.", mensageiro: carrie),
+                DialogueBox(mensagem: "And when did I say that, Miss officer? Honestly, I thought you were a professional…", mensageiro: suspect),
+                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
+                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
+                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
+                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
+                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
+                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
+            ])
         }
     }
-}
+    
+    func choice2Selected(){
+        if phase == 1 {
+            dialogos.append(contentsOf: [
+                DialogueBox(mensagem: "Ma'am… Miss Bloom... Obstruction of justice can lead up to 6 years in prison… I wouldn't want you to go through that for omitting such a simple piece of information.", mensageiro: carrie),
+                DialogueBox(mensagem: "It's your alibi we're talking about here, you know?", mensageiro: carrie),
+                DialogueBox(mensagem: "Whether you stayed or not… That won't make you more or less suspicious. But not wanting to answer… that will.", mensageiro: carrie),
+                DialogueBox(mensagem: "And if you're in prison, you can't exactly protect your colleagues, can you? And that seems important to you. Helping people out, I mean.", mensageiro: carrie),
+                DialogueBox(mensagem: "...", mensageiro: suspect),
+                DialogueBox(mensagem: "Right… I suppose so.", mensageiro: suspect),
+                DialogueBox(mensagem: "Then, I, in fact, did not stay after my show that night. A friend of mine, Elena, called me right after, and I left to meet with her.", mensageiro: suspect),
+            ])
+            phase2Dialogues()
+            phase += 1
+        } else if phase == 2{
+            dialogos.append(contentsOf: [
+            
+            ])
+            }
+    }
+    
+    func choice3Selected(){
+        if phase == 1{
+            dialogos.append(contentsOf: [
+                DialogueBox(mensagem: "*Sigh* … Alright. Then, I will be nice and assume you did actually stay at the hotel bar even after your show was done.", mensageiro: carrie),
+                DialogueBox(mensagem: "Whatever you say, Miss officer.", mensageiro: suspect),
+                DialogueBox(mensagem: "Well, would you like to ask about anything else?", mensageiro: suspect),
+            ])
+            dialogueCount += 4
+            phase2Dialogues()
+            phase += 1
+        } else if phase == 2{
+            dialogos.append(contentsOf: [
 
-extension HotelScene{
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            let location = touch.location(in: self)
-            let touchedNode = self.atPoint(location)
-            print(touchedNode.name)
-            guard touches.first != nil else { return }
-            sceneHandler(touchedNode: touchedNode)
-            print(dialogueCount)
+            ])
+
         }
+    }
+    
+    func phase2Dialogues(){
+        dialogos.append(contentsOf: [
+            DialogueBox(mensagem: "Alright. Carrying on…", mensageiro: carrie),
+            DialogueBox(mensagem: "You also muttered something about an Elena earlier… What was that about?", mensageiro: carrie),
+            DialogueBox(mensagem: "Gosh, darling, you’re eavesdropping now? I was just talking to myself.", mensageiro: suspect),
+            DialogueBox(mensagem: "Really, I’m surprised you heard that so clearly, though.", mensageiro: suspect)
+        ])
     }
 }
