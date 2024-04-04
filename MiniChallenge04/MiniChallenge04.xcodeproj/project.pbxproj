@@ -22,7 +22,6 @@
 		311A0F8C2BB4900E00193C3D /* PreReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F8B2BB4900E00193C3D /* PreReportScene.swift */; };
 		311A0F8F2BB49D1800193C3D /* PostReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F8E2BB49D1800193C3D /* PostReportScene.swift */; };
 		311A783F2BBDC63C00377F08 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A783E2BBDC63C00377F08 /* GameplayScene.swift */; };
-		311A78482BBDEC5400377F08 /* Hotel in Resources */ = {isa = PBXBuildFile; fileRef = 311A78472BBDEC5400377F08 /* Hotel */; };
 		319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319ED1412BAE005A002DCCF2 /* Weapons.swift */; };
 		4032C04F2BBC79C500E6C2FF /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C04E2BBC79C500E6C2FF /* GameOverScene.swift */; };
 		4032C0702BBF167300E6C2FF /* ButcherDialogueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C06F2BBF167300E6C2FF /* ButcherDialogueScene.swift */; };
@@ -45,6 +44,7 @@
 		9C36431C2BACB0380011FF6E /* Npc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431B2BACB0380011FF6E /* Npc.swift */; };
 		9C36431E2BACB09B0011FF6E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431D2BACB09B0011FF6E /* Place.swift */; };
 		9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */; };
+		9CE615C62BBF29FC0077E362 /* HotelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615C42BBF29FC0077E362 /* HotelScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +63,6 @@
 		311A0F8B2BB4900E00193C3D /* PreReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreReportScene.swift; sourceTree = "<group>"; };
 		311A0F8E2BB49D1800193C3D /* PostReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReportScene.swift; sourceTree = "<group>"; };
 		311A783E2BBDC63C00377F08 /* GameplayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
-		311A78472BBDEC5400377F08 /* Hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hotel; sourceTree = "<group>"; };
 		319ED1412BAE005A002DCCF2 /* Weapons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapons.swift; sourceTree = "<group>"; };
 		4032C04E2BBC79C500E6C2FF /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		4032C06C2BBF15DD00E6C2FF /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +87,7 @@
 		9C36431B2BACB0380011FF6E /* Npc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Npc.swift; sourceTree = "<group>"; };
 		9C36431D2BACB09B0011FF6E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
+		9CE615C42BBF29FC0077E362 /* HotelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,9 +134,9 @@
 		311A0F7A2BB1DEDC00193C3D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				9CE615C52BBF29FC0077E362 /* Hotel */,
 				4032C06E2BBF163300E6C2FF /* ButcherScene */,
 				9C36430D2BA8D95B0011FF6E /* Map.swift */,
-				311A78472BBDEC5400377F08 /* Hotel */,
 				9C3643132BAA2C390011FF6E /* Cena_transition2.swift */,
 				9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */,
 			);
@@ -283,6 +283,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9CE615C52BBF29FC0077E362 /* Hotel */ = {
+			isa = PBXGroup;
+			children = (
+				9CE615C42BBF29FC0077E362 /* HotelScene.swift */,
+			);
+			path = Hotel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,7 +351,6 @@
 			files = (
 				40F474CD2BBC364D008BC450 /* E.mp4 in Resources */,
 				40B793E72BAC9990000C27DC /* Prologue.mp4 in Resources */,
-				311A78482BBDEC5400377F08 /* Hotel in Resources */,
 				40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */,
 				40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */,
 			);
@@ -379,6 +386,7 @@
 				9C36431E2BACB09B0011FF6E /* Place.swift in Sources */,
 				9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* ContextModel.swift in Sources */,
+				9CE615C62BBF29FC0077E362 /* HotelScene.swift in Sources */,
 				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,
 				311A0F812BB1F9C200193C3D /* Score.swift in Sources */,
 				311A0F8F2BB49D1800193C3D /* PostReportScene.swift in Sources */,

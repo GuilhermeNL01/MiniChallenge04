@@ -13,9 +13,9 @@ class Map: SKScene{
     var hotel = SKSpriteNode(imageNamed: "HotelAvailable")
     var pier = SKSpriteNode(imageNamed: "PierAvailable")
     var butcher = SKSpriteNode(imageNamed: "ButcherAvailable")
-    var hotelModel = Place(name: "Hotel", background: "", object: "", choices: [3], successIndicator: 6, mlText: "")
-    var pierModel = Place(name: "Pier", background: "", object: "", choices: [3], successIndicator: 6, mlText: "")
-    var butcherModel = Place(name: "Butcher", background: "", object: "", choices: [3], successIndicator: 6, mlText: "")
+    var hotelModel = Place(name: "Hotel", background: "", object: "", choices: [3], successIndicator: 6, mlText: "", keyName: "hasVisetedHotel")
+    var pierModel = Place(name: "Pier", background: "", object: "", choices: [3], successIndicator: 6, mlText: "", keyName: "hasVisetedPier")
+    var butcherModel = Place(name: "Butcher", background: "", object: "", choices: [3], successIndicator: 6, mlText: "", keyName: "hasVisetedButcher")
     
     var myView: SKView = SKView()
     var nextScene: SKScene?
@@ -77,7 +77,7 @@ class Map: SKScene{
         case "Hotel":
             if self.hotelModel.hasViseted == false{
                 self.hotelModel.hasViseted = true
-                UserDefaults.standard.setValue(true, forKey: "hasViseted")
+                UserDefaults.standard.setValue(true, forKey: "hasVisetedHotel")
                 
                 let animation = SKAction.animate(with: [SKTexture(imageNamed: "HotelAvailable"),
                                                        SKTexture(imageNamed: "HotelSelected")]
@@ -94,7 +94,7 @@ class Map: SKScene{
                     },
                     .wait(forDuration: 0.1),
                     .run {
-                        self.nextScene = CenaTransition(size: CGSize(width: larguraTela, height: alturaTela))
+                        self.nextScene = HotelScene(path: self.$path)
                     }
                 ]))
             }
@@ -103,7 +103,7 @@ class Map: SKScene{
         case "Pier":
             if self.pierModel.hasViseted == false{
                 self.pierModel.hasViseted = true
-                UserDefaults.standard.setValue(true, forKey: "hasViseted")
+                UserDefaults.standard.setValue(true, forKey: "hasVisetedPier")
                 
                 let animation = SKAction.animate(with: [SKTexture(imageNamed: "PierAvailable"),
                                                        SKTexture(imageNamed: "PierSelected")]
@@ -129,7 +129,7 @@ class Map: SKScene{
         case "Butcher":
             if self.butcherModel.hasViseted == false{
                 self.butcherModel.hasViseted = true
-                UserDefaults.standard.setValue(true, forKey: "hasViseted")
+                UserDefaults.standard.setValue(true, forKey: "hasVisetedButcher")
                 
                 let animation = SKAction.animate(with: [SKTexture(imageNamed: "ButcherAvailable"),
                                                        SKTexture(imageNamed: "ButcherSelected")]
@@ -146,11 +146,11 @@ class Map: SKScene{
                     },
                     .wait(forDuration: 0.1),
                     .run {
-                        self.nextScene = CenaTransition3(size: CGSize(width: larguraTela, height: alturaTela))
+                        self.nextScene = ButcherDialogueScene(path: self.$path)
                     }
                 ]))
             }
-              
+            
             break
         default: break
         }
