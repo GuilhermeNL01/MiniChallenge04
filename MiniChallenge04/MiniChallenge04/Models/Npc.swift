@@ -26,7 +26,7 @@ struct NPC {
             self.node = SKSpriteNode(imageNamed: "character")
             break
         case .butcher:
-            self.node = SKSpriteNode(imageNamed: "character")
+            self.node = SKSpriteNode(imageNamed: "butcherNode")
             break
         case .victimsWife:
             self.node = SKSpriteNode(imageNamed: "character")

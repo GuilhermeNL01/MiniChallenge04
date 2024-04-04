@@ -11,7 +11,7 @@ import SwiftUI
 class ButcherDialogueScene: SKScene, GameplayScene {
     @Binding var path: [SKScene]
     
-    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
+    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "butcherBG")
     
     var dialogos: [DialogueBox] = []
     var dialogueCount = 0
