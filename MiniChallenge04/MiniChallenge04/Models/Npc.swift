@@ -11,11 +11,13 @@ struct NPC {
     var name: String
     var images: [String] = []
     var type: GameCharacter
+    var description: String = ""
     
     init(_ character: GameCharacter) {
         self.name = character.rawValue
         self.type = character
         assignImages(character: character)
+        buildDescription(character)
     }
     
     private mutating func assignImages(character: GameCharacter){
@@ -29,6 +31,19 @@ struct NPC {
             self.images = []
         case .receptionist:
             self.images = []
+        }
+    }
+    
+    private mutating func buildDescription(_ character: GameCharacter) {
+        switch character{
+        case .main:
+            self.description = "a"
+        case .butcher:
+            self.description = "a"
+        case .victimsWife:
+            self.description = "a"
+        case .receptionist:
+            self.description = "a"
         }
     }
     
