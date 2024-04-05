@@ -16,15 +16,24 @@ struct Place {
     var choices: [Int]
     var successIndicator: Int
     var mlText: String
-   
-    init(name: String, background: String, object: String, npc: NPC? = nil, choices: [Int], successIndicator: Int, mlText: String) {
-        self.name = name
-        self.background = background
-        self.object = object
-        self.npc = npc
-        self.choices = choices
-        self.successIndicator = successIndicator
-        self.mlText = mlText
+    var keyName: String
+    var hasViseted: Bool{
+        get{
+            return UserDefaults.standard.bool(forKey: keyName)
+        }
+        set{
+            UserDefaults.standard.setValue(newValue, forKey: keyName)
+        }
     }
+    
+//    init(name: String, background: String, object: String, npc: NPC? = nil, choices: [Int], successIndicator: Int, mlText: String, hasViseted: Bool) {
+//        self.name = name
+//        self.background = background
+//        self.object = object
+//        self.npc = npc
+//        self.choices = choices
+//        self.successIndicator = successIndicator
+//        self.mlText = mlText
+//        self.hasViseted = hasViseted
+//    }
 }
-

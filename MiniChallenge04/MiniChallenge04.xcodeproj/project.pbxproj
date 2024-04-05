@@ -51,6 +51,7 @@
 		9C36431C2BACB0380011FF6E /* Npc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431B2BACB0380011FF6E /* Npc.swift */; };
 		9C36431E2BACB09B0011FF6E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431D2BACB09B0011FF6E /* Place.swift */; };
 		9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */; };
+		9CE615C62BBF29FC0077E362 /* HotelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615C42BBF29FC0077E362 /* HotelScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		9C36431B2BACB0380011FF6E /* Npc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Npc.swift; sourceTree = "<group>"; };
 		9C36431D2BACB09B0011FF6E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
+		9CE615C42BBF29FC0077E362 /* HotelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,9 +151,9 @@
 		311A0F7A2BB1DEDC00193C3D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				9CE615C52BBF29FC0077E362 /* Hotel */,
 				4032C06E2BBF163300E6C2FF /* ButcherScene */,
 				9C36430D2BA8D95B0011FF6E /* Map.swift */,
-				311A78472BBDEC5400377F08 /* Hotel */,
 				9C3643132BAA2C390011FF6E /* Cena_transition2.swift */,
 				9C3643152BAA2D2C0011FF6E /* Cena_transition3.swift */,
 			);
@@ -301,6 +303,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9CE615C52BBF29FC0077E362 /* Hotel */ = {
+			isa = PBXGroup;
+			children = (
+				9CE615C42BBF29FC0077E362 /* HotelScene.swift */,
+			);
+			path = Hotel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -361,7 +371,6 @@
 			files = (
 				40F474CD2BBC364D008BC450 /* E.mp4 in Resources */,
 				40B793E72BAC9990000C27DC /* Prologue.mp4 in Resources */,
-				311A78482BBDEC5400377F08 /* Hotel in Resources */,
 				40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */,
 				40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */,
 			);
@@ -402,6 +411,7 @@
 				9C36431E2BACB09B0011FF6E /* Place.swift in Sources */,
 				9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* ContextModel.swift in Sources */,
+				9CE615C62BBF29FC0077E362 /* HotelScene.swift in Sources */,
 				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,
 				311A0F812BB1F9C200193C3D /* Score.swift in Sources */,
 				311A0F8F2BB49D1800193C3D /* PostReportScene.swift in Sources */,
