@@ -94,15 +94,15 @@ class HotelScene: SKScene, GameplayScene {
             sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
             addChild(choicesNode)
             choicesNode.appear()
-//            proximoDialogo()
-//            dialogueCount += 1
+            //            proximoDialogo()
+            //            dialogueCount += 1
         default:
             if !disableTouch{
                 if dialogos.count >= 1{
                     proximoDialogo()
                     dialogueCount += 1
                 } else {
-                trocarCena(nextScene: Map(path: $path))
+                    trocarCena(nextScene: Map(path: $path))
                 }
             }
         }
@@ -147,7 +147,6 @@ extension HotelScene{
             }
         } else {
             sceneHandler(touchedNode: touchedNode)
-            print(dialogueCount)
         }
     }
     
@@ -211,7 +210,7 @@ extension HotelScene{
                 DialogueBox(mensagem: "Hearing that from you is actually a little infuriating, really…", mensageiro: suspect),
             ])
             dialogueCount += 4
-           // phase2Dialogues()
+            phase2Dialogues()
             phase += 1
         } else if phase == 2{
             dialogos.append(contentsOf: [
@@ -239,7 +238,7 @@ extension HotelScene{
                 DialogueBox(mensagem: "Then, I, in fact, did not stay after my show that night. A friend of mine, Elena, called me right after, and I left to meet with her.", mensageiro: suspect),
                 DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info)
             ])
-            //phase2Dialogues()
+            phase2Dialogues()
             phase += 1
         } else if phase == 2{
             dialogos.append(contentsOf: [
@@ -272,7 +271,7 @@ extension HotelScene{
                 DialogueBox(mensagem: "Well, would you like to ask about anything else?", mensageiro: suspect),
             ])
             dialogueCount += 4
-            //phase2Dialogues()
+            phase2Dialogues()
             phase += 1
         } else if phase == 2{
             dialogos.append(contentsOf: [
@@ -296,9 +295,16 @@ extension HotelScene{
                 DialogueBox(mensagem: "Alright… Thank you for cooperating. You've helped enough, Miss Bloom.", mensageiro: carrie),
                 DialogueBox(mensagem: "And… My condolences, too. To both you and Elena. ", mensageiro: carrie),
                 DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info),
-                
             ])
-            
         }
+    }
+    
+    func phase2Dialogues(){
+        dialogos.append(contentsOf: [
+            DialogueBox(mensagem: "Alright. Carrying on…", mensageiro: carrie),
+            DialogueBox(mensagem: "You also muttered something about an Elena earlier… What was that about?", mensageiro: carrie),
+            DialogueBox(mensagem: "Gosh, darling, you’re eavesdropping now? I was just talking to myself.", mensageiro: suspect),
+            DialogueBox(mensagem: "Really, I’m surprised you heard that so clearly, though.", mensageiro: suspect)
+        ])
     }
 }

@@ -288,8 +288,7 @@ class ButcherDialogueScene: SKScene, GameplayScene {
                     proximoDialogo()
                     dialogueCount += 1
                 } else {
-                    print("acabou")
-                    //                trocarCena(nextScene: <#T##SKScene#>)
+                    trocarCena(nextScene: Map(path: $path))
                 }
             }
         }
@@ -301,10 +300,8 @@ extension ButcherDialogueScene{
         for touch in touches {
             let location = touch.location(in: self)
             let touchedNode = self.atPoint(location)
-            print(touchedNode.name)
             guard touches.first != nil else { return }
             sceneHandler(touchedNode: touchedNode)
-            print(dialogueCount)
         }
     }
 }
