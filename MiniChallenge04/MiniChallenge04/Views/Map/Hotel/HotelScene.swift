@@ -202,7 +202,7 @@ extension HotelScene{
             DialogueBox(mensagem: "I'm surprised, officer. I wasn't expecting you to change the subject like that.", mensageiro: suspect),
         ])
     }
-
+    
     func choice1Selected(){
         if phase == 1{
             dialogos.append(contentsOf: [
@@ -211,18 +211,18 @@ extension HotelScene{
                 DialogueBox(mensagem: "Hearing that from you is actually a little infuriating, really…", mensageiro: suspect),
             ])
             dialogueCount += 4
-            phase2Dialogues()
+           // phase2Dialogues()
             phase += 1
         } else if phase == 2{
             dialogos.append(contentsOf: [
                 DialogueBox(mensagem: "Oh? From that response I'd have to assume you are covering for her.", mensageiro: carrie),
                 DialogueBox(mensagem: "And when did I say that, Miss officer? Honestly, I thought you were a professional…", mensageiro: suspect),
-                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
-                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
-                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
-                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
-                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
-                DialogueBox(mensagem: "", mensageiro: <#T##NPC#>),
+                DialogueBox(mensagem: "That's such a ridiculous conclusion, really… To the point it makes me angry!", mensageiro: suspect),
+                DialogueBox(mensagem: "Oh my, what do you mean? I was just talking to myself… I thought you would know one thing or two about that…", mensageiro: carrie),
+                DialogueBox(mensagem: "So that's how you want to play, isn't it darling? ", mensageiro: suspect),
+                DialogueBox(mensagem: "Alright. Suit yourself. ", mensageiro: suspect),
+                DialogueBox(mensagem: "And I think we're done talking, Miss officer. Last I remember you don't have a warrant, anyways… I was doing you a favor by humoring this conversation, really.", mensageiro: suspect),
+                DialogueBox(mensagem: "Ha, that's fine! This is enough, anyways. Thank you for your cooperation, 'darling'...", mensageiro: carrie),
             ])
         }
     }
@@ -237,14 +237,31 @@ extension HotelScene{
                 DialogueBox(mensagem: "...", mensageiro: suspect),
                 DialogueBox(mensagem: "Right… I suppose so.", mensageiro: suspect),
                 DialogueBox(mensagem: "Then, I, in fact, did not stay after my show that night. A friend of mine, Elena, called me right after, and I left to meet with her.", mensageiro: suspect),
+                DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info)
             ])
-            phase2Dialogues()
+            //phase2Dialogues()
             phase += 1
         } else if phase == 2{
             dialogos.append(contentsOf: [
-            
+                DialogueBox(mensagem: "Listen, Miss Bloom... I can't say I know how you feel, but I can sympathize with your situation. Elena is a friend of yours, isn't she?", mensageiro: carrie),
+                DialogueBox(mensagem: "And if the briefing I got about this case was right, you must be talking about Elena Brooke, correct?", mensageiro: carrie),
+                DialogueBox(mensagem: "… And what if I am?", mensageiro: suspect),
+                DialogueBox(mensagem: "Well, she must have been shaken up by learning about this murder. The victim… Peter Brooke… That was her husband, right?", mensageiro: carrie),
+                DialogueBox(mensagem: "I can only imagine how hard it must have been for her, losing a husband… And for you, to see a friend go through that…", mensageiro: carrie),
+                DialogueBox(mensagem: "You can stop now, officer.", mensageiro: suspect),
+                DialogueBox(mensagem: "I can see what you're doing, and me and Elena have had enough of that from the other locals here.", mensageiro: suspect),
+                DialogueBox(mensagem: "We've all been saddened by the news…", mensageiro: suspect),
+                DialogueBox(mensagem: "It's all so recent, that it feels like no amount of consolation will ever be enough for anyone in town. Especially for the victim's wife.", mensageiro: suspect),
+                DialogueBox(mensagem: "And yes, we're friends, but I don't see how that's relevant. This is a small city, everyone can be considered a friend when you need one.", mensageiro: suspect),
+                DialogueBox(mensagem: "*Sigh*", mensageiro: suspect),
+                DialogueBox(mensagem: "Well, darling… This was a pleasant conversation, but I have to go now. ", mensageiro: suspect),
+                DialogueBox(mensagem: "Despite being an officer, you seem like a decent person. I hope I'm right about that.", mensageiro: suspect),
+                DialogueBox(mensagem: "Goodbye.", mensageiro: suspect),
+                DialogueBox(mensagem: "… Um… Well, okay. There was more I wanted to ask, but it's not like I have a warrant so… ", mensageiro: carrie),
+                DialogueBox(mensagem: "Goodbye, I guess. Thank you for the cooperation.", mensageiro: carrie),
+                DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info)
             ])
-            }
+        }
     }
     
     func choice3Selected(){
@@ -255,22 +272,33 @@ extension HotelScene{
                 DialogueBox(mensagem: "Well, would you like to ask about anything else?", mensageiro: suspect),
             ])
             dialogueCount += 4
-            phase2Dialogues()
+            //phase2Dialogues()
             phase += 1
         } else if phase == 2{
             dialogos.append(contentsOf: [
-
+                DialogueBox(mensagem: "Miss Bloom, I know you mean well, but trying to cover for Elena will make things difficult for both you and her, and I think you know that.", mensageiro: carrie),
+                DialogueBox(mensagem: "As far as I was made aware, there's only one Elena in this town. So you must be talking about Elena Brooke… And that's the victim's wife, right?", mensageiro: carrie),
+                DialogueBox(mensagem: "So really, just get straight to the point. Why are you protecting her?", mensageiro: carrie),
+                DialogueBox(mensagem: "...", mensageiro: suspect),
+                DialogueBox(mensagem: "Miss Bloom.", mensageiro: carrie),
+                DialogueBox(mensagem: "Sorry… I know. I just need a moment… This is a sensitive subject for me…", mensageiro: suspect),
+                DialogueBox(mensagem: "Ugh, you know…", mensageiro: suspect),
+                DialogueBox(mensagem: "Just to clarify one thing: she isn't at fault here. And neither am I. Unless wanting to protect a close friend is something to go to jail over.", mensageiro: suspect),
+                DialogueBox(mensagem: "Peter wasn't a good husband, but Elena still cared for him. Even if he was often out, drinking his money away, she still didn't leave him.", mensageiro: suspect),
+                DialogueBox(mensagem: "Think what you want of her for that, but I, personally, loathe her for staying.", mensageiro: suspect),
+                DialogueBox(mensagem: "Well, it's admirable, in a sense. Maybe even heroic, but seeing her look so miserable whenever his name was brought up in conversation… That was simply unbearable for me.", mensageiro: suspect),
+                DialogueBox(mensagem: "Peter didn't deserve her kindness. Not when the only thing he gave back to her was a sorrow looking face and a nasty hangover after days of not going back home.", mensageiro: suspect),
+                DialogueBox(mensagem: "Still… He also didn't deserve this tragedy.", mensageiro: suspect),
+                DialogueBox(mensagem: "Really, though, I just want the best for Elena, officer.", mensageiro: suspect),
+                DialogueBox(mensagem: "And that's why I'll have to end our conversation here. I've said more than I should, officer.", mensageiro: suspect),
+                DialogueBox(mensagem: "And listen, I don't think you're a bad person. I wish I could help more, but I can't trust the police to be fair about this whole situation.", mensageiro: suspect),
+                DialogueBox(mensagem: "So I'm sorry, officer, but I really have to go now.", mensageiro: suspect),
+                DialogueBox(mensagem: "Alright… Thank you for cooperating. You've helped enough, Miss Bloom.", mensageiro: carrie),
+                DialogueBox(mensagem: "And… My condolences, too. To both you and Elena. ", mensageiro: carrie),
+                DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info),
+                
             ])
-
+            
         }
-    }
-    
-    func phase2Dialogues(){
-        dialogos.append(contentsOf: [
-            DialogueBox(mensagem: "Alright. Carrying on…", mensageiro: carrie),
-            DialogueBox(mensagem: "You also muttered something about an Elena earlier… What was that about?", mensageiro: carrie),
-            DialogueBox(mensagem: "Gosh, darling, you’re eavesdropping now? I was just talking to myself.", mensageiro: suspect),
-            DialogueBox(mensagem: "Really, I’m surprised you heard that so clearly, though.", mensageiro: suspect)
-        ])
     }
 }
