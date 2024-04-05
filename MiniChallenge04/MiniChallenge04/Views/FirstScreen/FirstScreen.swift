@@ -37,7 +37,9 @@ struct FirstScreen: View {
                         Spacer()
                         
                         Button{
-                            path.append(ScreenReport(size: CGSize(width: larguraTela, height: alturaTela)))
+                            withAnimation{
+                                path.append(ScreenReport(path: $path))
+                            }
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -54,9 +56,9 @@ struct FirstScreen: View {
                     Spacer()
                 }.navigationDestination(for: SKScene.self) { scene in
                     SpriteView(scene: scene)
+                        .transition(.opacity)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
-                        .transition(.move(edge: .bottom))
                 }
             }
         }

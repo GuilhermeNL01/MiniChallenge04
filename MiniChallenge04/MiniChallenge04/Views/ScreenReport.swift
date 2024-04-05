@@ -7,8 +7,11 @@
 
 import Foundation
 import SpriteKit
+import SwiftUI
 
 class ScreenReport: SKScene{
+    
+    @Binding var path: [SKScene]
     
     let bg = SKSpriteNode(imageNamed: "ReportBG")
     var vm = ScreenReportViewModel()
@@ -27,6 +30,15 @@ class ScreenReport: SKScene{
         }
     }
     
+    init(path: Binding<[SKScene]>){
+        _path = path
+        super.init(size: CGSize(width: larguraTela, height: alturaTela))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func didMove(to view: SKView) {
         bg.anchorPoint = CGPoint(x: 0, y: 0)
         bg.size = self.size
@@ -38,9 +50,6 @@ class ScreenReport: SKScene{
         suspicionsNode.position = CGPoint(x: larguraTela * 0.79, y: cluesBox.position.y - (alturaTela * 0.35))
         addChild(suspicionsNode)
         setupAccusations()
-        selectedPhoto = masterNode.suspectPhoto
-        suspicionsNode.changeSuspicions(type: .suspect)
-        suspicionsNode.appear()
     }
     
     func setupClues(){
@@ -95,29 +104,11 @@ extension ScreenReport{
             guard let touchedSuspicion = nodes.first { node in
                 node is SquareNode
             } as? SquareNode else { return }
-            suspicionsNode.hide()
-            switch accusations{
-            case 0:
-                masterNode.receiveImage(pickedSquare: touchedSuspicion.score, selectedPhoto: selectedPhoto)
-                selectedPhoto = masterNode.locationPhoto
-                suspicionsNode.changeSuspicions(type: .location)
-                suspicionsNode.appear()
+            masterNode.receiveImage(pickedSquare: touchedSuspicion.score, selectedPhoto: selectedPhoto)
+            if accusations < 3{
                 accusations += 1
-            case 1:
-                masterNode.receiveImage(pickedSquare: touchedSuspicion.score, selectedPhoto: selectedPhoto)
-                selectedPhoto = masterNode.weaponPhoto
-                suspicionsNode.changeSuspicions(type: .weapon)
-                suspicionsNode.appear()
-                accusations += 1
-            case 2:
-                masterNode.receiveImage(pickedSquare: touchedSuspicion.score, selectedPhoto: selectedPhoto)
-                selectedPhoto = masterNode.locationPhoto
-                suspicionsNode.changeSuspicions(type: .location)
-                suspicionsNode.appear()
-                accusations += 1
-            default:
-                break
             }
+            suspicionsNode.hide()
         } else {
             switch node.name{
             case masterNode.suspectPhoto.name:
@@ -137,10 +128,10 @@ extension ScreenReport{
             
             case accusationsNode.name:
                 if accusations == 3{
-                 print("troca")
+                    path.append(VideoCutscene2(path: $path))
                 }
             default:
-                print(node.name)
+                
                 break
             }
         }
