@@ -19,18 +19,14 @@ struct FirstScreen: View {
                 
                 BackgroundImageView()
                 Black()
-                    .opacity(0.88)
+                    .opacity(0.5)
                 
-                Text("PLACEHOLDER")
-                    .font(.largeTitle)
-                    .foregroundStyle(.white)
-                    .opacity(0.8)
                 
                 VStack{
                     HStack{
-                        
                         Image("Logo")
-                            .padding(70)
+                            .frame(width: 827,height: 518)
+                            .padding(20)
                         Spacer()
                     }
                     Spacer()
@@ -41,7 +37,9 @@ struct FirstScreen: View {
                         Spacer()
                         
                         Button{
-                            path.append(HotelScene(path: $path))
+                            withAnimation{
+                                path.append(ScreenReport(path: $path))
+                            }
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -49,29 +47,18 @@ struct FirstScreen: View {
                                 .scaledToFit()
                                 .frame(width: 285, height: 119)
                                 .scaledToFit()
-                                .padding(.bottom, 20)
+                                .padding(.leading, 60)
                         }
                         
-                        NavigationLink{
-                            CreditsView()
-                        } label: {
-                            Image("Credits")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .scaledToFit()
-                                .frame(width: 285, height: 119)
-                                .scaledToFit()
-                                .padding(.horizontal, 60)
-                            
-                        }
+                        
                         .padding(.bottom, 60)
                     }
                     Spacer()
                 }.navigationDestination(for: SKScene.self) { scene in
                     SpriteView(scene: scene)
+                        .transition(.opacity)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
-                        .transition(.move(edge: .bottom))
                 }
             }
         }
