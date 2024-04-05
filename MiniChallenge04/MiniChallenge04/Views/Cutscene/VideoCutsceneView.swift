@@ -69,7 +69,6 @@ class VideoCutsceneScene: SKScene {
                 
                 let borderLayer = CALayer()
                 borderLayer.frame = self.view?.bounds ?? CGRect.zero
-             //   borderLayer.backgroundColor = UIColor.black.cgColor
                 self.view?.layer.addSublayer(borderLayer)
                 self.view?.layer.insertSublayer(self.videoPlayerLayer!, above: borderLayer)
                 
