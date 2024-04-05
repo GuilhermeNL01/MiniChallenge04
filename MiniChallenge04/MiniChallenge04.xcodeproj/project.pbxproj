@@ -22,7 +22,6 @@
 		311A0F8C2BB4900E00193C3D /* PreReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F8B2BB4900E00193C3D /* PreReportScene.swift */; };
 		311A0F8F2BB49D1800193C3D /* PostReportScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A0F8E2BB49D1800193C3D /* PostReportScene.swift */; };
 		311A783F2BBDC63C00377F08 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A783E2BBDC63C00377F08 /* GameplayScene.swift */; };
-		311A78482BBDEC5400377F08 /* Hotel in Resources */ = {isa = PBXBuildFile; fileRef = 311A78472BBDEC5400377F08 /* Hotel */; };
 		311A78622BBF2FAD00377F08 /* ScreenReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A785C2BBF2FAD00377F08 /* ScreenReport.swift */; };
 		311A78632BBF2FAD00377F08 /* SquareNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A785D2BBF2FAD00377F08 /* SquareNode.swift */; };
 		311A78642BBF2FAD00377F08 /* SuspicionsNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */; };
@@ -52,6 +51,9 @@
 		9C36431E2BACB09B0011FF6E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431D2BACB09B0011FF6E /* Place.swift */; };
 		9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */; };
 		9CE615C62BBF29FC0077E362 /* HotelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615C42BBF29FC0077E362 /* HotelScene.swift */; };
+		9CE615CB2BC08E910077E362 /* MultiChoicesNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615C92BC08E910077E362 /* MultiChoicesNode.swift */; };
+		9CE615CC2BC08E910077E362 /* ChoiceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615CA2BC08E910077E362 /* ChoiceNode.swift */; };
+		9CE615CE2BC08EC90077E362 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615CD2BC08EC90077E362 /* Choice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +72,6 @@
 		311A0F8B2BB4900E00193C3D /* PreReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreReportScene.swift; sourceTree = "<group>"; };
 		311A0F8E2BB49D1800193C3D /* PostReportScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostReportScene.swift; sourceTree = "<group>"; };
 		311A783E2BBDC63C00377F08 /* GameplayScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
-		311A78472BBDEC5400377F08 /* Hotel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hotel; sourceTree = "<group>"; };
 		311A785C2BBF2FAD00377F08 /* ScreenReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenReport.swift; sourceTree = "<group>"; };
 		311A785D2BBF2FAD00377F08 /* SquareNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareNode.swift; sourceTree = "<group>"; };
 		311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuspicionsNode.swift; sourceTree = "<group>"; };
@@ -102,6 +103,9 @@
 		9C36431D2BACB09B0011FF6E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
 		9CE615C42BBF29FC0077E362 /* HotelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelScene.swift; sourceTree = "<group>"; };
+		9CE615C92BC08E910077E362 /* MultiChoicesNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiChoicesNode.swift; path = MiniChallenge04/Utils/MultiChoicesNode.swift; sourceTree = SOURCE_ROOT; };
+		9CE615CA2BC08E910077E362 /* ChoiceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceNode.swift; path = MiniChallenge04/Utils/ChoiceNode.swift; sourceTree = SOURCE_ROOT; };
+		9CE615CD2BC08EC90077E362 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Choice.swift; path = MiniChallenge04/Models/Choice.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,8 @@
 				311A785F2BBF2FAD00377F08 /* MasterNode.swift */,
 				311A785D2BBF2FAD00377F08 /* SquareNode.swift */,
 				311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */,
+				9CE615CA2BC08E910077E362 /* ChoiceNode.swift */,
+				9CE615C92BC08E910077E362 /* MultiChoicesNode.swift */,
 				311A0F862BB3241100193C3D /* Sidebar */,
 			);
 			path = Utils;
@@ -294,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				311A78602BBF2FAD00377F08 /* ScreenReportModel.swift */,
+				9CE615CD2BC08EC90077E362 /* Choice.swift */,
 				43588FA62BA8AB99002CB1BB /* ContextModel.swift */,
 				9C36431B2BACB0380011FF6E /* Npc.swift */,
 				9C36431D2BACB09B0011FF6E /* Place.swift */,
@@ -387,11 +394,13 @@
 				311A0F7C2BB1E46700193C3D /* RapportBar.swift in Sources */,
 				311A78672BBF2FAD00377F08 /* ScreenReportViewModel.swift in Sources */,
 				311A78632BBF2FAD00377F08 /* SquareNode.swift in Sources */,
+				9CE615CB2BC08E910077E362 /* MultiChoicesNode.swift in Sources */,
 				311A0F8C2BB4900E00193C3D /* PreReportScene.swift in Sources */,
 				40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */,
 				31093E522BAB4EBB00E3B7AF /* Scenes.swift in Sources */,
 				4032C0702BBF167300E6C2FF /* ButcherDialogueScene.swift in Sources */,
 				311A78652BBF2FAD00377F08 /* MasterNode.swift in Sources */,
+				9CE615CC2BC08E910077E362 /* ChoiceNode.swift in Sources */,
 				31093E532BAB4EBB00E3B7AF /* Functions.swift in Sources */,
 				31093E512BAB4EBB00E3B7AF /* VariaveisGlobais.swift in Sources */,
 				31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */,
@@ -410,6 +419,7 @@
 				4032C04F2BBC79C500E6C2FF /* GameOverScene.swift in Sources */,
 				9C36431E2BACB09B0011FF6E /* Place.swift in Sources */,
 				9C3643142BAA2C390011FF6E /* Cena_transition2.swift in Sources */,
+				9CE615CE2BC08EC90077E362 /* Choice.swift in Sources */,
 				43588FA72BA8AB99002CB1BB /* ContextModel.swift in Sources */,
 				9CE615C62BBF29FC0077E362 /* HotelScene.swift in Sources */,
 				9C3643162BAA2D2C0011FF6E /* Cena_transition3.swift in Sources */,

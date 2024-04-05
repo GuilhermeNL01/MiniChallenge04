@@ -38,7 +38,7 @@ struct FirstScreen: View {
                         
                         Button{
                             withAnimation{
-                                path.append(ScreenReport(path: $path))
+                                path.append(VideoCutsceneScene(path: $path))
                             }
                         } label: {
                             Image("Start")

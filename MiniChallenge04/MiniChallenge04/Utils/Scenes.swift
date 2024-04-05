@@ -16,9 +16,9 @@ protocol Scenes: SKScene{
 
 extension Scenes{
     func proximoDialogo(){
-        limparDialogos()
         
         if dialogos.count > 0{
+            limparDialogos()
             dialogos.remove(at: 0)
         }
         
