@@ -41,9 +41,9 @@ struct NPC {
     
     enum GameCharacter: String{
         case main = "Carrie"
-        case butcher = "Butcher"
-        case victimsWife = "Helena"
-        case receptionist = "Receptionist"
+        case butcher = "butcher"
+        case victimsWife = "helena"
+        case receptionist = "carmenBloom"
         case info // hides nametag in scenes
     }
 }

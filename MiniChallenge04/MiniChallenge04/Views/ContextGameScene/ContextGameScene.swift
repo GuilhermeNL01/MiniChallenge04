@@ -28,7 +28,6 @@ class ContextGameScene: SKScene, Scenes{
     }
     
     override func didMove(to view: SKView) {
-        print("a")
         buildDialogues()
         setupScene()
         framingDialogueBox()

@@ -11,25 +11,17 @@ struct ScreenReportModel{
     
     var murderer: String{
         get{
-            return UserDefaults.standard.string(forKey: "murderer") ?? "butcher"
+            return UserDefaults.standard.string(forKey: "murderer") ?? "helena"
         }
     }
     var crimeWeapon: String {
         get{
-            return UserDefaults.standard.string(forKey: "crimeWeapon") ?? "knife"
+            return UserDefaults.standard.string(forKey: "crimeWeapon") ?? "pocketKnife"
         }
     }
     var crimeLocation: String {
         get{
-            return UserDefaults.standard.string(forKey: "crimeLocation") ?? "hotel"
+            return UserDefaults.standard.string(forKey: "crimeLocation") ?? "pier"
         }
     }
-    
-    var nameReport: NPC?
-    var weaponDesc: Weapons?
-    var localDesc: Place?
-    var imagesReportSuspect: [String] = []
-    var imagesReportWeapon: [String] = []
-    var imagesReportLocal: [String] = []
-
 }

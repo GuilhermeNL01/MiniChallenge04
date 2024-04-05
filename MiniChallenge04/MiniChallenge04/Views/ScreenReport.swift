@@ -17,7 +17,7 @@ class ScreenReport: SKScene{
     var vm = ScreenReportViewModel()
     let suspicionsNode = SuspicionsNode()
     let masterNode = MasterNode()
-    var selectedPhoto = SKSpriteNode()
+    var selectedPhoto: PhotoNode?
     
     let cluesBox = SKSpriteNode(imageNamed: "CluesBox")
     let cluesLabeling = SKLabelNode()
@@ -101,12 +101,18 @@ extension ScreenReport{
         }
         
         if hasTouchedSuspicion{
-            guard let touchedSuspicion = nodes.first { node in
+            guard let touchedSuspicion = nodes.first(where: { node in
                 node is SquareNode
-            } as? SquareNode else { return }
+            }) as? SquareNode else { return }
+            guard let selectedPhoto else { return }
+            
             masterNode.receiveImage(pickedSquare: touchedSuspicion.score, selectedPhoto: selectedPhoto)
-            if accusations < 3{
-                accusations += 1
+            
+            if selectedPhoto.isEmpty{
+                selectedPhoto.isEmpty = false
+                if accusations < 3{
+                    accusations += 1
+                }
             }
             suspicionsNode.hide()
         } else {
@@ -128,7 +134,7 @@ extension ScreenReport{
             
             case accusationsNode.name:
                 if accusations == 3{
-                    path.append(VideoCutscene2(path: $path))
+                    vm.checkNextScene()
                 }
             default:
                 
