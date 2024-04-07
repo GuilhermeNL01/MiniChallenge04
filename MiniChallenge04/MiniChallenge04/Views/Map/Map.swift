@@ -34,36 +34,36 @@ class Map: SKScene{
         buildMap()
     }
     
-    private func buildMap(){
-    
+    private func buildMap() {
         setupBack()
+        
+        // Configuração do hotel
         hotel.position = CGPoint(x: frame.size.width * 0.23, y: frame.size.height * 0.65)
         hotel.name = "Hotel"
-        if hotelModel.hasViseted{
+        if hotelModel.hasViseted {
             hotel.texture = SKTexture(imageNamed: "HotelInactive")
-            self.hotel.isUserInteractionEnabled = false
+            hotel.isUserInteractionEnabled = false
         }
         addChild(hotel)
         
-        
+        // Configuração do pier inativo
         pier.position = CGPoint(x: frame.size.width * 0.5, y: frame.size.height * 0.297)
         pier.name = "Pier"
-        if pierModel.hasViseted{
-            pier.texture = SKTexture(imageNamed: "PierInactive")
-            self.pier.isUserInteractionEnabled = false
-        }
+        pier.texture = SKTexture(imageNamed: "PierInactive") // Define a textura do pier como inativo
         addChild(pier)
+        
+        // Configuração do açougueiro
         butcher.position = CGPoint(x: frame.size.width * 0.765, y: frame.size.height * 0.638)
         butcher.name = "Butcher"
-        if butcherModel.hasViseted{
-            butcher.texture = SKTexture(imageNamed: "ButcherInactive")
-            self.butcher.isUserInteractionEnabled = false
-        }
+        butcher.texture = SKTexture(imageNamed: "ButcherInactive") 
         addChild(butcher)
-        if let view = view{
+        
+        if let view = view {
             myView = view
         }
     }
+
+    
     
     private func setupBack(){
         background.size = size
@@ -71,21 +71,19 @@ class Map: SKScene{
         addChild(background)
     }
     
-    private func goToNextScene(sceneName: String){
-        
-        switch sceneName{
+    private func goToNextScene(sceneName: String) {
+        switch sceneName {
         case "Hotel":
-            if self.hotelModel.hasViseted == false{
+            if !self.hotelModel.hasViseted {
                 self.hotelModel.hasViseted = true
                 UserDefaults.standard.setValue(true, forKey: "hasVisetedHotel")
                 
                 let animation = SKAction.animate(with: [SKTexture(imageNamed: "HotelAvailable"),
-                                                       SKTexture(imageNamed: "HotelSelected")]
-                                                , timePerFrame: 0.5, resize: false, restore: false)
+                                                        SKTexture(imageNamed: "HotelSelected")]
+                                                 , timePerFrame: 0.5, resize: false, restore: false)
                 
                 self.hotel.run(animation)
                 self.hotel.isUserInteractionEnabled = false
-                
                 
                 self.run(.sequence([
                     .wait(forDuration: 0.1),
@@ -98,70 +96,71 @@ class Map: SKScene{
                     }
                 ]))
             }
-                    
-            break
+            
         case "Pier":
-            if self.pierModel.hasViseted == false{
+            if !self.pierModel.hasViseted {
                 self.pierModel.hasViseted = true
                 UserDefaults.standard.setValue(true, forKey: "hasVisetedPier")
                 
                 let animation = SKAction.animate(with: [SKTexture(imageNamed: "PierAvailable"),
-                                                       SKTexture(imageNamed: "PierSelected")]
-                                                , timePerFrame: 0.5, resize: false, restore: false)
+                                                        SKTexture(imageNamed: "PierSelected")]
+                                                 , timePerFrame: 0.5, resize: false, restore: false)
                 
-                self.pier.run(animation)
-                self.pier.isUserInteractionEnabled = false
-                
-                
-                self.run(.sequence([
-                    .wait(forDuration: 0.1),
-                    .run {
-                        self.pier.texture = SKTexture(imageNamed: "PierInactive")
-                    },
-                    .wait(forDuration: 0.1),
-                    .run {
-                        self.nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
-                    }
-                ]))
+//                self.pier.run(animation)
+//                self.pier.isUserInteractionEnabled = false
+//                
+//                self.run(.sequence([
+//                    .wait(forDuration: 0.1),
+//                    .run {
+//                        self.pier.texture = SKTexture(imageNamed: "PierInactive")
+//                    },
+//                    .wait(forDuration: 0.1),
+//                    .run {
+//                        self.nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
+//                    }
+//                ]))
             }
-              
-            break
+            
         case "Butcher":
-            if self.butcherModel.hasViseted == false{
+            if !self.butcherModel.hasViseted {
                 self.butcherModel.hasViseted = true
                 UserDefaults.standard.setValue(true, forKey: "hasVisetedButcher")
                 
                 let animation = SKAction.animate(with: [SKTexture(imageNamed: "ButcherAvailable"),
-                                                       SKTexture(imageNamed: "ButcherSelected")]
-                                                , timePerFrame: 0.5, resize: false, restore: false)
+                                                        SKTexture(imageNamed: "ButcherSelected")]
+                                                 , timePerFrame: 0.5, resize: false, restore: false)
                 
-                self.butcher.run(animation)
-                self.butcher.isUserInteractionEnabled = false
+//                self.butcher.run(animation)
+//                self.butcher.isUserInteractionEnabled = false
                 
-                
-                self.run(.sequence([
-                    .wait(forDuration: 0.1),
-                    .run {
-                        self.butcher.texture = SKTexture(imageNamed: "ButcherInactive")
-                    },
-                    .wait(forDuration: 0.1),
-                    .run {
-                        self.nextScene = ButcherDialogueScene(path: self.$path)
-                    }
-                ]))
+//                self.run(.sequence([
+//                    .wait(forDuration: 0.1),
+//                    .run {
+//                        self.butcher.texture = SKTexture(imageNamed: "ButcherInactive")
+//                    },
+//                    .wait(forDuration: 0.1),
+//                    .run {
+//                        self.nextScene = ButcherDialogueScene(path: self.$path)
+//                    }
+//                ]))
             }
             
+        default:
             break
-        default: break
         }
-        if let nextScene{
+        
+//        // Verifica se tanto o hotel quanto o açougueiro foram visitados antes de ir para a cena de relatório
+//        if self.hotelModel.hasViseted && self.{
+//            self.nextScene = ScreenReport(path: self.$path)
+//        }
+//        
+        if let nextScene = self.nextScene {
             path.append(nextScene)
         }
     }
-    
 }
 
-extension Map{
+extension Map {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
@@ -174,4 +173,3 @@ extension Map{
         }
     }
 }
-
