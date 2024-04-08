@@ -22,8 +22,7 @@ class HotelScene: SKScene, GameplayScene {
     var choice3 = Choice(text: "Change the subject", score: 1)
     var choicesNode: MultiChoicesNode
     
-    private var phase: Int = 1
-    
+    private var phase = 1
     
     let carrie = NPC(.main)
     var suspect = NPC(.receptionist)
@@ -55,6 +54,7 @@ class HotelScene: SKScene, GameplayScene {
             character.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
             addChild(character)
         }
+        addChild(choicesNode)
     }
     
     
@@ -65,17 +65,17 @@ class HotelScene: SKScene, GameplayScene {
                 interrogationStart()
             }
             break
-        case 40:
-            sidebar.ml.classify(prompt: "I'm surprised, officer. I wasn't expecting you to change the subject like that.", npc: suspect)
-            dialogueCount += 1
-            addChild(choicesNode)
-            choicesNode.appear()
+        case 39:
+            if !disableTouch{
+                proximoDialogo()
+                sidebar.ml.classify(prompt: "I'm surprised, officer. I wasn't expecting you to change the subject like that.", npc: suspect)
+                choicesNode.appear()
+            }
+            disableTouch = true
         case 46:
             if choicesNode.selectedChoice?.score == 1{
-                sidebar.upperSidebar.score.score = 1
                 sidebar.ml.classify(prompt: "Whatever you say, Miss officer.", npc: suspect)
             } else if choicesNode.selectedChoice?.score == 2{
-                sidebar.upperSidebar.score.score = 2
                 sidebar.ml.classify(prompt: "She is pleased with the subject change, but is this actually the best approach possible here?", npc: suspect)
             }
             proximoDialogo()
@@ -91,19 +91,24 @@ class HotelScene: SKScene, GameplayScene {
             }
             proximoDialogo()
             dialogueCount += 1
-        case 52:
-            sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
-            addChild(choicesNode)
-            choicesNode.appear()
-            //            proximoDialogo()
-            //            dialogueCount += 1
+        case 50:
+            if !disableTouch{
+                sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
+                self.choice1 = Choice(text: "Accuse her of protecting Elena", score: 0)
+                self.choice2 = Choice(text: "Sympathize with their situation", score: 1)
+                self.choice3 = Choice(text: "Take advantage of her protectiveness", score: 2)
+                choicesNode = MultiChoicesNode(choice1: choice1, choice2: choice2, choice3: choice3)
+                choicesNode.isHidden = true
+                choicesNode.appear()
+            }
+            disableTouch = true
+        case 70:
+            trocarCena(nextScene: Map(path: $path))
         default:
             if !disableTouch{
-                if dialogos.count >= 1{
+                if dialogos.count > 1{
                     proximoDialogo()
                     dialogueCount += 1
-                } else {
-                    trocarCena(nextScene: ScreenReport(path: $path))
                 }
             }
         }
@@ -112,13 +117,13 @@ class HotelScene: SKScene, GameplayScene {
     func rebuildDialogues(score: Int){
         switch score{
         case 0:
-            choice1Selected()
+            phase == 1 ? choice1Selected() : choice1Selected()
             break
-        case 2:
-            choice2Selected()
+        case 1:
+            phase == 1 ? choice3Selected() : choice2Selected()
             break
         default:
-            choice3Selected()
+            phase == 1 ? choice2Selected() : choice3Selected()
             break
         }
     }
@@ -127,6 +132,7 @@ class HotelScene: SKScene, GameplayScene {
 // handling touch and dialogue building
 extension HotelScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(dialogueCount)
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let touchedNode = self.atPoint(location) // first node in hierarchy
@@ -144,8 +150,10 @@ extension HotelScene{
             choicesNode.removeFromParent()
             if let score = choice?.choice.score{
                 rebuildDialogues(score: score)
-                proximoDialogo()
             }
+            proximoDialogo()
+            dialogueCount += 1
+            self.disableTouch = false
         } else {
             sceneHandler(touchedNode: touchedNode)
         }
@@ -223,7 +231,12 @@ extension HotelScene{
                 DialogueBox(mensagem: "Alright. Suit yourself. ", mensageiro: suspect),
                 DialogueBox(mensagem: "And I think we're done talking, Miss officer. Last I remember you don't have a warrant, anyways… I was doing you a favor by humoring this conversation, really.", mensageiro: suspect),
                 DialogueBox(mensagem: "Ha, that's fine! This is enough, anyways. Thank you for your cooperation, 'darling'...", mensageiro: carrie),
+                DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info)
             ])
+            dialogueCount += 11
+        }
+        if let score = choicesNode.selectedChoice?.score{
+            sidebar.upperSidebar.score.score += score
         }
     }
     
@@ -237,7 +250,6 @@ extension HotelScene{
                 DialogueBox(mensagem: "...", mensageiro: suspect),
                 DialogueBox(mensagem: "Right… I suppose so.", mensageiro: suspect),
                 DialogueBox(mensagem: "Then, I, in fact, did not stay after my show that night. A friend of mine, Elena, called me right after, and I left to meet with her.", mensageiro: suspect),
-                DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info)
             ])
             phase2Dialogues()
             phase += 1
@@ -261,6 +273,10 @@ extension HotelScene{
                 DialogueBox(mensagem: "Goodbye, I guess. Thank you for the cooperation.", mensageiro: carrie),
                 DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info)
             ])
+            dialogueCount += 3
+        }
+        if let score = choicesNode.selectedChoice?.score{
+            sidebar.upperSidebar.score.score += score
         }
     }
     
@@ -297,6 +313,9 @@ extension HotelScene{
                 DialogueBox(mensagem: "And… My condolences, too. To both you and Elena. ", mensageiro: carrie),
                 DialogueBox(mensagem: "This questioning is over. You should take one last look at the insights you got, and then get ready to move to the next location of interest.", mensageiro: info),
             ])
+        }
+        if let score = choicesNode.selectedChoice?.score{
+            sidebar.upperSidebar.score.score += score
         }
     }
     

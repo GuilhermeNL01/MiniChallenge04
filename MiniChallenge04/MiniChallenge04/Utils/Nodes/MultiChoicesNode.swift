@@ -22,11 +22,10 @@ class MultiChoicesNode: SKNode{
         self.choiceNode3 = ChoiceNode(choice: choice3)
         
         super.init()
-        self.name = "you are looking for me"
         
         blur.anchorPoint = CGPoint(x: 0, y: 1)
         blur.position = CGPoint(x: 0, y: alturaTela)
-        blur.alpha = 0
+        self.alpha = 0
         
         addChild(blur)
         setupChoices()

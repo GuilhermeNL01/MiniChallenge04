@@ -43,6 +43,7 @@ class ScreenReport: SKScene{
         bg.anchorPoint = CGPoint(x: 0, y: 0)
         bg.size = self.size
         addChild(bg)
+        
         vm.scene = self
         setupClues()
         masterNode.config()
@@ -99,7 +100,6 @@ extension ScreenReport{
         let hasTouchedSuspicion = nodes.contains { node in
             node is SquareNode
         }
-        
         if hasTouchedSuspicion{
             guard let touchedSuspicion = nodes.first(where: { node in
                 node is SquareNode
