@@ -9,6 +9,7 @@ import SpriteKit
 import SwiftUI
 
 class HotelScene: SKScene, GameplayScene {
+    
     @Binding var path: [SKScene]
     
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "hotelBarBackground")
@@ -102,7 +103,7 @@ class HotelScene: SKScene, GameplayScene {
                     proximoDialogo()
                     dialogueCount += 1
                 } else {
-                    trocarCena(nextScene: ScreenReport(path: $path))
+                    trocarCena(nextScene: Map(path: $path))
                 }
             }
         }
