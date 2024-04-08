@@ -26,6 +26,7 @@ class MachineLearningModel: ObservableObject{
                 if npc.type == .receptionist{
                     label.text = "Sad"
                 }
+                
                 break
             case "1":
                 label.text = "Joy"
@@ -48,6 +49,10 @@ class MachineLearningModel: ObservableObject{
                 if npc.type == .receptionist{
                     label.text = "Fear"
                 }
+                if npc.type == .butcher {
+                    label.text = "He's really on edge now. How should I pressure him?"
+                }
+                
                 break
             case "5":
                 if npc.type == .receptionist{
