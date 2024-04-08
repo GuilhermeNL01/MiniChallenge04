@@ -62,38 +62,40 @@ class ButcherDialogueScene: SKScene, GameplayScene {
                 interrogationStart()
             }
             break
-        case 42:
+        case 40:
             sidebar.ml.classify(prompt: "Hearing that from a detective is terrifying, you know?!", npc: suspect)
             dialogueCount += 1
+        case 41:
             addChild(choicesNode)
             choicesNode.appear()
-        case 46:
-            if choicesNode.selectedChoice?.score == 1{
-                sidebar.upperSidebar.score.score = 1
-                sidebar.ml.classify(prompt: "Whatever you say, Miss officer.", npc: suspect)
-            } else if choicesNode.selectedChoice?.score == 2{
-                sidebar.upperSidebar.score.score = 2
-                sidebar.ml.classify(prompt: "She is pleased with the subject change, but is this actually the best approach possible here?", npc: suspect)
-            }
-            proximoDialogo()
             dialogueCount += 1
-        case 47:
-            if choicesNode.selectedChoice?.score == 0{
-                sidebar.ml.classify(prompt: "Hearing that from you is actually a little infuriating, really…", npc: suspect)
-            } else if choicesNode.selectedChoice?.score == 2 {
-                sidebar.bottomSidebar.insight1.text = "• Carmen was out, supposedly seeing Elena, during the night of the crime."
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                    self.sidebar.bottomSidebar.insight2.text = "• Looks like she is close friends with Elena Brooke, the victim’s wife."
-                }
-            }
-            proximoDialogo()
-            dialogueCount += 1
-        case 52:
-            sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
-            addChild(choicesNode)
-            choicesNode.appear()
-            //            proximoDialogo()
-            //            dialogueCount += 1
+//        case 46:
+//            if choicesNode.selectedChoice?.score == 1{
+//                sidebar.upperSidebar.score.score = 1
+//                sidebar.ml.classify(prompt: "Whatever you say, Miss officer.", npc: suspect)
+//            } else if choicesNode.selectedChoice?.score == 2{
+//                sidebar.upperSidebar.score.score = 2
+//                sidebar.ml.classify(prompt: "She is pleased with the subject change, but is this actually the best approach possible here?", npc: suspect)
+//            }
+//            proximoDialogo()
+//            dialogueCount += 1
+//        case 47:
+//            if choicesNode.selectedChoice?.score == 0{
+//                sidebar.ml.classify(prompt: "Hearing that from you is actually a little infuriating, really…", npc: suspect)
+//            } else if choicesNode.selectedChoice?.score == 2 {
+//                sidebar.bottomSidebar.insight1.text = "• Carmen was out, supposedly seeing Elena, during the night of the crime."
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+//                    self.sidebar.bottomSidebar.insight2.text = "• Looks like she is close friends with Elena Brooke, the victim’s wife."
+//                }
+//            }
+//            proximoDialogo()
+//            dialogueCount += 1
+//        case 52:
+//            sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
+//            addChild(choicesNode)
+//            choicesNode.appear()
+//            //            proximoDialogo()
+//            //            dialogueCount += 1
         default:
             if !disableTouch{
                 if dialogos.count >= 1{
