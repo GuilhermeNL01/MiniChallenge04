@@ -32,6 +32,13 @@ class Map: SKScene{
     
     override func didMove(to view: SKView) {
         buildMap()
+//        if self.hotelModel.hasViseted && self.butcherModel.hasViseted{
+//            buildMap()
+//            self.nextScene = ScreenReport(path: self.$path)
+//        }
+//        else{
+//            buildMap()
+//        }
     }
     
     private func buildMap() {
@@ -49,13 +56,15 @@ class Map: SKScene{
         // Configuração do pier inativo
         pier.position = CGPoint(x: frame.size.width * 0.5, y: frame.size.height * 0.297)
         pier.name = "Pier"
-        pier.texture = SKTexture(imageNamed: "PierInactive") // Define a textura do pier como inativo
+        pier.texture = SKTexture(imageNamed: "PierInactive")
+        pier.isUserInteractionEnabled = false
         addChild(pier)
         
         // Configuração do açougueiro
         butcher.position = CGPoint(x: frame.size.width * 0.765, y: frame.size.height * 0.638)
         butcher.name = "Butcher"
-        butcher.texture = SKTexture(imageNamed: "ButcherInactive") 
+        butcher.texture = SKTexture(imageNamed: "ButcherInactive")
+        butcher.isUserInteractionEnabled = false
         addChild(butcher)
         
         if let view = view {
@@ -106,19 +115,19 @@ class Map: SKScene{
                                                         SKTexture(imageNamed: "PierSelected")]
                                                  , timePerFrame: 0.5, resize: false, restore: false)
                 
-//                self.pier.run(animation)
-//                self.pier.isUserInteractionEnabled = false
-//                
-//                self.run(.sequence([
-//                    .wait(forDuration: 0.1),
-//                    .run {
-//                        self.pier.texture = SKTexture(imageNamed: "PierInactive")
-//                    },
-//                    .wait(forDuration: 0.1),
-//                    .run {
-//                        self.nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
-//                    }
-//                ]))
+                self.pier.run(animation)
+                self.pier.isUserInteractionEnabled = false
+                
+                self.run(.sequence([
+                    .wait(forDuration: 0.1),
+                    .run {
+                        self.pier.texture = SKTexture(imageNamed: "PierInactive")
+                    },
+                    .wait(forDuration: 0.1),
+                    .run {
+                        self.nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
+                    }
+                ]))
             }
             
         case "Butcher":
@@ -130,30 +139,27 @@ class Map: SKScene{
                                                         SKTexture(imageNamed: "ButcherSelected")]
                                                  , timePerFrame: 0.5, resize: false, restore: false)
                 
-//                self.butcher.run(animation)
-//                self.butcher.isUserInteractionEnabled = false
+                self.butcher.run(animation)
+                self.butcher.isUserInteractionEnabled = false
                 
-//                self.run(.sequence([
-//                    .wait(forDuration: 0.1),
-//                    .run {
-//                        self.butcher.texture = SKTexture(imageNamed: "ButcherInactive")
-//                    },
-//                    .wait(forDuration: 0.1),
-//                    .run {
-//                        self.nextScene = ButcherDialogueScene(path: self.$path)
-//                    }
-//                ]))
+                self.run(.sequence([
+                    .wait(forDuration: 0.1),
+                    .run {
+                        self.butcher.texture = SKTexture(imageNamed: "ButcherInactive")
+                    },
+                    .wait(forDuration: 0.1),
+                    .run {
+                        self.nextScene = ButcherDialogueScene(path: self.$path)
+                    }
+                ]))
             }
             
         default:
             break
         }
         
-//        // Verifica se tanto o hotel quanto o açougueiro foram visitados antes de ir para a cena de relatório
-//        if self.hotelModel.hasViseted && self.{
-//            self.nextScene = ScreenReport(path: self.$path)
-//        }
-//        
+        // Verifica se tanto o hotel quanto o açougueiro foram visitados antes de ir para a cena de relatório
+        
         if let nextScene = self.nextScene {
             path.append(nextScene)
         }

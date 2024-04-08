@@ -9,6 +9,7 @@ import SpriteKit
 import SwiftUI
 
 class HotelScene: SKScene, GameplayScene {
+    
     @Binding var path: [SKScene]
     
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "hotelBarBackground")
