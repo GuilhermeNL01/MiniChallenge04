@@ -103,7 +103,7 @@ class HotelScene: SKScene, GameplayScene {
                     proximoDialogo()
                     dialogueCount += 1
                 } else {
-                    trocarCena(nextScene: Map(path: $path))
+                    trocarCena(nextScene: ScreenReport(path: $path))
                 }
             }
         }

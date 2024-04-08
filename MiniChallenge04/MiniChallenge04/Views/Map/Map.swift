@@ -31,13 +31,14 @@ class Map: SKScene{
     }
     
     override func didMove(to view: SKView) {
-        if self.hotelModel.hasViseted && self.butcherModel.hasViseted{
-            buildMap()
-            self.nextScene = ScreenReport(path: self.$path)
-        }
-        else{
-            buildMap()
-        }
+        buildMap()
+//        if self.hotelModel.hasViseted && self.butcherModel.hasViseted{
+//            buildMap()
+//            self.nextScene = ScreenReport(path: self.$path)
+//        }
+//        else{
+//            buildMap()
+//        }
     }
     
     private func buildMap() {
@@ -55,16 +56,15 @@ class Map: SKScene{
         // Configuração do pier inativo
         pier.position = CGPoint(x: frame.size.width * 0.5, y: frame.size.height * 0.297)
         pier.name = "Pier"
-        pier.texture = SKTexture(imageNamed: "PierInactive") // Define a textura do pier como inativo
+        pier.texture = SKTexture(imageNamed: "PierInactive")
+        pier.isUserInteractionEnabled = false
         addChild(pier)
         
         // Configuração do açougueiro
         butcher.position = CGPoint(x: frame.size.width * 0.765, y: frame.size.height * 0.638)
         butcher.name = "Butcher"
-        if butcherModel.hasViseted {
-            butcher.texture = SKTexture(imageNamed: "ButcherInactive")
-            butcher.isUserInteractionEnabled = false
-        }
+        butcher.texture = SKTexture(imageNamed: "ButcherInactive")
+        butcher.isUserInteractionEnabled = false
         addChild(butcher)
         
         if let view = view {
