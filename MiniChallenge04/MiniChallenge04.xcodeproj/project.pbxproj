@@ -29,6 +29,8 @@
 		311A78672BBF2FAD00377F08 /* ScreenReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A78612BBF2FAD00377F08 /* ScreenReportViewModel.swift */; };
 		311A786A2BC0897B00377F08 /* PhotoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A78692BC0897B00377F08 /* PhotoNode.swift */; };
 		319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319ED1412BAE005A002DCCF2 /* Weapons.swift */; };
+		31AF24212BC468E2000E0FE1 /* ChoiceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AF241F2BC468E2000E0FE1 /* ChoiceNode.swift */; };
+		31AF24222BC468E2000E0FE1 /* MultiChoicesNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AF24202BC468E2000E0FE1 /* MultiChoicesNode.swift */; };
 		4032C04F2BBC79C500E6C2FF /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C04E2BBC79C500E6C2FF /* GameOverScene.swift */; };
 		4032C0702BBF167300E6C2FF /* ButcherDialogueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C06F2BBF167300E6C2FF /* ButcherDialogueScene.swift */; };
 		40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */; };
@@ -51,8 +53,6 @@
 		9C36431E2BACB09B0011FF6E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C36431D2BACB09B0011FF6E /* Place.swift */; };
 		9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */; };
 		9CE615C62BBF29FC0077E362 /* HotelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615C42BBF29FC0077E362 /* HotelScene.swift */; };
-		9CE615CB2BC08E910077E362 /* MultiChoicesNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615C92BC08E910077E362 /* MultiChoicesNode.swift */; };
-		9CE615CC2BC08E910077E362 /* ChoiceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615CA2BC08E910077E362 /* ChoiceNode.swift */; };
 		9CE615CE2BC08EC90077E362 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE615CD2BC08EC90077E362 /* Choice.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +79,8 @@
 		311A78612BBF2FAD00377F08 /* ScreenReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenReportViewModel.swift; sourceTree = "<group>"; };
 		311A78692BC0897B00377F08 /* PhotoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNode.swift; sourceTree = "<group>"; };
 		319ED1412BAE005A002DCCF2 /* Weapons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapons.swift; sourceTree = "<group>"; };
+		31AF241F2BC468E2000E0FE1 /* ChoiceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceNode.swift; sourceTree = "<group>"; };
+		31AF24202BC468E2000E0FE1 /* MultiChoicesNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiChoicesNode.swift; sourceTree = "<group>"; };
 		4032C04E2BBC79C500E6C2FF /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		4032C06C2BBF15DD00E6C2FF /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4032C06F2BBF167300E6C2FF /* ButcherDialogueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButcherDialogueScene.swift; sourceTree = "<group>"; };
@@ -103,8 +105,6 @@
 		9C36431D2BACB09B0011FF6E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		9C3643252BB2087B0011FF6E /* FirstScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewModel.swift; sourceTree = "<group>"; };
 		9CE615C42BBF29FC0077E362 /* HotelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotelScene.swift; sourceTree = "<group>"; };
-		9CE615C92BC08E910077E362 /* MultiChoicesNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiChoicesNode.swift; path = MiniChallenge04/Utils/MultiChoicesNode.swift; sourceTree = SOURCE_ROOT; };
-		9CE615CA2BC08E910077E362 /* ChoiceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceNode.swift; path = MiniChallenge04/Utils/ChoiceNode.swift; sourceTree = SOURCE_ROOT; };
 		9CE615CD2BC08EC90077E362 /* Choice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Choice.swift; path = MiniChallenge04/Models/Choice.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -128,12 +128,7 @@
 				31093E4D2BAB4EBB00E3B7AF /* Scenes.swift */,
 				311A783E2BBDC63C00377F08 /* GameplayScene.swift */,
 				31093E4C2BAB4EBB00E3B7AF /* VariaveisGlobais.swift */,
-				311A785F2BBF2FAD00377F08 /* MasterNode.swift */,
-				311A78692BC0897B00377F08 /* PhotoNode.swift */,
-				311A785D2BBF2FAD00377F08 /* SquareNode.swift */,
-				311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */,
-				9CE615CA2BC08E910077E362 /* ChoiceNode.swift */,
-				9CE615C92BC08E910077E362 /* MultiChoicesNode.swift */,
+				31AF241E2BC468B7000E0FE1 /* Nodes */,
 				311A0F862BB3241100193C3D /* Sidebar */,
 			);
 			path = Utils;
@@ -194,6 +189,19 @@
 				311A0F8E2BB49D1800193C3D /* PostReportScene.swift */,
 			);
 			path = ReportScenes;
+			sourceTree = "<group>";
+		};
+		31AF241E2BC468B7000E0FE1 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				311A785F2BBF2FAD00377F08 /* MasterNode.swift */,
+				311A78692BC0897B00377F08 /* PhotoNode.swift */,
+				311A785D2BBF2FAD00377F08 /* SquareNode.swift */,
+				311A785E2BBF2FAD00377F08 /* SuspicionsNode.swift */,
+				31AF241F2BC468E2000E0FE1 /* ChoiceNode.swift */,
+				31AF24202BC468E2000E0FE1 /* MultiChoicesNode.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 		4032C04D2BBC78E000E6C2FF /* GameOver */ = {
@@ -394,13 +402,12 @@
 				311A0F7C2BB1E46700193C3D /* RapportBar.swift in Sources */,
 				311A78672BBF2FAD00377F08 /* ScreenReportViewModel.swift in Sources */,
 				311A78632BBF2FAD00377F08 /* SquareNode.swift in Sources */,
-				9CE615CB2BC08E910077E362 /* MultiChoicesNode.swift in Sources */,
 				311A0F8C2BB4900E00193C3D /* PreReportScene.swift in Sources */,
 				40D15D892BA8B36000A7EB1B /* BackgroundImageView.swift in Sources */,
 				31093E522BAB4EBB00E3B7AF /* Scenes.swift in Sources */,
+				31AF24222BC468E2000E0FE1 /* MultiChoicesNode.swift in Sources */,
 				4032C0702BBF167300E6C2FF /* ButcherDialogueScene.swift in Sources */,
 				311A78652BBF2FAD00377F08 /* MasterNode.swift in Sources */,
-				9CE615CC2BC08E910077E362 /* ChoiceNode.swift in Sources */,
 				31093E532BAB4EBB00E3B7AF /* Functions.swift in Sources */,
 				31093E512BAB4EBB00E3B7AF /* VariaveisGlobais.swift in Sources */,
 				31093E552BAB4EBB00E3B7AF /* DialogueBox.swift in Sources */,
@@ -410,6 +417,7 @@
 				311A0F852BB31FB000193C3D /* BottomSidebar.swift in Sources */,
 				311A786A2BC0897B00377F08 /* PhotoNode.swift in Sources */,
 				311A783F2BBDC63C00377F08 /* GameplayScene.swift in Sources */,
+				31AF24212BC468E2000E0FE1 /* ChoiceNode.swift in Sources */,
 				43A1CF022BADFB7E0056E11C /* MachineLearningModel.swift in Sources */,
 				311A78622BBF2FAD00377F08 /* ScreenReport.swift in Sources */,
 				9C3643262BB2087B0011FF6E /* FirstScreenViewModel.swift in Sources */,
@@ -566,7 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = 392C3Y3Z55;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -600,7 +608,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MiniChallenge04/Preview Content\"";
-				DEVELOPMENT_TEAM = 392C3Y3Z55;
+				DEVELOPMENT_TEAM = HX623XK8T6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
