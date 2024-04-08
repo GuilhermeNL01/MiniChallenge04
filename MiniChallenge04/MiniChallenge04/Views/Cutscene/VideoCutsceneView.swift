@@ -61,7 +61,7 @@ class VideoCutsceneScene: SKScene {
                 
                 if let viewBounds = self.view?.bounds {
                     // Tamanho do player
-                    let videoPlayerSize = CGSize(width: viewBounds.width * 1.1, height: viewBounds.height * 0.7)
+                    let videoPlayerSize = CGSize(width: viewBounds.width * 1.0, height: viewBounds.height * 0.7)
                     self.videoPlayerLayer?.frame = CGRect(origin: .zero, size: videoPlayerSize)
                     // Centraliza o player na view
                     self.videoPlayerLayer?.position = CGPoint(x: viewBounds.midX, y: viewBounds.midY)
