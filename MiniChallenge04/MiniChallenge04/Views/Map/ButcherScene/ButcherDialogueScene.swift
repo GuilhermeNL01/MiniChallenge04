@@ -53,6 +53,7 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             character.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
             addChild(character)
         }
+        addChild(choicesNode)
     }
     
     func switchConversation(){
@@ -63,39 +64,15 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             }
             break
         case 40:
-            sidebar.ml.classify(prompt: "Hearing that from a detective is terrifying, you know?!", npc: suspect)
-            dialogueCount += 1
-        case 41:
-            addChild(choicesNode)
-            choicesNode.appear()
-            dialogueCount += 1
-//        case 46:
-//            if choicesNode.selectedChoice?.score == 1{
-//                sidebar.upperSidebar.score.score = 1
-//                sidebar.ml.classify(prompt: "Whatever you say, Miss officer.", npc: suspect)
-//            } else if choicesNode.selectedChoice?.score == 2{
-//                sidebar.upperSidebar.score.score = 2
-//                sidebar.ml.classify(prompt: "She is pleased with the subject change, but is this actually the best approach possible here?", npc: suspect)
-//            }
-//            proximoDialogo()
-//            dialogueCount += 1
-//        case 47:
-//            if choicesNode.selectedChoice?.score == 0{
-//                sidebar.ml.classify(prompt: "Hearing that from you is actually a little infuriating, really…", npc: suspect)
-//            } else if choicesNode.selectedChoice?.score == 2 {
-//                sidebar.bottomSidebar.insight1.text = "• Carmen was out, supposedly seeing Elena, during the night of the crime."
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-//                    self.sidebar.bottomSidebar.insight2.text = "• Looks like she is close friends with Elena Brooke, the victim’s wife."
-//                }
-//            }
-//            proximoDialogo()
-//            dialogueCount += 1
-//        case 52:
-//            sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
-//            addChild(choicesNode)
-//            choicesNode.appear()
-//            //            proximoDialogo()
-//            //            dialogueCount += 1
+           if !disableTouch{
+                proximoDialogo()
+                sidebar.ml.classify(prompt: "Hearing that from a detective is terrifying, you know?!", npc: suspect)
+                choicesNode.appear()
+            }
+            disableTouch = true
+            
+//        case 36:
+            
         default:
             if !disableTouch{
                 if dialogos.count >= 1{
@@ -111,13 +88,13 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     func rebuildDialogues(score: Int){
         switch score{
         case 0:
-            choice1Selected()
+            phase == 1 ? choice1Selected() : choice1Selected()
             break
-        case 2:
-            choice2Selected()
+        case 1:
+            phase == 1 ? choice3Selected() : choice2Selected()
             break
         default:
-            choice3Selected()
+            phase == 1 ? choice2Selected() : choice3Selected()
             break
         }
     }
@@ -258,7 +235,11 @@ extension ButcherDialogueScene {
                 DialogueBox(mensagem: "SCREW YOU!", mensageiro: suspect),
                 ])
             }
+            if let score = choicesNode.selectedChoice?.score{
+                sidebar.upperSidebar.score.score += score
+            }
         }
+        
         
         func choice2Selected(){ //Escolha +2 (2)
             if phase == 1 {
@@ -321,6 +302,9 @@ extension ButcherDialogueScene {
                 DialogueBox(mensagem: "Then, goodbye officer.", mensageiro: suspect),
                 ])
             }
+            if let score = choicesNode.selectedChoice?.score{
+                sidebar.upperSidebar.score.score += score
+            }
         }
         
         func choice3Selected(){// escolha +1 (3)
@@ -367,6 +351,9 @@ extension ButcherDialogueScene {
                     DialogueBox(mensagem: "Goodbye..", mensageiro: carrie),
                     
                 ])
+            }
+            if let score = choicesNode.selectedChoice?.score{
+                sidebar.upperSidebar.score.score += score
             }
         }
         
