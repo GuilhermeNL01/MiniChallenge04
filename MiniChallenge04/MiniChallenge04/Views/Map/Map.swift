@@ -31,10 +31,13 @@ class Map: SKScene{
     }
     
     override func didMove(to view: SKView) {
-        if self.hotelModel.hasViseted && self.butcherModel.hasViseted{
+        buildMap()
+        if self.butcherModel.hasViseted{
             self.nextScene = ScreenReport(path: self.$path)
         }
-        buildMap()
+        else{
+            buildMap()
+        }
     }
     
     private func buildMap() {
@@ -43,10 +46,10 @@ class Map: SKScene{
         // Configuração do hotel
         hotel.position = CGPoint(x: frame.size.width * 0.23, y: frame.size.height * 0.65)
         hotel.name = "Hotel"
-        if hotelModel.hasViseted {
-            hotel.texture = SKTexture(imageNamed: "HotelInactive")
-            hotel.isUserInteractionEnabled = false
-        }
+//        if hotelModel.hasViseted {
+        hotel.texture = SKTexture(imageNamed: "HotelInactive")
+        hotel.isUserInteractionEnabled = false
+//        }
         addChild(hotel)
         
         // Configuração do pier inativo
