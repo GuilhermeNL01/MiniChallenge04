@@ -91,14 +91,14 @@ class HotelScene: SKScene, GameplayScene {
             }
             proximoDialogo()
             dialogueCount += 1
-        case 50:
+        case 49:
             if !disableTouch{
                 sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
                 self.choice1 = Choice(text: "Accuse her of protecting Elena", score: 0)
                 self.choice2 = Choice(text: "Sympathize with their situation", score: 1)
                 self.choice3 = Choice(text: "Take advantage of her protectiveness", score: 2)
                 choicesNode = MultiChoicesNode(choice1: choice1, choice2: choice2, choice3: choice3)
-                choicesNode.isHidden = true
+                self.insertChild(choicesNode, at: 3)
                 choicesNode.appear()
             }
             disableTouch = true
