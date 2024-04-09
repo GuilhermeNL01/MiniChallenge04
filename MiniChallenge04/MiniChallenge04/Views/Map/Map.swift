@@ -35,9 +35,6 @@ class Map: SKScene{
         if self.butcherModel.hasViseted{
             self.nextScene = ScreenReport(path: self.$path)
         }
-        else{
-            buildMap()
-        }
     }
     
     private func buildMap() {
