@@ -13,7 +13,6 @@ class MultiChoicesNode: SKNode{
     var choiceNode2: ChoiceNode
     var choiceNode3: ChoiceNode
     var selectedChoice: Choice?
-    private var hasAppeared = false
     private var blur = SKSpriteNode(imageNamed: "choicesBlur")
     
     init(choice1: Choice, choice2: Choice, choice3: Choice) {
@@ -25,6 +24,7 @@ class MultiChoicesNode: SKNode{
         
         blur.anchorPoint = CGPoint(x: 0, y: 1)
         blur.position = CGPoint(x: 0, y: alturaTela)
+        blur.size = CGSize(width: larguraTela, height: alturaTela)
         self.alpha = 0
         
         addChild(blur)
@@ -36,7 +36,6 @@ class MultiChoicesNode: SKNode{
     }
     
     override func removeFromParent() {
-        hasAppeared = false
         let fadeOut = SKAction.fadeOut(withDuration: 0.4)
         let remove = SKAction.run {
             super.removeFromParent()
@@ -45,13 +44,10 @@ class MultiChoicesNode: SKNode{
         self.run(.sequence([fadeOut, remove]))
     }
     
-        func appear(){
-            if !hasAppeared{
-                let action = SKAction.fadeIn(withDuration: 0.4)
-                self.run(action)
-                blur.run(.fadeIn(withDuration: 1))
-                hasAppeared = true
-            }
+    func appear(){
+        let action = SKAction.fadeIn(withDuration: 0.4)
+        self.run(action)
+        blur.run(.fadeIn(withDuration: 1))
         }
     
     private func setupChoices(){
