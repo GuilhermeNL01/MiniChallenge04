@@ -16,18 +16,3 @@ class DialogueBox{
         self.mensageiro = mensageiro
     }
 }
-
-class Decisao: DialogueBox{
-    var alternativa : (Alternativa, Alternativa, Alternativa)
-    
-    init(alternativa: (Alternativa, Alternativa, Alternativa), mensagem: String, mensageiro: NPC) {
-        self.alternativa = alternativa
-        super.init(mensagem: mensagem, mensageiro: mensageiro)
-    }
-}
-
-struct Alternativa{
-    var nome: String
-    var selecionado: Bool
-}
-

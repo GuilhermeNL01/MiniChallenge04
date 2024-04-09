@@ -10,11 +10,11 @@ import _SpriteKit_SwiftUI
 
 struct FirstScreen: View {
     
-    @StateObject var vm = FirstScreenViewModel()
-    @State var path: [SKScene] = []
+    @ObservedObject var vm: FirstScreenViewModel
+    
     
     var body: some View {
-        NavigationStack(path: $path){
+        NavigationStack(path: vm.$path){
             ZStack{
                 
                 BackgroundImageView()
@@ -38,7 +38,7 @@ struct FirstScreen: View {
                         
                         Button{
                             withAnimation{
-                                path.append(HotelScene(path: $path))
+                                vm.path.append(vm.firstScreen)
                             }
                         } label: {
                             Image("Start")
@@ -62,10 +62,5 @@ struct FirstScreen: View {
                 }
             }
         }
-        
     }
-}
-
-#Preview {
-    FirstScreen()
 }
