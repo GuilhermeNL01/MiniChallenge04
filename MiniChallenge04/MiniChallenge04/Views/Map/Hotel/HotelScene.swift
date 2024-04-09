@@ -43,6 +43,7 @@ class HotelScene: SKScene, GameplayScene {
     }
     
     override func didMove(to view: SKView) {
+        UserDefaults.standard.setValue(Checkpoints.hotel.rawValue, forKey: "checkpoint") // defining checkpoint
         suspect.name = "???"
         buildDialogues()
         

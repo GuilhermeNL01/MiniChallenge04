@@ -17,7 +17,7 @@ protocol GameplayScene: Scenes{
     var hasFinishedAnimation : Bool { get set }
     var disableTouch : Bool { get set }
     
-    func switchConversation()
+    func switchConversation() // used to handle specific dialogues
 }
 
 extension GameplayScene{

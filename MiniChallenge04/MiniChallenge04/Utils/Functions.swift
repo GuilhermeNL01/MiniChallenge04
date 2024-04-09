@@ -11,7 +11,7 @@ import SpriteKit
 
 class TextAnimation: SKLabelNode {
     
-    var lineCount:Int = 1
+    var lineCount: Int = 1
     let labelNode = SKLabelNode()
     
     func textAnimation(text: String){
