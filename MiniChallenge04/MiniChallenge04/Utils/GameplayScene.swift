@@ -17,7 +17,7 @@ protocol GameplayScene: Scenes{
     var hasFinishedAnimation : Bool { get set }
     var disableTouch : Bool { get set }
     
-    func switchConversation()
+    func switchConversation() // used to handle specific dialogues
 }
 
 extension GameplayScene{
@@ -89,14 +89,17 @@ extension GameplayScene{
                     self.proximoDialogo()
                     self.disableTouch = false
                 }
-                
-                cenario.run(zoomInAction)
-                characterNode.run(zoomInAction)
-                
                 // Criar uma ação para mover o personagem para o chão
                 let moveAction = SKAction.moveTo(x: larguraTela * 0.46, duration: 2)
                 moveAction.timingMode = .easeInEaseOut
-                characterNode.run(.sequence([moveAction, dialogueIn]))
+                
+                cenario.run(zoomInAction)
+                characterNode.run(.sequence([.group([zoomInAction, moveAction]), dialogueIn]))
+                
+                if let highlight = scene?.childNode(withName: "highlight"){
+                    highlight.run(.sequence([.fadeOut(withDuration: 0.5), .removeFromParent()]))
+                }
+                
             }
         }
     }

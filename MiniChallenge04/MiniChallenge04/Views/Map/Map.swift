@@ -31,6 +31,7 @@ class Map: SKScene{
     }
     
     override func didMove(to view: SKView) {
+        UserDefaults.standard.setValue(Checkpoints.map.rawValue, forKey: "checkpoint") // defining checkpoint
         buildMap()
         if self.butcherModel.hasViseted{
             self.nextScene = ScreenReport(path: self.$path)

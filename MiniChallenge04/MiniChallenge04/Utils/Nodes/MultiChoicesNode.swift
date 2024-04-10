@@ -52,8 +52,8 @@ class MultiChoicesNode: SKNode{
     
     private func setupChoices(){
         self.choiceNode1.position = CGPoint(x: larguraTela * 0.3, y: alturaTela * 0.86)
-        self.choiceNode2.position = CGPoint(x: choiceNode1.position.x, y: choiceNode1.position.y - (alturaTela * 0.15))
-        self.choiceNode3.position = CGPoint(x: choiceNode2.position.x, y: choiceNode2.position.y - (alturaTela * 0.15))
+        self.choiceNode2.position = CGPoint(x: choiceNode1.position.x, y: choiceNode1.position.y - (alturaTela * 0.20))
+        self.choiceNode3.position = CGPoint(x: choiceNode2.position.x, y: choiceNode2.position.y - (alturaTela * 0.20))
         
         self.choiceNode1.name = "choice1"
         self.choiceNode2.name = "choice2"

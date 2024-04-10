@@ -40,6 +40,7 @@ class ScreenReport: SKScene{
     }
     
     override func didMove(to view: SKView) {
+        UserDefaults.standard.setValue(Checkpoints.report.rawValue, forKey: "checkpoint") // defining checkpoint
         bg.anchorPoint = CGPoint(x: 0, y: 0)
         bg.size = self.size
         addChild(bg)

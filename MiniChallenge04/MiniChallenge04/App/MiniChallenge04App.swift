@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import SpriteKit
 
 @main
 struct MiniChallenge04App: App {
+    @State var path: [SKScene] = []
+    
     var body: some Scene {
         WindowGroup {
-            FirstScreen()
+            FirstScreen(vm: FirstScreenViewModel(path: $path))
         }
     }
 }

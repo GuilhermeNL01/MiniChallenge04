@@ -28,6 +28,7 @@ class ContextGameScene: SKScene, Scenes{
     }
     
     override func didMove(to view: SKView) {
+        UserDefaults.standard.setValue(Checkpoints.context.rawValue, forKey: "checkpoint") // defining checkpoint
         buildDialogues()
         setupScene()
         framingDialogueBox()
