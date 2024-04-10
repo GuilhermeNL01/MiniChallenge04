@@ -44,7 +44,6 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     override func didMove(to view: SKView) {
         suspect.name = "???"
         buildDialogues()
-        
         cenario.position = CGPoint(x: frame.midX, y: frame.midY)
         cenario.size = self.size
         addChild(cenario)
@@ -70,9 +69,30 @@ class ButcherDialogueScene: SKScene, GameplayScene {
                 choicesNode.appear()
             }
             disableTouch = true
-            
-//        case 36:
-            
+
+        case 32:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.sidebar.bottomSidebar.insight1.text = "• Despite closing shop early, he was still out during the night of the crime."
+            }
+            proximoDialogo()
+            dialogueCount += 1
+        case 48:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.sidebar.bottomSidebar.insight1.text = "• Alan may be familiar with the shady businesses of Aldrich."
+            }
+            proximoDialogo()
+            dialogueCount += 1
+        case 63:
+            if !disableTouch{
+//                sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
+                self.choice1 = Choice(text: " Accuse him of being the culprit", score: 0)
+                self.choice2 = Choice(text: "Propose that the knife was used as the crime weapon", score: 1)
+                self.choice3 = Choice(text: "Accuse him of being an accomplice ", score: 2)
+                choicesNode = MultiChoicesNode(choice1: choice1, choice2: choice2, choice3: choice3)
+                self.insertChild(choicesNode, at: 3)
+                choicesNode.appear()
+            }
+            disableTouch = true
         default:
             if !disableTouch{
                 if dialogos.count >= 1{
@@ -102,6 +122,7 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     // handling touch and dialogue building
 extension ButcherDialogueScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(dialogueCount)
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let touchedNode = self.atPoint(location) // first node in hierarchy
@@ -119,6 +140,8 @@ extension ButcherDialogueScene {
                 if let score = choice?.choice.score{
                     rebuildDialogues(score: score)
                     proximoDialogo()
+                    dialogueCount += 1
+                    self.disableTouch = false
                 }
             } else {
                 sceneHandler(touchedNode: touchedNode)
@@ -272,7 +295,7 @@ extension ButcherDialogueScene {
                     DialogueBox(mensagem: "Uh… Yeah, haha…", mensageiro: suspect),
                     
                 ])
-                dialogueCount += 4
+                dialogueCount += 2
                 phase2Dialogues()
                 phase += 1
             } else if phase == 2{
@@ -331,6 +354,8 @@ extension ButcherDialogueScene {
                 phase += 1
             } else if phase == 2{
                 dialogos.append(contentsOf: [
+                    
+                    // Accuse him of being an accomplice
                     DialogueBox(mensagem: "Okay, let's take a few steps back… Were you alone that night?", mensageiro: carrie),
                     DialogueBox(mensagem: "What?! What do you mean, what does that have to do with anything?!", mensageiro: suspect),
                     DialogueBox(mensagem: "Hey, before you accuse me of accusing you, hear me out first! Were you, or were you not alone? Because if you were an accomplice–", mensageiro: carrie),
@@ -351,6 +376,7 @@ extension ButcherDialogueScene {
                     DialogueBox(mensagem: "Goodbye..", mensageiro: carrie),
                     
                 ])
+                dialogueCount += 2
             }
             if let score = choicesNode.selectedChoice?.score{
                 sidebar.upperSidebar.score.score += score
