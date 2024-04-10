@@ -51,15 +51,41 @@ class HotelScene: SKScene, GameplayScene {
         cenario.size = self.size
         addChild(cenario)
         
-        if let character = suspect.node {
-            character.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
-            addChild(character)
-        }
+        setupCharacter()
         addChild(choicesNode)
     }
     
+    private func setupCharacter(){
+        if let character = suspect.node {
+            let highlight = SKSpriteNode()
+            highlight.texture = SKTexture(image: .carmenBloomAnimation1)
+            let animationAtlas = [SKTexture(image: .carmenBloomAnimation1),
+                                  SKTexture(image: .carmenBloomAnimation2),
+                                  SKTexture(image: .carmenBloomAnimation3),
+                                  SKTexture(image: .carmenBloomAnimation4),
+                                  SKTexture(image: .carmenBloomAnimation5),
+                                  SKTexture(image: .carmenBloomAnimation6),
+                                  SKTexture(image: .carmenBloomAnimation7),
+                                  SKTexture(image: .carmenBloomAnimation8),
+                                  SKTexture(image: .carmenBloomAnimation9),
+                                  SKTexture(image: .carmenBloomAnimation10),
+                                  SKTexture(image: .carmenBloomAnimation11),
+            ]
+            let animation = SKAction.animate(with: animationAtlas, timePerFrame: 0.1)
+            let animationBackwards = SKAction.animate(with: animationAtlas.reversed(), timePerFrame: 0.1)
+            
+            highlight.name = "highlight"
+            highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
+            highlight.size = CGSize(width: 492, height: 862)
+            highlight.run(.repeatForever(.sequence([animation, animationBackwards])))
+            addChild(highlight)
+            character.position = highlight.position
+            addChild(character)
+        }
+    }
     
-    func switchConversation(){
+    
+    internal func switchConversation(){ // handling specific conversations
         switch dialogueCount{
         case 19:
             if !disableTouch{
@@ -133,7 +159,6 @@ class HotelScene: SKScene, GameplayScene {
 // handling touch and dialogue building
 extension HotelScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(dialogueCount)
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let touchedNode = self.atPoint(location) // first node in hierarchy
@@ -212,7 +237,16 @@ extension HotelScene{
         ])
     }
     
-    func choice1Selected(){
+    private func phase2Dialogues(){
+        dialogos.append(contentsOf: [
+            DialogueBox(mensagem: "Alright. Carrying on…", mensageiro: carrie),
+            DialogueBox(mensagem: "You also muttered something about an Elena earlier… What was that about?", mensageiro: carrie),
+            DialogueBox(mensagem: "Gosh, darling, you’re eavesdropping now? I was just talking to myself.", mensageiro: suspect),
+            DialogueBox(mensagem: "Really, I’m surprised you heard that so clearly, though.", mensageiro: suspect)
+        ])
+    }
+    
+    private func choice1Selected(){
         if phase == 1{
             dialogos.append(contentsOf: [
                 DialogueBox(mensagem: "Well, Carmen... Here's something else you might find surprising: did you know that, legally speaking, obstruction of justice can lead up to 6 years in prison?", mensageiro: carrie),
@@ -241,7 +275,7 @@ extension HotelScene{
         }
     }
     
-    func choice2Selected(){
+    private func choice2Selected(){
         if phase == 1 {
             dialogos.append(contentsOf: [
                 DialogueBox(mensagem: "Ma'am… Miss Bloom... Obstruction of justice can lead up to 6 years in prison… I wouldn't want you to go through that for omitting such a simple piece of information.", mensageiro: carrie),
@@ -281,7 +315,7 @@ extension HotelScene{
         }
     }
     
-    func choice3Selected(){
+    private func choice3Selected(){
         if phase == 1{
             dialogos.append(contentsOf: [
                 DialogueBox(mensagem: "*Sigh* … Alright. Then, I will be nice and assume you did actually stay at the hotel bar even after your show was done.", mensageiro: carrie),
@@ -320,12 +354,4 @@ extension HotelScene{
         }
     }
     
-    func phase2Dialogues(){
-        dialogos.append(contentsOf: [
-            DialogueBox(mensagem: "Alright. Carrying on…", mensageiro: carrie),
-            DialogueBox(mensagem: "You also muttered something about an Elena earlier… What was that about?", mensageiro: carrie),
-            DialogueBox(mensagem: "Gosh, darling, you’re eavesdropping now? I was just talking to myself.", mensageiro: suspect),
-            DialogueBox(mensagem: "Really, I’m surprised you heard that so clearly, though.", mensageiro: suspect)
-        ])
-    }
 }
