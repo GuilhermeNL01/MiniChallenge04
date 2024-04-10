@@ -33,8 +33,8 @@
 		31AF24222BC468E2000E0FE1 /* MultiChoicesNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AF24202BC468E2000E0FE1 /* MultiChoicesNode.swift */; };
 		4032C04F2BBC79C500E6C2FF /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C04E2BBC79C500E6C2FF /* GameOverScene.swift */; };
 		4032C0702BBF167300E6C2FF /* ButcherDialogueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4032C06F2BBF167300E6C2FF /* ButcherDialogueScene.swift */; };
-		409E3FF62BC470D3007E4BD4 /* Prologue.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 409E3FF52BC470BD007E4BD4 /* Prologue.mp4 */; };
 		409E3FF72BC470D8007E4BD4 /* Epilogue.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 409E3FF42BC470B2007E4BD4 /* Epilogue.mp4 */; };
+		409E3FFD2BC72D52007E4BD4 /* Prologue.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 409E3FFC2BC72D48007E4BD4 /* Prologue.mp4 */; };
 		40A3C5822B98D4FE0073F754 /* MiniChallenge04App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */; };
 		40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5852B98D5000073F754 /* Assets.xcassets */; };
 		40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A3C5882B98D5000073F754 /* Preview Assets.xcassets */; };
@@ -85,7 +85,7 @@
 		4032C06C2BBF15DD00E6C2FF /* MiniChallenge04.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge04.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4032C06F2BBF167300E6C2FF /* ButcherDialogueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButcherDialogueScene.swift; sourceTree = "<group>"; };
 		409E3FF42BC470B2007E4BD4 /* Epilogue.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Epilogue.mp4; sourceTree = "<group>"; };
-		409E3FF52BC470BD007E4BD4 /* Prologue.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Prologue.mp4; sourceTree = "<group>"; };
+		409E3FFC2BC72D48007E4BD4 /* Prologue.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Prologue.mp4; sourceTree = "<group>"; };
 		40A3C5812B98D4FE0073F754 /* MiniChallenge04App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniChallenge04App.swift; sourceTree = "<group>"; };
 		40A3C5852B98D5000073F754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40A3C5882B98D5000073F754 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 		40B793E32BAC95CB000C27DC /* Cutscene */ = {
 			isa = PBXGroup;
 			children = (
-				409E3FF52BC470BD007E4BD4 /* Prologue.mp4 */,
+				409E3FFC2BC72D48007E4BD4 /* Prologue.mp4 */,
 				409E3FF42BC470B2007E4BD4 /* Epilogue.mp4 */,
 				40B793E42BAC95EE000C27DC /* VideoCutsceneView.swift */,
 				40F474C92BBC3373008BC450 /* VideoCutscene2.swift */,
@@ -382,8 +382,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				409E3FFD2BC72D52007E4BD4 /* Prologue.mp4 in Resources */,
 				409E3FF72BC470D8007E4BD4 /* Epilogue.mp4 in Resources */,
-				409E3FF62BC470D3007E4BD4 /* Prologue.mp4 in Resources */,
 				40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */,
 				40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */,
 			);
