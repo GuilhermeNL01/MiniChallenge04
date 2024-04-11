@@ -42,19 +42,46 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     }
     
     override func didMove(to view: SKView) {
+        UserDefaults.standard.setValue(Checkpoints.hotel.rawValue, forKey: "checkpoint")
         suspect.name = "???"
         buildDialogues()
+        
         cenario.position = CGPoint(x: frame.midX, y: frame.midY)
         cenario.size = self.size
         addChild(cenario)
         
-        if let character = suspect.node {
-            character.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
-            addChild(character)
-        }
+        setupCharacter()
         addChild(choicesNode)
     }
     
+    private func setupCharacter(){
+        if let character = suspect.node {
+            let highlight = SKSpriteNode()
+            highlight.texture = SKTexture(image: .alanBoucherAnimation1)
+            let animationAtlas = [SKTexture(image: .alanBoucherAnimation1),
+                                  SKTexture(image: .alanBoucherAnimation2),
+                                  SKTexture(image: .alanBoucherAnimation3),
+                                  SKTexture(image: .alanBoucherAnimation4),
+                                  SKTexture(image: .alanBoucherAnimation5),
+                                  SKTexture(image: .alanBoucherAnimation6),
+                                  SKTexture(image: .alanBoucherAnimation7),
+                                  SKTexture(image: .alanBoucherAnimation8),
+                                  SKTexture(image: .alanBoucherAnimation9),
+                                  SKTexture(image: .alanBoucherAnimation10),
+                                  SKTexture(image: .alanBoucherAnimation11),
+            ]
+            let animation = SKAction.animate(with: animationAtlas, timePerFrame: 0.1)
+            let animationBackwards = SKAction.animate(with: animationAtlas.reversed(), timePerFrame: 0.1)
+            
+            highlight.name = "highlight"
+            highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
+            highlight.size = CGSize(width: 492, height: 862)
+            highlight.run(.repeatForever(.sequence([animation, animationBackwards])))
+            addChild(highlight)
+            character.position = highlight.position
+            addChild(character)
+        }
+    }
     func switchConversation(){
         switch dialogueCount{
         case 14:
