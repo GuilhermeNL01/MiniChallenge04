@@ -63,7 +63,7 @@ class ScreenReport: SKScene{
         
         cluesLabeling.text = "First I need to point out a suspect."
         cluesLabeling.fontSize = 20
-        cluesLabeling.fontName = fonteMedium
+        cluesLabeling.fontName = libreBaskervilleBold
         cluesLabeling.position = cluesBox.position
         
         cluesLabeling.preferredMaxLayoutWidth = larguraTela * 0.3

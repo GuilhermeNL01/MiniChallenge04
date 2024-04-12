@@ -85,11 +85,6 @@ struct FirstScreen: View {
                 } message: {
                     Text("Are you sure you want to start a new game?\n Your previous save will be overwritten.")
                 }
-            }.onAppear{
-                for family in UIFont.familyNames.sorted() {
-                    let names = UIFont.fontNames(forFamilyName: family)
-                    print("Family: \(family) Font names: \(names)")
-                }
             }
         }
     }
