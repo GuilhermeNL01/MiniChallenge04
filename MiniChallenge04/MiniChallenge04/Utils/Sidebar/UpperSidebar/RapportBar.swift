@@ -17,7 +17,7 @@ class RapportBar: SKNode{
         background.size = CGSize(width: larguraTela * 0.263, height: alturaTela * 0.261)
         self.addChild(background)
         mlModel.label.fontSize = 20
-        mlModel.label.fontName = fonteMedium
+        mlModel.label.fontName = libreBaskervilleBold
         mlModel.label.position = CGPoint(x: 0, y: -34)
         mlModel.label.verticalAlignmentMode = .center
         mlModel.label.preferredMaxLayoutWidth = 237

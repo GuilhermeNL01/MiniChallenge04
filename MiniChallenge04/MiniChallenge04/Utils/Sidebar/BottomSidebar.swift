@@ -28,7 +28,7 @@ class BottomSidebar: SKNode{
     
     private func textSetup(){
         let screenSizeConstraint = alturaTela * 0.07 // variavel para alocar diferenca de posicao entre os textos
-        insight1.fontName = fonteMedium
+        insight1.fontName = libreBaskerville
         insight1.fontSize = 20
         insight1.position = CGPoint(x: 0, y: alturaTela * 0.037)
         insight1.preferredMaxLayoutWidth = 385
@@ -36,7 +36,7 @@ class BottomSidebar: SKNode{
         insight2.lineBreakMode = .byWordWrapping
         addChild(insight1)
         
-        insight2.fontName = fonteMedium
+        insight2.fontName = libreBaskerville
         insight2.fontSize = 20
         insight2.position = CGPoint(x: insight1.position.x, y: insight1.position.y - screenSizeConstraint)
         insight2.preferredMaxLayoutWidth = 385
@@ -44,7 +44,7 @@ class BottomSidebar: SKNode{
         insight2.lineBreakMode = .byWordWrapping
         addChild(insight2)
         
-        insight3.fontName = fonteMedium
+        insight3.fontName = libreBaskerville
         insight3.fontSize = 20
         insight3.position = CGPoint(x: insight2.position.x, y: insight2.position.y - screenSizeConstraint)
         insight3.preferredMaxLayoutWidth = 385
@@ -52,7 +52,7 @@ class BottomSidebar: SKNode{
         insight3.lineBreakMode = .byWordWrapping
         addChild(insight3)
         
-        insight4.fontName = fonteMedium
+        insight4.fontName = libreBaskerville
         insight4.fontSize = 20
         insight4.position = CGPoint(x: insight3.position.x, y: insight3.position.y - screenSizeConstraint)
         insight4.preferredMaxLayoutWidth = 385

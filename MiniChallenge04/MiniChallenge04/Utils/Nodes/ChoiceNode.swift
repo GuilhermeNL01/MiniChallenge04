@@ -20,7 +20,7 @@ class ChoiceNode: SKNode{
         
         choiceLabel.text = choice.text
         choiceLabel.preferredMaxLayoutWidth = 438
-        choiceLabel.fontName = fonteMedium
+        choiceLabel.fontName = libreBaskervilleBold
         choiceLabel.verticalAlignmentMode = .center
         choiceLabel.fontSize = 26
         

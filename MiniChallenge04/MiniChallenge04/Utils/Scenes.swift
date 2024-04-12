@@ -125,19 +125,19 @@ extension Scenes{
         var personagem:SKLabelNode? = nil
         
         personagem = SKLabelNode(text: dialogo.mensageiro.name)
-        personagem?.fontColor = dialogo.mensageiro.type == .main ? .red : .yellow
         
         // treating the character text block
         if let personagem = personagem {
             personagem.name = "personagem"
-            personagem.fontName = fonteMedium
+            personagem.fontName = elegantTypewritter
             if let nameTag = self.childNode(withName: "nameTag"){
-                personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.3)
+                personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.28)
+                personagem.fontColor = dialogo.mensageiro.type == .main ? .carrieName : .npcName
                 self.addChild(personagem)
                 personagem.isHidden = nameTag.isHidden
             }
             personagem.zPosition = 10
-            personagem.fontSize = 24
+            personagem.fontSize = 28
         }
         
         let animacaoTexto = TextAnimation()
