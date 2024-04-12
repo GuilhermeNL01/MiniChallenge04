@@ -75,7 +75,7 @@ class HotelScene: SKScene, GameplayScene {
             let animationBackwards = SKAction.animate(with: animationAtlas.reversed(), timePerFrame: 0.1)
             
             highlight.name = "highlight"
-            highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
+            highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.42)
             highlight.size = CGSize(width: 492, height: 862)
             highlight.run(.repeatForever(.sequence([animation, animationBackwards])))
             addChild(highlight)

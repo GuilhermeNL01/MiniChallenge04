@@ -78,14 +78,18 @@ struct FirstScreen: View {
                 .alert("Start a New Game", isPresented: $isStartingNewGame) {
                     Button("Return", role: .cancel){}
                     Button("Start a new game"){
-                        UserDefaults.standard.removeObject(forKey: "checkpoint")
+                        UserDefaults.resetDefaults()
                         vm.firstScreen = VideoCutsceneScene(path: vm.$path)
                         vm.path.append(vm.firstScreen)
                     }
                 } message: {
                     Text("Are you sure you want to start a new game?\n Your previous save will be overwritten.")
                 }
-
+            }.onAppear{
+                for family in UIFont.familyNames.sorted() {
+                    let names = UIFont.fontNames(forFamilyName: family)
+                    print("Family: \(family) Font names: \(names)")
+                }
             }
         }
     }
