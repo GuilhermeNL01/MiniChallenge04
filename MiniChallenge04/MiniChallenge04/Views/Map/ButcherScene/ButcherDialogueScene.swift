@@ -90,13 +90,13 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             }
             break
         case 40:
-           if !disableTouch{
+            if !disableTouch{
                 proximoDialogo()
                 sidebar.ml.classify(prompt: "Hearing that from a detective is terrifying, you know?!", npc: suspect)
                 choicesNode.appear()
             }
             disableTouch = true
-
+            
         case 32:
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
                 self.sidebar.bottomSidebar.insight1.text = "• Despite closing shop early, he was still out during the night of the crime."
@@ -105,14 +105,20 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             dialogueCount += 1
         case 48:
             DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                self.sidebar.bottomSidebar.insight1.text = "• Alan may be familiar with the shady businesses of Aldrich."
+                self.sidebar.bottomSidebar.insight3.text = "• Alan may be familiar with the shady businesses of Aldrich."
+            }
+            proximoDialogo()
+            dialogueCount += 1
+        case 43:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.sidebar.bottomSidebar.insight2.text = "• There was a butcher knife left behind in the alleyway of the shop."
             }
             proximoDialogo()
             dialogueCount += 1
         case 63:
             if !disableTouch{
-//                sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
-                self.choice1 = Choice(text: " Accuse him of being the culprit", score: 0)
+                //                sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
+                self.choice1 = Choice(text: "Accuse him of being the culprit", score: 0)
                 self.choice2 = Choice(text: "Propose that the knife was used as the crime weapon", score: 1)
                 self.choice3 = Choice(text: "Accuse him of being an accomplice ", score: 2)
                 choicesNode = MultiChoicesNode(choice1: choice1, choice2: choice2, choice3: choice3)
@@ -120,6 +126,15 @@ class ButcherDialogueScene: SKScene, GameplayScene {
                 choicesNode.appear()
             }
             disableTouch = true
+            
+            
+            
+        case 71:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            self.sidebar.bottomSidebar.insight4.text = "• Alan saw a suspicious group together with the victim in the alleyway."
+        }
+            proximoDialogo()
+            dialogueCount += 1
         default:
             if !disableTouch{
                 if dialogos.count >= 1{
@@ -149,7 +164,6 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     // handling touch and dialogue building
 extension ButcherDialogueScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(dialogueCount)
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let touchedNode = self.atPoint(location) // first node in hierarchy
