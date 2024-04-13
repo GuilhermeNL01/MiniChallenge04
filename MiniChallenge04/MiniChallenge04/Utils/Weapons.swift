@@ -8,7 +8,7 @@
 import Foundation
 
 enum Weapons: String {
-    case knife = "A big knife, often used in butchery"
-    case pills = "Looks like Ibuprofen, might cause an overdose"
-    case razorBlade = "Pretty sharp, gotta be careful with this"
+    case pocketKnife
+    case fishingNet
+    case butcherKnife
 }

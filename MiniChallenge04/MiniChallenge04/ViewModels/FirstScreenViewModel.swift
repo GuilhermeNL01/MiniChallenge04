@@ -10,48 +10,57 @@ import SwiftUI
 import SpriteKit
 
 class FirstScreenViewModel: ObservableObject{
-    @Published var presentScenes = false
-    var firstScene = VideoCutsceneScene(size: CGSize(width: larguraTela, height: alturaTela))
+    @Binding var path: [SKScene]
+    var firstScreen: SKScene = SKScene()
     
-    var checkPoint: [String: Int] {
+    var checkpoint: Checkpoints? {
         get {
-            UserDefaults.standard.value(forKey: "checkPoint") as? [String : Int] ?? [:]
+            if let checkpoint = UserDefaults.standard.value(forKey: "checkpoint") as? String{
+                return Checkpoints(rawValue: checkpoint)
+            } else {
+                return nil
+            }
         }
         set {
-            UserDefaults.standard.setValue(newValue, forKey: "checkPoint")
+            UserDefaults.standard.setValue(newValue?.rawValue, forKey: "checkpoint")
         }
     }
     
-    init() {
-//        verifyCheckPoint()
+    init(path: Binding<[SKScene]>){
+        _path = path
+        checkCheckpoint()
     }
     
-    func verifyCheckPoint(){
-        var lastPoint: (String, Int)
-        
-        for checkPoints in checkPoint{
-            lastPoint = checkPoints
+    private func checkCheckpoint(){
+        switch checkpoint{
+        case .context:
+            firstScreen = ContextGameScene(path: $path)
+            break
+        case .map:
+            firstScreen = Map(path: $path)
+            break
+        case .hotel:
+            firstScreen = HotelScene(path: $path)
+            break
+        case .butcher:
+            firstScreen = ButcherDialogueScene(path: $path)
+            break
+        case .report:
+            firstScreen = ScreenReport(path: $path)
+            break
+        default:
+            firstScreen = VideoCutsceneScene(path: $path)
+            break
         }
-        
-//        switch lastPoint{
-//        case ("Hotel", 0):
-////            firstScene = ContextGameScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-//            break
-//        case ("Hotel", 1):
-//            break
-//        case ("Hotel", _):
-//
-//            break
-//        case (_, _):
-//
-//            break
-//            
-//        default:
-////            firstScene = VideoCutsceneScene(path: $spriteKitPath, size: CGSize(width: larguraTela, height: alturaTela))
-//            break
-//        }
-        firstScene.scaleMode = .fill
     }
+    
 }
 
-
+enum Checkpoints: String{
+    case context
+    case map
+    case hotel
+    case butcher
+    case pier
+    case report
+}

@@ -10,26 +10,24 @@ import _SpriteKit_SwiftUI
 
 struct FirstScreen: View {
     
-    @StateObject var vm = FirstScreenViewModel()
+    @ObservedObject var vm: FirstScreenViewModel
+    @State var isStartingNewGame = false
+    
     
     var body: some View {
-        NavigationStack{
+        NavigationStack(path: vm.$path){
             ZStack{
                 
                 BackgroundImageView()
                 Black()
-                    .opacity(0.88)
+                    .opacity(0.5)
                 
-                Text("PLACEHOLDER")
-                    .font(.largeTitle)
-                    .foregroundStyle(.white)
-                    .opacity(0.8)
                 
                 VStack{
                     HStack{
-                        
                         Image("Logo")
-                            .padding(70)
+                            .frame(width: 827,height: 518)
+                            .padding(20)
                         Spacer()
                     }
                     Spacer()
@@ -38,11 +36,14 @@ struct FirstScreen: View {
                     
                     VStack{
                         Spacer()
-                        
-                        NavigationLink{
-                            SpriteView(scene: vm.firstScene)
-                                .ignoresSafeArea()
-                                .navigationBarBackButtonHidden()
+                        Button{
+                            withAnimation{
+                                if vm.checkpoint != nil{
+                                    isStartingNewGame = true
+                                } else {
+                                    vm.path.append(vm.firstScreen)
+                                }
+                            }
                         } label: {
                             Image("Start")
                                 .resizable()
@@ -50,31 +51,41 @@ struct FirstScreen: View {
                                 .scaledToFit()
                                 .frame(width: 285, height: 119)
                                 .scaledToFit()
-                                .padding(.bottom, 20)
-                        }
+                                .padding(.leading, 60)
+                        }.padding(.bottom)
                         
-                        NavigationLink{
-                            CreditsView()
-                        } label: {
-                            Image("Credits")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .scaledToFit()
-                                .frame(width: 285, height: 119)
-                                .scaledToFit()
-                                .padding(.horizontal, 60)
-                            
-                        }
-                        .padding(.bottom, 60)
-                    }
+                            Button{
+                                withAnimation{
+                                    vm.path.append(vm.firstScreen)
+                                }
+                            } label: {
+                                Image(vm.checkpoint != nil ? .continue : .continueInactive)
+                                    .resizable()
+                                    .aspectRatio( contentMode: .fit)
+                                    .scaledToFit()
+                                    .frame(width: 285, height: 119)
+                                    .scaledToFit()
+                                    .padding(.leading, 60)
+                            }.disabled(vm.checkpoint == nil)
+                        }.padding(.bottom, 60)
                     Spacer()
+                }.navigationDestination(for: SKScene.self) { scene in
+                    SpriteView(scene: scene)
+                        .transition(.opacity)
+                        .ignoresSafeArea()
+                        .navigationBarBackButtonHidden()
+                }
+                .alert("Start a New Game", isPresented: $isStartingNewGame) {
+                    Button("Return", role: .cancel){}
+                    Button("Start a new game"){
+                        UserDefaults.resetDefaults()
+                        vm.firstScreen = VideoCutsceneScene(path: vm.$path)
+                        vm.path.append(vm.firstScreen)
+                    }
+                } message: {
+                    Text("Are you sure you want to start a new game?\n Your previous save will be overwritten.")
                 }
             }
         }
-        
     }
-}
-
-#Preview {
-    FirstScreen()
 }

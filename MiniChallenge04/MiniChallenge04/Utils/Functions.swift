@@ -11,14 +11,14 @@ import SpriteKit
 
 class TextAnimation: SKLabelNode {
     
-    var lineCount:Int = 1
+    var lineCount: Int = 1
     let labelNode = SKLabelNode()
     
     func textAnimation(text: String){
         
         // Step 1: Set up SpriteKit scene
         labelNode.fontSize = 20
-        labelNode.fontName = fonteRegular
+        labelNode.fontName = libreBaskerville
         labelNode.position = CGPoint(x: frame.maxX/14, y: frame.midY/0.9)
         labelNode.horizontalAlignmentMode = .left // Set the horizontal alignment to left
         labelNode.verticalAlignmentMode = .top // Set the vertical alignment to top
@@ -50,7 +50,7 @@ class TextAnimation: SKLabelNode {
                 currentLine = "" // Reset the current line
                 labelNode.text = typedText // Update the labelNode text with the typedText
                 lineWidth = 0.0 // Reset the line width to 0
-                lineCount = lineCount+1
+                lineCount += 1
                 
                 
                 let updateTextAction = SKAction.run {

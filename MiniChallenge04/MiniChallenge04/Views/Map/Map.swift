@@ -10,33 +10,82 @@ import SwiftUI
 
 class Map: SKScene{
     var background = SKSpriteNode(imageNamed: "MapBackground")
-    var hotel = SKSpriteNode(imageNamed: "HotelImage")
-    var pier = SKSpriteNode(imageNamed: "PierImage")
-    var butcher = SKSpriteNode(imageNamed: "ButcherImage")
+    var hotel = SKSpriteNode(imageNamed: "HotelAvailable")
+    var pier = SKSpriteNode(imageNamed: "PierAvailable")
+    var butcher = SKSpriteNode(imageNamed: "ButcherAvailable")
+    var hasVisitedHotel: Bool{
+        get {
+            UserDefaults.standard.bool(forKey: "hasVisitedHotel")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "hasVisitedHotel")
+        }
+    }
+    var hasVisitedPier: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "hasVisitedPier")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "hasVisitedPier")
+        }
+    }
+    var hasVisitedButcher: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "hasVisitedPier")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "hasVisitedPier")
+        }
+    }
     
-    var myView: SKView = SKView()
     var nextScene: SKScene?
+    @Binding var path: [SKScene]
+    
+    init(path: Binding<[SKScene]>){
+        _path = path
+        super.init(size: CGSize(width: larguraTela, height: alturaTela))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func didMove(to view: SKView) {
+        if self.hasVisitedButcher && hasVisitedPier && hasVisitedHotel{
+            self.nextScene = ScreenReport(path: self.$path)
+            guard let nextScene else { return }
+            path.append(nextScene)
+        }
+        UserDefaults.standard.setValue(Checkpoints.map.rawValue, forKey: "checkpoint") // defining checkpoint
         buildMap()
     }
     
-    private func buildMap(){
-    
+    private func buildMap() {
         setupBack()
-        hotel.position = CGPoint(x: frame.size.width * 0.23, y: frame.size.height * 0.65)
+        
+        // Configuração do hotel
+        hotel.size = CGSize(width: larguraTela * 0.25, height: alturaTela * 0.47)
+        hotel.position = CGPoint(x: larguraTela * 0.23, y: alturaTela * 0.64)
         hotel.name = "Hotel"
+        hotel.texture = SKTexture(image: hasVisitedHotel ? .hotelInactive : .hotelAvailable)
         addChild(hotel)
-        pier.position = CGPoint(x: frame.size.width * 0.5, y: frame.size.height * 0.297)
-        pier.name = "Pier"
-        addChild(pier)
-        butcher.position = CGPoint(x: frame.size.width * 0.765, y: frame.size.height * 0.638)
+        
+        // Configuração do açougueiro
+        hotel.size = CGSize(width: larguraTela * 0.22, height: alturaTela * 0.46)
+        butcher.position = CGPoint(x: larguraTela * 0.5, y: alturaTela * 0.35)
         butcher.name = "Butcher"
-        if let view = view{
-            myView = view
-        }
+        butcher.texture = SKTexture(image: hasVisitedButcher ? .butcherInactive : .butcherAvailable)
         addChild(butcher)
+        
+        // Configuração do pier
+        hotel.size = CGSize(width: larguraTela * 0.25, height: alturaTela * 0.47)
+        pier.position = CGPoint(x: larguraTela * 0.77, y: alturaTela * 0.55)
+        pier.name = "Pier"
+        pier.texture = SKTexture(image: hasVisitedPier ? .pierInactive : .pierAvailable)
+        addChild(pier)
     }
+    
+    
     
     private func setupBack(){
         background.size = size
@@ -44,28 +93,55 @@ class Map: SKScene{
         addChild(background)
     }
     
-    private func goToNextScene(sceneName: String){
-        
-        switch sceneName{
+    private func goToNextScene(sceneName: String) {
+        switch sceneName {
         case "Hotel":
-            nextScene = CenaTransition(size: CGSize(width: larguraTela, height: alturaTela))
-            break
+            if !hasVisitedHotel {
+                hasVisitedHotel = true
+                
+                let animation = SKAction.animate(with: [SKTexture(image: .hotelSelected),
+                                                        SKTexture(image: .hotelAvailable)]
+                                                 , timePerFrame: 0.05)
+                
+                self.hotel.run(animation)
+                
+                self.nextScene = HotelScene(path: self.$path)
+            }
+            
         case "Pier":
-            nextScene = CenaTransition2(size: CGSize(width: larguraTela, height: alturaTela))
-            break
+            if !hasVisitedPier {
+                hasVisitedPier = true
+                
+                let animation = SKAction.animate(with: [SKTexture(image: .pierSelected),
+                                                        SKTexture(image: .pierAvailable)]
+                                                 , timePerFrame: 0.05, resize: false, restore: false)
+                
+                self.pier.run(animation)
+                //                self.nextScene = Pier Scene goes here
+            }
         case "Butcher":
-            nextScene = CenaTransition3(size: CGSize(width: larguraTela, height: alturaTela))
+            if !hasVisitedButcher {
+                hasVisitedButcher = true
+                
+                let animation = SKAction.animate(with: [SKTexture(image: .butcherSelected),
+                                                        SKTexture(image: .butcherAvailable)]
+                                                 , timePerFrame: 0.05, resize: false, restore: false)
+                
+                self.butcher.run(animation)
+                self.nextScene = ButcherDialogueScene(path: self.$path)
+            }
+        default:
             break
-        default: break
+            
         }
-        if let nextScene{
-            self.view?.presentScene(nextScene)
+        // Verifica se tanto o hotel quanto o açougueiro foram visitados antes de ir para a cena de relatório
+        if let nextScene = self.nextScene {
+            path.append(nextScene)
         }
     }
-    
 }
 
-extension Map{
+extension Map {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
@@ -78,4 +154,3 @@ extension Map{
         }
     }
 }
-

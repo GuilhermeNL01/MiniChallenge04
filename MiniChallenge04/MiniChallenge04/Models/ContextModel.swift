@@ -26,7 +26,7 @@ struct ContextModel{
     }
     var crimeLocation: String {
         get{
-            return UserDefaults.standard.string(forKey: "crimeLocation") ?? "hotel"
+            return UserDefaults.standard.string(forKey: "crimeLocation") ?? "hotelBar"
         }
         set{
             UserDefaults.standard.setValue(newValue, forKey: "crimeLocation")
@@ -34,8 +34,8 @@ struct ContextModel{
     }
     
     init(){
-        self.murderer = "butcher"
-        self.crimeWeapon = "knife"
-        self.crimeLocation = "hotel"
+        self.murderer = "helena"
+        self.crimeWeapon = "pocketKnife"
+        self.crimeLocation = "pier"
     }
 }

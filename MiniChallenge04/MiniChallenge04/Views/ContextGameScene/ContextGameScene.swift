@@ -10,34 +10,35 @@ import SpriteKit
 import SwiftUI
 
 class ContextGameScene: SKScene, Scenes{
-    var carrie = NPC(.main)
+    @Binding var path: [SKScene]
     
     var dialogos: [DialogueBox] = []
+    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "OfficeBG")
     
-    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Background")
-    var nextScene: SKScene? // the scene after this one
+    var carrie = NPC(.main)
     var _model = ContextModel() // creating a model object to define game properties
     
+    init(path: Binding<[SKScene]>){
+        _path = path
+        super.init(size: CGSize(width: larguraTela, height: alturaTela))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func didMove(to view: SKView) {
-        
+        UserDefaults.standard.setValue(Checkpoints.context.rawValue, forKey: "checkpoint") // defining checkpoint
         buildDialogues()
-        backgroundColor = .black
-        setupCenario()
-        framingDialogueBox(true)
+        setupScene()
+        framingDialogueBox()
         proximoDialogo()
     }
     
-    private func setupCenario(){
+    private func setupScene(){
         cenario.size = size
         cenario.anchorPoint = CGPoint(x: 0, y: 0)
         addChild(cenario)
-    }
-    
-    private func goToNextScene(){
-        nextScene = Map(size: CGSize(width: larguraTela, height: alturaTela))
-        if let nextScene{
-            self.view?.presentScene(nextScene)
-        }
     }
     
     private func buildDialogues(){
@@ -60,17 +61,15 @@ class ContextGameScene: SKScene, Scenes{
             DialogueBox(mensagem: "......", mensageiro: carrie),
             DialogueBox(mensagem: "Anyways! I'm all set. Let's start by picking the first location to investigate.", mensageiro: carrie),]
     }
-    
 }
 
 extension ContextGameScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
+        guard touches.first != nil else { return }
         if dialogos.count > 1{
-            proximoDialogo(true)
-            
+            proximoDialogo()
         } else {
-            goToNextScene()
+            trocarCena(nextScene: Map(path: $path))
         }
     }
 }

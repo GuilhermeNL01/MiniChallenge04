@@ -9,34 +9,47 @@ import Foundation
 import SpriteKit
 
 protocol Scenes: SKScene{
+    var path: [SKScene] {get set}
     var dialogos:[DialogueBox] {get set}
     var cenario: SKSpriteNode {get set}
 }
 
 extension Scenes{
-    func proximoDialogo(_ clearFirst: Bool? = nil){
-        limparDialogos()
+    func proximoDialogo(){
         
-        if clearFirst == true{
-            if dialogos.count != 0{
-                dialogos.remove(at: 0)
-            }
+        if dialogos.count > 0{
+            limparDialogos()
+            dialogos.remove(at: 0)
         }
         
         if let dialogo = dialogos.first{
             exibirMensagem(dialogo: dialogo)
+            
+            switch dialogo.mensageiro.type{ // handling text box ui
+            case .main:
+                changeTextBox(.nameTagCarrieActive, .textBoxCarrieActive)
+            case .info:
+                changeTextBox(nil, .infoTextBoxActive)
+            default:
+                changeTextBox(.nameTag, .textBox)
+            }
         }
     }
     
-    func framingDialogueBox(_ hasNameTag: Bool? = nil){
-        if hasNameTag == true{
-            let nameTag = SKSpriteNode(imageNamed: "NameTag")
-            nameTag.name = "nameTag"
-            nameTag.anchorPoint = CGPoint(x: 0, y: 0)
-            nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.08)
-            nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.23)
-            self.addChild(nameTag)
-        }
+    func framingDialogueBox(){
+        let blur = SKSpriteNode(imageNamed: "dialogueBlur")
+        blur.name = "dialogueBlur"
+        blur.anchorPoint = CGPoint(x: 0, y: 0)
+        blur.size = CGSize(width: larguraTela, height: alturaTela * 0.57)
+        blur.position = CGPoint(x: 0, y: 0)
+        self.addChild(blur)
+        
+        let nameTag = SKSpriteNode(imageNamed: "NameTag")
+        nameTag.name = "nameTag"
+        nameTag.anchorPoint = CGPoint(x: 0, y: 0)
+        nameTag.size = CGSize(width: larguraTela * 0.29, height: alturaTela * 0.08)
+        nameTag.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.25)
+        self.addChild(nameTag)
         
         let textBox = SKSpriteNode(imageNamed: "TextBox")
         textBox.name = "textBox"
@@ -44,6 +57,11 @@ extension Scenes{
         textBox.size = CGSize(width: larguraTela * 0.96, height: alturaTela * 0.2)
         textBox.position = CGPoint(x: larguraTela * 0.02, y: alturaTela * 0.03)
         self.addChild(textBox)
+        
+        blur.alpha = 0
+        nameTag.alpha = 0
+        textBox.alpha = 0
+        showDialogueAnimation()
     }
     
     func limparDialogos(){
@@ -55,6 +73,50 @@ extension Scenes{
         }
     }
     
+    func hideDialogueAnimation(){
+        if let nameTag = self.childNode(withName: "nameTag"){
+            nameTag.run(.fadeOut(withDuration: 0.3))
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.run(.fadeOut(withDuration: 0.3))
+        }
+        if let textBox = self.childNode(withName: "textBox"){
+            textBox.run(.fadeOut(withDuration: 0.3))
+        }
+        if let animacaoTexto = self.childNode(withName: "animacaoTexto"){
+            animacaoTexto.run(.fadeOut(withDuration: 0.3))
+        }
+        if let blur = self.childNode(withName: "dialogueBlur"){
+            blur.run(.fadeOut(withDuration: 0.3))
+        }
+    }
+    
+    func showDialogueAnimation(){
+        if let nameTag = self.childNode(withName: "nameTag"){
+            nameTag.run(.fadeIn(withDuration: 0.3))
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.run(.fadeIn(withDuration: 0.3))
+        }
+        if let textBox = self.childNode(withName: "textBox"){
+            textBox.run(.fadeIn(withDuration: 0.3))
+        }
+        if let animacaoTexto = self.childNode(withName: "animacaoTexto"){
+            animacaoTexto.run(.fadeIn(withDuration: 0.3))
+        }
+        if let blur = self.childNode(withName: "dialogueBlur"){
+            blur.run(.fadeIn(withDuration: 0.3))
+        }
+    }
+    
+    // change to next scene
+    func trocarCena(nextScene: SKScene){
+        nextScene.size = self.size
+        nextScene.scaleMode = .aspectFill
+        nextScene.backgroundColor = .black
+        path.append(nextScene)
+    }
+    
     private func exibirMensagem(dialogo:DialogueBox){
         if let personagem = self.childNode(withName: "personagem"){
             personagem.removeFromParent()
@@ -63,20 +125,19 @@ extension Scenes{
         var personagem:SKLabelNode? = nil
         
         personagem = SKLabelNode(text: dialogo.mensageiro.name)
-        personagem?.fontColor = dialogo.mensageiro.type == .main ? .red : .yellow
         
         // treating the character text block
         if let personagem = personagem {
             personagem.name = "personagem"
-            personagem.fontName = fonteNegrito
+            personagem.fontName = elegantTypewritter
             if let nameTag = self.childNode(withName: "nameTag"){
-                personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.26)
-            } else {
-//                personagem.position = CGPoint (x: larguraTela / 8, y: alturaTela / 5)
+                personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.28)
+                personagem.fontColor = dialogo.mensageiro.type == .main ? .carrieName : .npcName
+                self.addChild(personagem)
+                personagem.isHidden = nameTag.isHidden
             }
             personagem.zPosition = 10
-            personagem.fontSize = 24
-            self.addChild(personagem)
+            personagem.fontSize = 28
         }
         
         let animacaoTexto = TextAnimation()
@@ -98,15 +159,37 @@ extension Scenes{
         
     }
     
-    func trocarCena(nextScene: SKScene, transicao: Bool, duracao: Double){
-        nextScene.size = self.size
-        nextScene.scaleMode = .aspectFill
-        nextScene.backgroundColor = .black
-        if transicao{
-            let transition = SKTransition.fade(withDuration: TimeInterval(duracao))
-            self.view?.presentScene(nextScene, transition: transition)
+    // toggles nametag visibility
+    private func hideNameTag(){
+        if let nametag = self.childNode(withName: "nameTag"){
+            nametag.isHidden = true
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.isHidden = true
+        }
+    }
+    
+    // toggles nametag visibility
+    private func showsNameTag(){
+        if let nametag = self.childNode(withName: "nameTag"){
+            nametag.isHidden = false
+        }
+        if let character = self.childNode(withName: "personagem"){
+            character.isHidden = false
+        }
+    }
+    
+    private func changeTextBox(_ nameTagImage: UIImage? = nil, _ textBoxImage: UIImage){
+        if let nameTagImage{
+            showsNameTag()
+            if let nameTag = self.childNode(withName: "nameTag") as? SKSpriteNode{
+                nameTag.texture = SKTexture(image: nameTagImage)
+            }
         } else {
-            self.view?.presentScene((nextScene))
+            hideNameTag()
+        }
+        if let textBox = self.childNode(withName: "textBox") as? SKSpriteNode{
+            textBox.texture = SKTexture(image: textBoxImage)
         }
     }
     
