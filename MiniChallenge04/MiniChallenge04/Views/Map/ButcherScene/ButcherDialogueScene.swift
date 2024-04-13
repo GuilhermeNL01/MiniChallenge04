@@ -104,14 +104,19 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             proximoDialogo()
             dialogueCount += 1
         case 48:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                self.sidebar.bottomSidebar.insight3.text = "• Alan may be familiar with the shady businesses of Aldrich."
+            if choicesNode.selectedChoice?.text == "De-escalate the situation" {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    self.sidebar.bottomSidebar.insight3.text = "• Alan may be familiar with the shady businesses of Aldrich."
+                }
             }
             proximoDialogo()
             dialogueCount += 1
+            
         case 43:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                self.sidebar.bottomSidebar.insight2.text = "• There was a butcher knife left behind in the alleyway of the shop."
+            if choicesNode.selectedChoice?.text == "Specify the knife as the weapon." {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    self.sidebar.bottomSidebar.insight2.text = "• There was a butcher knife left behind in the alleyway of the shop."
+                }
             }
             proximoDialogo()
             dialogueCount += 1
@@ -119,7 +124,7 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             if !disableTouch{
                 //                sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
                 self.choice1 = Choice(text: "Accuse him of being the culprit", score: 0)
-                self.choice2 = Choice(text: "Propose that the knife was used as the crime weapon", score: 1)
+                self.choice2 = Choice(text: "Specify the knife as the weapon.", score: 1)
                 self.choice3 = Choice(text: "Accuse him of being an accomplice ", score: 2)
                 choicesNode = MultiChoicesNode(choice1: choice1, choice2: choice2, choice3: choice3)
                 self.insertChild(choicesNode, at: 3)
