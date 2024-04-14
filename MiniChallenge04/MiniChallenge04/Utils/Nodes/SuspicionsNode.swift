@@ -30,17 +30,17 @@ class SuspicionsNode: SKNode{
     }
     
     private func setupSuspicions(){
-        suspicion.position = CGPoint(x: 0, y: alturaTela * 0.09)
+        suspicion.position = CGPoint(x: 0, y: alturaTela * 0.105)
         suspicion.name = "suspicion"
         self.suspicion.alpha = 0
         
         suspicion2.position = suspicion.position
-        suspicion2.position.y = suspicion.position.y - 122
+        suspicion2.position.y = suspicion.position.y - (alturaTela * 0.14)
         suspicion2.name = "suspicion2"
         self.suspicion2.alpha = 0
         
         suspicion3.position = suspicion2.position
-        suspicion3.position.y = suspicion2.position.y - 122
+        suspicion3.position.y = suspicion2.position.y - (alturaTela * 0.14)
         suspicion3.name = "suspicion3"
         self.suspicion3.alpha = 0
         
