@@ -49,7 +49,7 @@ class ScreenReport: SKScene{
         setupClues()
         masterNode.config()
         self.addChild(masterNode)
-        suspicionsNode.position = CGPoint(x: larguraTela * 0.79, y: cluesBox.position.y - (alturaTela * 0.35))
+        suspicionsNode.position = CGPoint(x: larguraTela * 0.79, y: alturaTela * 0.47)
         addChild(suspicionsNode)
         setupAccusations()
     }
