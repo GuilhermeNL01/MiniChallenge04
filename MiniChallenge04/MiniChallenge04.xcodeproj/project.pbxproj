@@ -28,6 +28,7 @@
 		311A78662BBF2FAD00377F08 /* ScreenReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A78602BBF2FAD00377F08 /* ScreenReportModel.swift */; };
 		311A78672BBF2FAD00377F08 /* ScreenReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A78612BBF2FAD00377F08 /* ScreenReportViewModel.swift */; };
 		311A786A2BC0897B00377F08 /* PhotoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311A78692BC0897B00377F08 /* PhotoNode.swift */; };
+		31401B142BCDB1A400510FA8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 31401B132BCDB1A400510FA8 /* PrivacyInfo.xcprivacy */; };
 		319ED1422BAE005A002DCCF2 /* Weapons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319ED1412BAE005A002DCCF2 /* Weapons.swift */; };
 		31AF24212BC468E2000E0FE1 /* ChoiceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AF241F2BC468E2000E0FE1 /* ChoiceNode.swift */; };
 		31AF24222BC468E2000E0FE1 /* MultiChoicesNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AF24202BC468E2000E0FE1 /* MultiChoicesNode.swift */; };
@@ -79,6 +80,7 @@
 		311A78602BBF2FAD00377F08 /* ScreenReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenReportModel.swift; sourceTree = "<group>"; };
 		311A78612BBF2FAD00377F08 /* ScreenReportViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenReportViewModel.swift; sourceTree = "<group>"; };
 		311A78692BC0897B00377F08 /* PhotoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoNode.swift; sourceTree = "<group>"; };
+		31401B132BCDB1A400510FA8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		319ED1412BAE005A002DCCF2 /* Weapons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapons.swift; sourceTree = "<group>"; };
 		31AF241F2BC468E2000E0FE1 /* ChoiceNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceNode.swift; sourceTree = "<group>"; };
 		31AF24202BC468E2000E0FE1 /* MultiChoicesNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiChoicesNode.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				31E78CC52BC9B67F00B4F2BC /* Info.plist */,
+				31401B132BCDB1A400510FA8 /* PrivacyInfo.xcprivacy */,
 				4091472A2B98E2AD0082E226 /* App */,
 				43588F812BA8A688002CB1BB /* ViewModels */,
 				43588F822BA8A692002CB1BB /* Models */,
@@ -401,6 +404,7 @@
 				409E3FF72BC470D8007E4BD4 /* Epilogue.mp4 in Resources */,
 				40A3C5892B98D5000073F754 /* Preview Assets.xcassets in Resources */,
 				40A3C5862B98D5000073F754 /* Assets.xcassets in Resources */,
+				31401B142BCDB1A400510FA8 /* PrivacyInfo.xcprivacy in Resources */,
 				31E78CD42BC9BBEB00B4F2BC /* LibreBaskerville-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
