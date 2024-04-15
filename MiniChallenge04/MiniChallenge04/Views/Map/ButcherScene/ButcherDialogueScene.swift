@@ -134,12 +134,12 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             
             
             
-        case 71:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            self.sidebar.bottomSidebar.insight4.text = "• Alan saw a suspicious group together with the victim in the alleyway."
-        }
-            proximoDialogo()
-            dialogueCount += 1
+//        case 71:
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+//            self.sidebar.bottomSidebar.insight4.text = "• Alan saw a suspicious group together with the victim in the alleyway."
+//        }
+//            proximoDialogo()
+//            dialogueCount += 1
         default:
             if !disableTouch{
                 if dialogos.count >= 1{
