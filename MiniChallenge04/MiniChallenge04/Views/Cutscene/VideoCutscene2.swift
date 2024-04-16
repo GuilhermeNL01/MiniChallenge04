@@ -51,7 +51,6 @@ class VideoCutscene2: SKScene {
         // Execução assíncrona do processamento do vídeo
         DispatchQueue.global().async {
             guard let videoURL = Bundle.main.url(forResource: "Epilogue", withExtension: "mp4") else {
-                print("Vídeo não encontrado")
                 return
             }
             
@@ -103,6 +102,7 @@ class VideoCutscene2: SKScene {
         videoPlayer?.pause()
         videoPlayerLayer?.removeFromSuperlayer()
         path.removeAll()
+        UserDefaults.resetDefaults()
     }
 
 

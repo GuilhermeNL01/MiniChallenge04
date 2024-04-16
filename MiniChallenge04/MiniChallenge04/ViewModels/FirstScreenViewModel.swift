@@ -28,8 +28,8 @@ class FirstScreenViewModel: ObservableObject{
     
     init(path: Binding<[SKScene]>){
         _path = path
-//        checkCheckpoint()
-        firstScreen = PierScene(path: $path)
+        checkCheckpoint()
+//        firstScreen = PierScene(path: $path)
     }
     
     private func checkCheckpoint(){

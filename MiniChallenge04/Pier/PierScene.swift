@@ -12,7 +12,7 @@ class PierScene: SKScene, GameplayScene{
     
     @Binding var path: [SKScene]
     
-    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "pierBackground")
+    var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "Pier")
     
     var dialogos: [DialogueBox] = []
     var dialogueCount = 0
@@ -51,11 +51,37 @@ class PierScene: SKScene, GameplayScene{
         cenario.size = self.size
         addChild(cenario)
         
-        if let character = suspect.node{
-            character.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
+        setupCharacter()
+        addChild(choicesNode)
+    }
+    
+    private func setupCharacter(){
+        if let character = suspect.node {
+            let highlight = SKSpriteNode()
+            highlight.texture = SKTexture(image: .elenaBrookeAnimation1)
+            let animationAtlas = [SKTexture(image: .elenaBrookeAnimation1),
+                                  SKTexture(image: .elenaBrookeAnimation2),
+                                  SKTexture(image: .elenaBrookeAnimation3),
+                                  SKTexture(image: .elenaBrookeAnimation4),
+                                  SKTexture(image: .elenaBrookeAnimation5),
+                                  SKTexture(image: .elenaBrookeAnimation6),
+                                  SKTexture(image: .elenaBrookeAnimation7),
+                                  SKTexture(image: .elenaBrookeAnimation8),
+                                  SKTexture(image: .elenaBrookeAnimation9),
+                                  SKTexture(image: .elenaBrookeAnimation10),
+                                  SKTexture(image: .elenaBrookeAnimation11),
+            ]
+            let animation = SKAction.animate(with: animationAtlas, timePerFrame: 0.1)
+            let animationBackwards = animation.reversed()
+            
+            highlight.name = "highlight"
+            highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.42)
+            highlight.size = CGSize(width: 492, height: 862)
+            highlight.run(.repeatForever(.sequence([animation, animationBackwards])))
+            addChild(highlight)
+            character.position = highlight.position
             addChild(character)
         }
-        addChild(choicesNode)
     }
     
     func switchConversation() {
@@ -78,6 +104,8 @@ class PierScene: SKScene, GameplayScene{
         case 53:
             if choicesNode.selectedChoice?.score == 2{
                 sidebar.ml.classify(prompt: "I'm sorry, officer… I have been so shaken up by everything…", npc: suspect)
+                proximoDialogo()
+                dialogueCount += 1
             }
         case 60:
             if choicesNode.selectedChoice?.score == 0{
@@ -101,6 +129,8 @@ class PierScene: SKScene, GameplayScene{
                 if dialogos.count > 1{
                     proximoDialogo()
                     dialogueCount += 1
+                } else {
+                    trocarCena(nextScene: Map(path: $path))
                 }
             }
         }
@@ -123,7 +153,6 @@ class PierScene: SKScene, GameplayScene{
 
 extension PierScene{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(dialogueCount)
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let touchedNode = self.atPoint(location) // first node in hierarchy
@@ -288,7 +317,6 @@ extension PierScene{
                 DialogueBox(mensagem: "Yeah… He was too kind for that…", mensageiro: suspect),
                 DialogueBox(mensagem: "… Sorry for letting myself get carried over… Do you need anything else?", mensageiro: suspect)
             ])
-            dialogueCount += 1
             phase2Dialogues()
             phase += 1
         }
