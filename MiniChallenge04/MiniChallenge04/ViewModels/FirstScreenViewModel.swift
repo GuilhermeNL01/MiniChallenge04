@@ -28,7 +28,8 @@ class FirstScreenViewModel: ObservableObject{
     
     init(path: Binding<[SKScene]>){
         _path = path
-        checkCheckpoint()
+//        checkCheckpoint()
+        firstScreen = PierScene(path: $path)
     }
     
     private func checkCheckpoint(){
@@ -45,6 +46,8 @@ class FirstScreenViewModel: ObservableObject{
         case .butcher:
             firstScreen = ButcherDialogueScene(path: $path)
             break
+        case .pier:
+            firstScreen = PierScene(path: $path)
         case .report:
             firstScreen = ScreenReport(path: $path)
             break

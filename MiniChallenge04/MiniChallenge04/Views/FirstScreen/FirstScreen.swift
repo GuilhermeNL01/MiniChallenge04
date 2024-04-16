@@ -20,8 +20,6 @@ struct FirstScreen: View {
                 BackgroundImageView()
                 Black()
                     .opacity(0.5)
-                
-                
                 VStack{
                     HStack{
                         Image("Logo")
@@ -49,8 +47,6 @@ struct FirstScreen: View {
                                 .scaledToFit()
                                 .padding(.leading, 60)
                         }
-                        
-                        
                         .padding(.bottom, 60)
                     }
                     Spacer()
