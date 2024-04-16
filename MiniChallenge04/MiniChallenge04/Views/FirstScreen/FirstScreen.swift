@@ -11,6 +11,7 @@ import _SpriteKit_SwiftUI
 struct FirstScreen: View {
     
     @ObservedObject var vm: FirstScreenViewModel
+    @State var isStartingNewGame = false
     
     
     var body: some View {
@@ -33,10 +34,13 @@ struct FirstScreen: View {
                     
                     VStack{
                         Spacer()
-                        
                         Button{
                             withAnimation{
-                                vm.path.append(vm.firstScreen)
+                                if vm.checkpoint != nil{
+                                    isStartingNewGame = true
+                                } else {
+                                    vm.path.append(vm.firstScreen)
+                                }
                             }
                         } label: {
                             Image("Start")
@@ -46,15 +50,38 @@ struct FirstScreen: View {
                                 .frame(width: 285, height: 119)
                                 .scaledToFit()
                                 .padding(.leading, 60)
-                        }
-                        .padding(.bottom, 60)
-                    }
+                        }.padding(.bottom)
+                        
+                            Button{
+                                withAnimation{
+                                    vm.path.append(vm.firstScreen)
+                                }
+                            } label: {
+                                Image(vm.checkpoint != nil ? .continue : .continueInactive)
+                                    .resizable()
+                                    .aspectRatio( contentMode: .fit)
+                                    .scaledToFit()
+                                    .frame(width: 285, height: 119)
+                                    .scaledToFit()
+                                    .padding(.leading, 60)
+                            }.disabled(vm.checkpoint == nil)
+                        }.padding(.bottom, 60)
                     Spacer()
                 }.navigationDestination(for: SKScene.self) { scene in
                     SpriteView(scene: scene)
                         .transition(.opacity)
                         .ignoresSafeArea()
                         .navigationBarBackButtonHidden()
+                }
+                .alert("Start a New Game", isPresented: $isStartingNewGame) {
+                    Button("Return", role: .cancel){}
+                    Button("Start a new game"){
+                        UserDefaults.resetDefaults()
+                        vm.firstScreen = VideoCutsceneScene(path: vm.$path)
+                        vm.path.append(vm.firstScreen)
+                    }
+                } message: {
+                    Text("Are you sure you want to start a new game?\n Your previous save will be overwritten.")
                 }
             }
         }

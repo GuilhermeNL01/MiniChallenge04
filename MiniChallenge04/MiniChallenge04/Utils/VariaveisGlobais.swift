@@ -10,6 +10,6 @@ import SpriteKit
 
 let alturaTela = UIScreen.main.bounds.height
 let larguraTela = UIScreen.main.bounds.width
-let fonteNegrito = "HelveticaNeue-Bold"
-let fonteMedium = "HelveticaNeue-Medium"
-let fonteRegular = "HelveticaNeue"
+let elegantTypewritter = "ELEGANTTYPEWRITER"
+let libreBaskervilleBold = "LibreBaskerville-Bold"
+let libreBaskerville = "LibreBaskerville-Regular"

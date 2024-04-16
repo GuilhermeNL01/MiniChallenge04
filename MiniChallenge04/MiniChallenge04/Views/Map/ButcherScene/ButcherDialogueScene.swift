@@ -42,6 +42,7 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     }
     
     override func didMove(to view: SKView) {
+        UserDefaults.standard.setValue(Checkpoints.hotel.rawValue, forKey: "checkpoint")
         suspect.name = "???"
         buildDialogues()
         
@@ -49,12 +50,38 @@ class ButcherDialogueScene: SKScene, GameplayScene {
         cenario.size = self.size
         addChild(cenario)
         
+        setupCharacter()
+        addChild(choicesNode)
+    }
+    
+    private func setupCharacter(){
         if let character = suspect.node {
-            character.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
+            let highlight = SKSpriteNode()
+            highlight.texture = SKTexture(image: .alanBoucherAnimation1)
+            let animationAtlas = [SKTexture(image: .alanBoucherAnimation1),
+                                  SKTexture(image: .alanBoucherAnimation2),
+                                  SKTexture(image: .alanBoucherAnimation3),
+                                  SKTexture(image: .alanBoucherAnimation4),
+                                  SKTexture(image: .alanBoucherAnimation5),
+                                  SKTexture(image: .alanBoucherAnimation6),
+                                  SKTexture(image: .alanBoucherAnimation7),
+                                  SKTexture(image: .alanBoucherAnimation8),
+                                  SKTexture(image: .alanBoucherAnimation9),
+                                  SKTexture(image: .alanBoucherAnimation10),
+                                  SKTexture(image: .alanBoucherAnimation11),
+            ]
+            let animation = SKAction.animate(with: animationAtlas, timePerFrame: 0.1)
+            let animationBackwards = SKAction.animate(with: animationAtlas.reversed(), timePerFrame: 0.1)
+            
+            highlight.name = "highlight"
+            highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.43)
+            highlight.size = CGSize(width: 492, height: 862)
+            highlight.run(.repeatForever(.sequence([animation, animationBackwards])))
+            addChild(highlight)
+            character.position = highlight.position
             addChild(character)
         }
     }
-    
     func switchConversation(){
         switch dialogueCount{
         case 14:
@@ -63,39 +90,56 @@ class ButcherDialogueScene: SKScene, GameplayScene {
             }
             break
         case 40:
-            sidebar.ml.classify(prompt: "Hearing that from a detective is terrifying, you know?!", npc: suspect)
+            if !disableTouch{
+                proximoDialogo()
+                sidebar.ml.classify(prompt: "Hearing that from a detective is terrifying, you know?!", npc: suspect)
+                choicesNode.appear()
+            }
+            disableTouch = true
+            
+        case 32:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.sidebar.bottomSidebar.insight1.text = "• Despite closing shop early, he was still out during the night of the crime."
+            }
+            proximoDialogo()
             dialogueCount += 1
-        case 41:
-            addChild(choicesNode)
-            choicesNode.appear()
+        case 48:
+            if choicesNode.selectedChoice?.text == "De-escalate the situation" {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    self.sidebar.bottomSidebar.insight3.text = "• Alan may be familiar with the shady businesses of Aldrich."
+                }
+            }
+            proximoDialogo()
             dialogueCount += 1
-//        case 46:
-//            if choicesNode.selectedChoice?.score == 1{
-//                sidebar.upperSidebar.score.score = 1
-//                sidebar.ml.classify(prompt: "Whatever you say, Miss officer.", npc: suspect)
-//            } else if choicesNode.selectedChoice?.score == 2{
-//                sidebar.upperSidebar.score.score = 2
-//                sidebar.ml.classify(prompt: "She is pleased with the subject change, but is this actually the best approach possible here?", npc: suspect)
-//            }
+            
+        case 43:
+            if choicesNode.selectedChoice?.text == "Specify the knife as the weapon." {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    self.sidebar.bottomSidebar.insight2.text = "• There was a butcher knife left behind in the alleyway of the shop."
+                }
+            }
+            proximoDialogo()
+            dialogueCount += 1
+        case 63:
+            if !disableTouch{
+                //                sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
+                self.choice1 = Choice(text: "Accuse him of being the culprit", score: 0)
+                self.choice2 = Choice(text: "Specify the knife as the weapon.", score: 1)
+                self.choice3 = Choice(text: "Accuse him of being an accomplice ", score: 2)
+                choicesNode = MultiChoicesNode(choice1: choice1, choice2: choice2, choice3: choice3)
+                self.insertChild(choicesNode, at: 3)
+                choicesNode.appear()
+            }
+            disableTouch = true
+            
+            
+            
+//        case 71:
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+//            self.sidebar.bottomSidebar.insight4.text = "• Alan saw a suspicious group together with the victim in the alleyway."
+//        }
 //            proximoDialogo()
 //            dialogueCount += 1
-//        case 47:
-//            if choicesNode.selectedChoice?.score == 0{
-//                sidebar.ml.classify(prompt: "Hearing that from you is actually a little infuriating, really…", npc: suspect)
-//            } else if choicesNode.selectedChoice?.score == 2 {
-//                sidebar.bottomSidebar.insight1.text = "• Carmen was out, supposedly seeing Elena, during the night of the crime."
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-//                    self.sidebar.bottomSidebar.insight2.text = "• Looks like she is close friends with Elena Brooke, the victim’s wife."
-//                }
-//            }
-//            proximoDialogo()
-//            dialogueCount += 1
-//        case 52:
-//            sidebar.ml.classify(prompt: "Really, I'm surprised you heard that so clearly, though.", npc: suspect)
-//            addChild(choicesNode)
-//            choicesNode.appear()
-//            //            proximoDialogo()
-//            //            dialogueCount += 1
         default:
             if !disableTouch{
                 if dialogos.count >= 1{
@@ -111,13 +155,13 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     func rebuildDialogues(score: Int){
         switch score{
         case 0:
-            choice1Selected()
+            phase == 1 ? choice1Selected() : choice1Selected()
             break
-        case 2:
-            choice2Selected()
+        case 1:
+            phase == 1 ? choice3Selected() : choice2Selected()
             break
         default:
-            choice3Selected()
+            phase == 1 ? choice2Selected() : choice3Selected()
             break
         }
     }
@@ -142,6 +186,8 @@ extension ButcherDialogueScene {
                 if let score = choice?.choice.score{
                     rebuildDialogues(score: score)
                     proximoDialogo()
+                    dialogueCount += 1
+                    self.disableTouch = false
                 }
             } else {
                 sceneHandler(touchedNode: touchedNode)
@@ -258,7 +304,11 @@ extension ButcherDialogueScene {
                 DialogueBox(mensagem: "SCREW YOU!", mensageiro: suspect),
                 ])
             }
+            if let score = choicesNode.selectedChoice?.score{
+                sidebar.upperSidebar.score.score += score
+            }
         }
+        
         
         func choice2Selected(){ //Escolha +2 (2)
             if phase == 1 {
@@ -291,7 +341,7 @@ extension ButcherDialogueScene {
                     DialogueBox(mensagem: "Uh… Yeah, haha…", mensageiro: suspect),
                     
                 ])
-                dialogueCount += 4
+                dialogueCount += 2
                 phase2Dialogues()
                 phase += 1
             } else if phase == 2{
@@ -321,6 +371,9 @@ extension ButcherDialogueScene {
                 DialogueBox(mensagem: "Then, goodbye officer.", mensageiro: suspect),
                 ])
             }
+            if let score = choicesNode.selectedChoice?.score{
+                sidebar.upperSidebar.score.score += score
+            }
         }
         
         func choice3Selected(){// escolha +1 (3)
@@ -347,6 +400,8 @@ extension ButcherDialogueScene {
                 phase += 1
             } else if phase == 2{
                 dialogos.append(contentsOf: [
+                    
+                    // Accuse him of being an accomplice
                     DialogueBox(mensagem: "Okay, let's take a few steps back… Were you alone that night?", mensageiro: carrie),
                     DialogueBox(mensagem: "What?! What do you mean, what does that have to do with anything?!", mensageiro: suspect),
                     DialogueBox(mensagem: "Hey, before you accuse me of accusing you, hear me out first! Were you, or were you not alone? Because if you were an accomplice–", mensageiro: carrie),
@@ -367,6 +422,10 @@ extension ButcherDialogueScene {
                     DialogueBox(mensagem: "Goodbye..", mensageiro: carrie),
                     
                 ])
+                dialogueCount += 2
+            }
+            if let score = choicesNode.selectedChoice?.score{
+                sidebar.upperSidebar.score.score += score
             }
         }
         
