@@ -72,7 +72,7 @@ class HotelScene: SKScene, GameplayScene {
                                   SKTexture(image: .carmenBloomAnimation11),
             ]
             let animation = SKAction.animate(with: animationAtlas, timePerFrame: 0.1)
-            let animationBackwards = SKAction.animate(with: animationAtlas.reversed(), timePerFrame: 0.1)
+            let animationBackwards = animation.reversed()
             
             highlight.name = "highlight"
             highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.42)

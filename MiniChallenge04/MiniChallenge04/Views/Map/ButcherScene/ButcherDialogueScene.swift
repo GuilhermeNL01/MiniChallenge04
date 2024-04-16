@@ -42,7 +42,7 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     }
     
     override func didMove(to view: SKView) {
-        UserDefaults.standard.setValue(Checkpoints.hotel.rawValue, forKey: "checkpoint")
+        UserDefaults.standard.setValue(Checkpoints.butcher.rawValue, forKey: "checkpoint")
         suspect.name = "???"
         buildDialogues()
         
