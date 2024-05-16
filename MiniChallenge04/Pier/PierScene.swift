@@ -188,7 +188,7 @@ extension PierScene{
         DialogueBox(mensagem: "Oh? Hello…", mensageiro: suspect),
         DialogueBox(mensagem: "As she turns towards you, you notice her eyes drifting to your badge before suddenly widening. Her demeanor changes too, from simply tired, to tired and worried.", mensageiro: info),
         DialogueBox(mensagem: "Oh, you're an officer… How… How can I help you, ma'am?", mensageiro: suspect),
-        DialogueBox(mensagem: "I'm sorry for interrupting you, miss. Yes, I'm detective Carrie Farris.", mensageiro: carrie),
+        DialogueBox(mensagem: "I'm sorry for interrupting you, miss. Yes, I'm detective Carrie.", mensageiro: carrie),
         DialogueBox(mensagem: "Ahem, I just wanted to ask some questions about…", mensageiro: carrie),
         DialogueBox(mensagem: "…The murder case, yes?", mensageiro: suspect),
         DialogueBox(mensagem: "Right. I'm sorry, I suppose it's better if I get straight to the point…", mensageiro: carrie),
