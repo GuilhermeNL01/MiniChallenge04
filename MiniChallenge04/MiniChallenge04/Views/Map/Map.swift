@@ -31,10 +31,10 @@ class Map: SKScene{
     }
     var hasVisitedButcher: Bool {
         get {
-            UserDefaults.standard.bool(forKey: "hasVisitedPier")
+            UserDefaults.standard.bool(forKey: "hasVisitedButcher")
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "hasVisitedPier")
+            UserDefaults.standard.set(newValue, forKey: "hasVisitedButcher")
         }
     }
     
@@ -51,13 +51,16 @@ class Map: SKScene{
     }
     
     override func didMove(to view: SKView) {
-        if self.hasVisitedButcher && hasVisitedPier && hasVisitedHotel{
-            self.nextScene = ScreenReport(path: self.$path)
-            guard let nextScene else { return }
-            path.append(nextScene)
-        }
         UserDefaults.standard.setValue(Checkpoints.map.rawValue, forKey: "checkpoint") // defining checkpoint
         buildMap()
+        if self.hasVisitedButcher && hasVisitedPier && hasVisitedHotel{
+            self.nextScene = ScreenReport(path: self.$path)
+            if let nextScene = self.nextScene {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                    self.path.append(nextScene)
+                }
+            }
+        }
     }
     
     private func buildMap() {
@@ -117,7 +120,7 @@ class Map: SKScene{
                                                  , timePerFrame: 0.05, resize: false, restore: false)
                 
                 self.pier.run(animation)
-                //                self.nextScene = Pier Scene goes here
+                self.nextScene = PierScene(path: self.$path)
             }
         case "Butcher":
             if !hasVisitedButcher {

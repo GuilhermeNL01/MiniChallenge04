@@ -82,7 +82,8 @@ class GameOverScene: SKScene {
     // MARK: - Display do Texto
     
     private func setupTextLabel(atPosition position: CGPoint) -> SKLabelNode {
-        let textLabel = SKLabelNode(fontNamed: "Arial")
+        let textLabel = SKLabelNode()
+        textLabel.fontName = libreBaskerville
         textLabel.fontSize = size.width * 0.03
         textLabel.fontColor = .white
         textLabel.horizontalAlignmentMode = .center

@@ -21,8 +21,6 @@ struct FirstScreen: View {
                 BackgroundImageView()
                 Black()
                     .opacity(0.5)
-                
-                
                 VStack{
                     HStack{
                         Image("Logo")

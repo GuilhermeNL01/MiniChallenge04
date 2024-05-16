@@ -72,7 +72,7 @@ class HotelScene: SKScene, GameplayScene {
                                   SKTexture(image: .carmenBloomAnimation11),
             ]
             let animation = SKAction.animate(with: animationAtlas, timePerFrame: 0.1)
-            let animationBackwards = SKAction.animate(with: animationAtlas.reversed(), timePerFrame: 0.1)
+            let animationBackwards = animation.reversed()
             
             highlight.name = "highlight"
             highlight.position = CGPoint(x: larguraTela * 0.28, y: alturaTela * 0.42)
@@ -195,8 +195,8 @@ extension HotelScene{
             DialogueBox(mensagem: "… *Ahem* Well, ma'am, I'm sure you've heard about the murder that took place in town recently… I was sent here to investigate it, and I have a few questions for the locals…", mensageiro: carrie),
             DialogueBox(mensagem: "Well, of course, Miss officer. I suppose you wouldn't be coming to Aldrich all the way from the capital with the purpose of sightseeing…", mensageiro: suspect),
             DialogueBox(mensagem: "… Right.", mensageiro: carrie),
-            DialogueBox(mensagem: "The name's Carrie Farris by the way. Not miss officer…", mensageiro: carrie),
-            DialogueBox(mensagem: "Whatever you say, Miss officer Carrie Farris.", mensageiro: suspect),
+            DialogueBox(mensagem: "The name's Carrie by the way. Not miss officer…", mensageiro: carrie),
+            DialogueBox(mensagem: "Whatever you say, Miss officer Carrie.", mensageiro: suspect),
             DialogueBox(mensagem: "Every word feels like a challenge from this lady. It's purposely infuriating, but you can't do anything except ignore it.", mensageiro: info), // hide nametag
             DialogueBox(mensagem: "After all, distrust for authority figures is a completely understandable behavior for an Aldrich resident.", mensageiro: info), // hide nametag
             DialogueBox(mensagem: "Anyways, ma'am, can you, or can you not answer some questions in the name of helping a humble officer figure out the one responsible for a murder case?", mensageiro: carrie),

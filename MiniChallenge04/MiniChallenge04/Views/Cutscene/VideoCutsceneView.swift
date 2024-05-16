@@ -51,7 +51,6 @@ class VideoCutsceneScene: SKScene {
         // Execução assíncrona do processamento do vídeo
         DispatchQueue.global().async {
             guard let videoURL = Bundle.main.url(forResource: "Prologue", withExtension: "mp4") else {
-                print("Vídeo não encontrado")
                 return
             }
             
