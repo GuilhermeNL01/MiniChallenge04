@@ -23,7 +23,7 @@ class ButcherDialogueScene: SKScene, GameplayScene {
     var choice3 = Choice(text: "Let him clarify", score: 1)
     var choicesNode: MultiChoicesNode
     
-    let carrie = NPC(.main)
+    let anna = NPC(.main)
     var suspect = NPC(.butcher)
     let info = NPC(.info)
     
@@ -203,13 +203,13 @@ extension ButcherDialogueScene {
                 DialogueBox(mensagem: "As you're walking through the streets, you notice a deer headed Friedkin man on his way out of the butcher shop, and towards the alleyway beside it.", mensageiro: info), // hide nametag
                 DialogueBox(mensagem: "It seems like he's just a regular butcher taking out the trash, but when you make eye contact, he suddenly looks suspiciously nervous.", mensageiro: info), // hide nametag
                 DialogueBox(mensagem: "You decide to approach and question him before he manages to scurry away…", mensageiro: info), // hide nametag
-                DialogueBox(mensagem: "Hey! Excuse me sir, may I have a quick word with you?", mensageiro: carrie),
+                DialogueBox(mensagem: "Hey! Excuse me sir, may I have a quick word with you?", mensageiro: anna),
                 DialogueBox(mensagem: "Huh?! Ah, hey… I mean, hello officer!", mensageiro: suspect),
                 DialogueBox(mensagem: "Oh, he must have noticed your badge. Maybe that's why he seems nervous… Or maybe there's more to it…", mensageiro: info), // hide nametag
-                DialogueBox(mensagem: "… Hello sir. I'm sorry for startling you, but I'm currently investigating the murder of Peter Brooke, and it would really help if you could answer some questions.", mensageiro: carrie),
-                DialogueBox(mensagem: "I promise you it won't take too long. So, could I borrow some of your time?", mensageiro: carrie),
+                DialogueBox(mensagem: "… Hello sir. I'm sorry for startling you, but I'm currently investigating the murder of Peter Brooke, and it would really help if you could answer some questions.", mensageiro: anna),
+                DialogueBox(mensagem: "I promise you it won't take too long. So, could I borrow some of your time?", mensageiro: anna),
                 DialogueBox(mensagem: "Uh… Sure… I mean, yes, officer!", mensageiro: suspect),
-                DialogueBox(mensagem: "It's just some general questions. There's no need to be nervous, mister…?", mensageiro: carrie),
+                DialogueBox(mensagem: "It's just some general questions. There's no need to be nervous, mister…?", mensageiro: anna),
             ]
             // MARK: - Revelou o Nome
             suspect.name = "Alan Boucher"
@@ -217,29 +217,29 @@ extension ButcherDialogueScene {
                 DialogueBox(mensagem: "Oh, right! Boucher. My name is Alan Boucher… I'm the local butcher.", mensageiro: suspect),
                 DialogueBox(mensagem: "From up close, he seems even more nervous. It's not too shocking coming from an Aldrich resident who's suddenly dealing with an officer, but still… It feels like that's not all there is to it.", mensageiro: info),// hide nametag
                 DialogueBox(mensagem: "This guy may look suspicious, but with how on edge he looks, it would be wise to take it easy with him. At least until you're sure he's more than just a regular resident…", mensageiro: info),// hide nametag
-                DialogueBox(mensagem: "Alright, Mr. Boucher. Then, let's start.", mensageiro: carrie),
+                DialogueBox(mensagem: "Alright, Mr. Boucher. Then, let's start.", mensageiro: anna),
                 
                 // MARK: - Beginning phase 1
-                DialogueBox(mensagem: "Well then, Mr. Boucher… Can you tell me what you know about the murder?", mensageiro: carrie),
+                DialogueBox(mensagem: "Well then, Mr. Boucher… Can you tell me what you know about the murder?", mensageiro: anna),
                 DialogueBox(mensagem: "Right… Well, I know the victim was Peter Brooke. He was a regular at my shop, so I recognized his name when news about his murder arrived…", mensageiro: suspect),
                 DialogueBox(mensagem: "The other fishermen said he was found somewhere near the pier. I think it was in a boat…? I can't remember much, since I was pretty shocked to learn about his death…", mensageiro: suspect),
                 DialogueBox(mensagem: "Oh, I do remember the fishermen talking about how he died though. They said he was tangled in a fishing net, but there was also a cut across his neck.", mensageiro: suspect),
                 DialogueBox(mensagem: "The police took his body, but I don't think anyone in Aldrich knows what actually… uh… ended him, you know?", mensageiro: suspect),
                 DialogueBox(mensagem: "… Yeah, I think that's all I can remember about it… In general…", mensageiro: suspect),
-                DialogueBox(mensagem: "In general…? Well, that's alright.", mensageiro: carrie),
+                DialogueBox(mensagem: "In general…? Well, that's alright.", mensageiro: anna),
                 
                 DialogueBox(mensagem: "He's starting to look even more restless with every word he says… You can't tell, however, if he's the type of person who would shut down if pressured, or blow up… Let's figure it out.", mensageiro: info),// hide nametag
-                DialogueBox(mensagem: "Then, for the next question… Do you remember what you were doing the day of the murder, sir?", mensageiro: carrie),
+                DialogueBox(mensagem: "Then, for the next question… Do you remember what you were doing the day of the murder, sir?", mensageiro: anna),
                 DialogueBox(mensagem: "Uh… I guess I was working that day…? From morning to evening…", mensageiro: suspect),
-                DialogueBox(mensagem: "… Alright, sir, I'll need more than that. You were working during the day, that's fine. And what were you doing at night?", mensageiro: carrie),
+                DialogueBox(mensagem: "… Alright, sir, I'll need more than that. You were working during the day, that's fine. And what were you doing at night?", mensageiro: anna),
                 
                 DialogueBox(mensagem: "… Um… Uh…", mensageiro: suspect),
                 DialogueBox(mensagem: "I was… closing up the shop. As usual. Yeah.", mensageiro: suspect),
-                DialogueBox(mensagem: "… …", mensageiro: carrie),
-                DialogueBox(mensagem: "Sir.", mensageiro: carrie),
+                DialogueBox(mensagem: "… …", mensageiro: anna),
+                DialogueBox(mensagem: "Sir.", mensageiro: anna),
                 DialogueBox(mensagem: "Listen, I'm sorry. Really! We don't see people like you around here very often, you know?! Can't blame me for being nervous…", mensageiro: suspect),
-                DialogueBox(mensagem: "That's fine, sir. I don't expect anyone to be completely calm when talking to a detective… But is that really all you can give for an alibi?", mensageiro: carrie),
-                DialogueBox(mensagem: "This is a murder case. I need you to cooperate.", mensageiro: carrie),
+                DialogueBox(mensagem: "That's fine, sir. I don't expect anyone to be completely calm when talking to a detective… But is that really all you can give for an alibi?", mensageiro: anna),
+                DialogueBox(mensagem: "This is a murder case. I need you to cooperate.", mensageiro: anna),
                 DialogueBox(mensagem: "Ugh, Fine… Fine!", mensageiro: suspect),
                 DialogueBox(mensagem: "I worked as usual during the day, and I closed shop earlier because I was feeling a little anxious, you know?", mensageiro: suspect),
                 DialogueBox(mensagem: "But I didn't go home right away. I stayed to clean up, see if that would help me relax a bit. By the time I was done, it was already late into the night.", mensageiro: suspect),
@@ -250,9 +250,9 @@ extension ButcherDialogueScene {
                 //            Despite closing shop early, he was still out during the night of the crime.
                 
                 DialogueBox(mensagem: "There! Good enough for you? Can I go now?", mensageiro: suspect),
-                DialogueBox(mensagem: "… Wow.", mensageiro: carrie),
-                DialogueBox(mensagem: "So… Mr. Boucher, you were nervous  back then too, huh? I couldn't help but notice that you are a rather… anxious person…", mensageiro: carrie),
-                DialogueBox(mensagem: "Hah, don't tell me you're also afraid of blood, are you? That would be funny for a butcher.", mensageiro: carrie),
+                DialogueBox(mensagem: "… Wow.", mensageiro: anna),
+                DialogueBox(mensagem: "So… Mr. Boucher, you were nervous  back then too, huh? I couldn't help but notice that you are a rather… anxious person…", mensageiro: anna),
+                DialogueBox(mensagem: "Hah, don't tell me you're also afraid of blood, are you? That would be funny for a butcher.", mensageiro: anna),
                 DialogueBox(mensagem: "What the hell do you mean by that?! Of course not! Why would I be!", mensageiro: suspect),
                 // MARK: - ML
                 
@@ -267,14 +267,14 @@ extension ButcherDialogueScene {
                     // Press him about his nervousness (+0)
                     
                     
-                    DialogueBox(mensagem: "Sir, this is a serious situation about a murder case. You need to cooperate, unless you want to implicate yourself… No one would be this agitated in front of a detective.", mensageiro: carrie),
+                    DialogueBox(mensagem: "Sir, this is a serious situation about a murder case. You need to cooperate, unless you want to implicate yourself… No one would be this agitated in front of a detective.", mensageiro: anna),
                     DialogueBox(mensagem: "… What?!", mensageiro: suspect),
                     DialogueBox(mensagem: "What the hell! Anyone would be this agitated. You can't accuse me of anything because of that!", mensageiro: suspect),
                     
                     //            [Dica]
                     //            He definitely has more to say, but he won't open up with this kind of approach.
                     
-                    DialogueBox(mensagem: "… Alright, sir. I'm sorry if that came across as an accusation. All I'm trying to say is that you can calm down. You aren't in trouble, after all, are you?", mensageiro: carrie),
+                    DialogueBox(mensagem: "… Alright, sir. I'm sorry if that came across as an accusation. All I'm trying to say is that you can calm down. You aren't in trouble, after all, are you?", mensageiro: anna),
                     DialogueBox(mensagem: "… …", mensageiro: suspect),
                     DialogueBox(mensagem: "Just hurry and ask the next question, or whatever.", mensageiro: suspect),
                 ])
@@ -286,21 +286,21 @@ extension ButcherDialogueScene {
                 // -MARK: - ESCOLHA +0
                 //            Accuse him of being the culprit (+0)
                 
-                DialogueBox(mensagem: "Sir. I'll be very direct with you…", mensageiro: carrie),
-                DialogueBox(mensagem: "Did you do it? Did you kill Peter Brooke?", mensageiro: carrie),
+                DialogueBox(mensagem: "Sir. I'll be very direct with you…", mensageiro: anna),
+                DialogueBox(mensagem: "Did you do it? Did you kill Peter Brooke?", mensageiro: anna),
                 DialogueBox(mensagem: "Alan is stunned into silence. It feels like minutes pass before he speaks up.", mensageiro: info),
                 DialogueBox(mensagem: "WHAT?!", mensageiro: suspect),
                 
                 //            [Dica]
                 //            That's not a good reaction. He will definitely close himself off completely.
                 
-                DialogueBox(mensagem: "Sir–", mensageiro: carrie),
-                DialogueBox(mensagem: "WHAT THE HELL ARE YOU TALKING ABOUT?!", mensageiro: carrie),
+                DialogueBox(mensagem: "Sir–", mensageiro: anna),
+                DialogueBox(mensagem: "WHAT THE HELL ARE YOU TALKING ABOUT?!", mensageiro: anna),
                 DialogueBox(mensagem: "You know what?! Back off! Back off this instant!", mensageiro: suspect),
-                DialogueBox(mensagem: "Sir, listen–", mensageiro: carrie),
+                DialogueBox(mensagem: "Sir, listen–", mensageiro: anna),
                 DialogueBox(mensagem: "\"Don't\" \"sir listen\" me! I didn't do it! Obviously! Do you really think I would even be talking to you if I did?!", mensageiro: suspect),
                 DialogueBox(mensagem: "We're done here! If you won't leave, then I will!", mensageiro: suspect),
-                DialogueBox(mensagem: "Alright, alright! I'll go, no need to go get the other butcher knife…", mensageiro: carrie),
+                DialogueBox(mensagem: "Alright, alright! I'll go, no need to go get the other butcher knife…", mensageiro: anna),
                 DialogueBox(mensagem: "SCREW YOU!", mensageiro: suspect),
                 ])
             }
@@ -316,10 +316,10 @@ extension ButcherDialogueScene {
                     // De-escalate the situation (+2)
                     
                     
-                    DialogueBox(mensagem: "Whoa, let's take a deep breath for a moment!", mensageiro: carrie),
+                    DialogueBox(mensagem: "Whoa, let's take a deep breath for a moment!", mensageiro: anna),
                     DialogueBox(mensagem: "Huh?!", mensageiro: suspect),
-                    DialogueBox(mensagem: "I meant it, come on. Breathe in… Breathe out…", mensageiro: carrie),
-                    DialogueBox(mensagem: "… …", mensageiro: carrie),
+                    DialogueBox(mensagem: "I meant it, come on. Breathe in… Breathe out…", mensageiro: anna),
+                    DialogueBox(mensagem: "… …", mensageiro: anna),
                     DialogueBox(mensagem: "Ugh, no, there's no need... Sorry. I didn't mean to blow up like that.", mensageiro: suspect),
                     
                     
@@ -336,7 +336,7 @@ extension ButcherDialogueScene {
                     
                     DialogueBox(mensagem: "But I dodged that bullet! Everything's fine now… Yeah…", mensageiro: suspect),
                     
-                    DialogueBox(mensagem: "I see… That makes sense. Good thing you saved yourself from that headache, huh?", mensageiro: carrie),
+                    DialogueBox(mensagem: "I see… That makes sense. Good thing you saved yourself from that headache, huh?", mensageiro: anna),
                     
                     DialogueBox(mensagem: "Uh… Yeah, haha…", mensageiro: suspect),
                     
@@ -348,8 +348,8 @@ extension ButcherDialogueScene {
                 dialogos.append(contentsOf: [
                 //            Propose that the knife was used as the crime weapon (+2)
                 
-                DialogueBox(mensagem: "You know what I think, Mr. Boucher? I think you were trying to dispose of that knife of yours. Maybe you had used it for something other than butchering meat… Maybe not…", mensageiro: carrie),
-                DialogueBox(mensagem: "You either speak up, or that's what I'll have to write down when sending a report to my superiors.", mensageiro: carrie),
+                DialogueBox(mensagem: "You know what I think, Mr. Boucher? I think you were trying to dispose of that knife of yours. Maybe you had used it for something other than butchering meat… Maybe not…", mensageiro: anna),
+                DialogueBox(mensagem: "You either speak up, or that's what I'll have to write down when sending a report to my superiors.", mensageiro: anna),
                 DialogueBox(mensagem: "No, no! Wait! Alright, I'll speak!", mensageiro: suspect),
                 
                 //            [Dica]
@@ -365,8 +365,8 @@ extension ButcherDialogueScene {
                 //            [Insight adquirido]
                 //            There was a butcher knife left behind in the alleyway of the shop.
                 
-                DialogueBox(mensagem: "… Well. That's… A lot. Thank you for your cooperation, Mr. Boucher. You can get back to throwing the actual trash out now.", mensageiro: carrie),
-                DialogueBox(mensagem: "And watch out with those shady businesses. You will have nothing but regret with that.", mensageiro: carrie),
+                DialogueBox(mensagem: "… Well. That's… A lot. Thank you for your cooperation, Mr. Boucher. You can get back to throwing the actual trash out now.", mensageiro: anna),
+                DialogueBox(mensagem: "And watch out with those shady businesses. You will have nothing but regret with that.", mensageiro: anna),
                 DialogueBox(mensagem: "… Alright… Got it.", mensageiro: suspect),
                 DialogueBox(mensagem: "Then, goodbye officer.", mensageiro: suspect),
                 ])
@@ -380,7 +380,7 @@ extension ButcherDialogueScene {
             if phase == 1{
                 dialogos.append(contentsOf: [
                     //            Let him clarify (+1)
-                    DialogueBox(mensagem: "That was supposed to be a joke…  But let's get back on track, we were talking about your nervousness. Can you continue what you were saying?", mensageiro: carrie),
+                    DialogueBox(mensagem: "That was supposed to be a joke…  But let's get back on track, we were talking about your nervousness. Can you continue what you were saying?", mensageiro: anna),
                     
                     DialogueBox(mensagem: "*Sigh* Ugh… I overreacted a little… Sorry.", mensageiro: suspect),
                     
@@ -389,7 +389,7 @@ extension ButcherDialogueScene {
                     
                     DialogueBox(mensagem: "Back then, I was dealing with a situation with the shop… A pretty urgent situation. That's why I was nervous.", mensageiro: suspect),
                     
-                    DialogueBox(mensagem: "… Is that the only reason?", mensageiro: carrie),
+                    DialogueBox(mensagem: "… Is that the only reason?", mensageiro: anna),
                     
                     DialogueBox(mensagem: "… Yeah…", mensageiro: suspect),
                     DialogueBox(mensagem: "Ahem… So… What's the next question?", mensageiro: suspect),
@@ -402,9 +402,9 @@ extension ButcherDialogueScene {
                 dialogos.append(contentsOf: [
                     
                     // Accuse him of being an accomplice
-                    DialogueBox(mensagem: "Okay, let's take a few steps back… Were you alone that night?", mensageiro: carrie),
+                    DialogueBox(mensagem: "Okay, let's take a few steps back… Were you alone that night?", mensageiro: anna),
                     DialogueBox(mensagem: "What?! What do you mean, what does that have to do with anything?!", mensageiro: suspect),
-                    DialogueBox(mensagem: "Hey, before you accuse me of accusing you, hear me out first! Were you, or were you not alone? Because if you were an accomplice–", mensageiro: carrie),
+                    DialogueBox(mensagem: "Hey, before you accuse me of accusing you, hear me out first! Were you, or were you not alone? Because if you were an accomplice–", mensageiro: anna),
                     DialogueBox(mensagem: "I DIDN'T DO IT!", mensageiro: suspect),
                     
                     //            [Dica]
@@ -418,8 +418,8 @@ extension ButcherDialogueScene {
                     
                     DialogueBox(mensagem: "In fact, I'm done talking! There's nothing more I can say, officer.", mensageiro: suspect),
                     DialogueBox(mensagem: "Please… Just let me finish taking out the trash.", mensageiro: suspect),
-                    DialogueBox(mensagem: "… *sigh* Alright. Thank you for cooperating, sir.", mensageiro: carrie),
-                    DialogueBox(mensagem: "Goodbye..", mensageiro: carrie),
+                    DialogueBox(mensagem: "… *sigh* Alright. Thank you for cooperating, sir.", mensageiro: anna),
+                    DialogueBox(mensagem: "Goodbye..", mensageiro: anna),
                     
                 ])
                 dialogueCount += 2
@@ -431,18 +431,18 @@ extension ButcherDialogueScene {
         
         func phase2Dialogues(){
             dialogos.append(contentsOf: [
-                DialogueBox(mensagem: "Alright. Let's keep going.", mensageiro: carrie),
-                DialogueBox(mensagem: "Now, Mr. Boucher, you said you finished up by taking out the trash after cleaning up, correct?", mensageiro: carrie),
+                DialogueBox(mensagem: "Alright. Let's keep going.", mensageiro: anna),
+                DialogueBox(mensagem: "Now, Mr. Boucher, you said you finished up by taking out the trash after cleaning up, correct?", mensageiro: anna),
                 DialogueBox(mensagem: "Yeah.", mensageiro: suspect),
-                DialogueBox(mensagem: "Good, you also mentioned you did that \"late into the night\"... Correct?", mensageiro: carrie),
+                DialogueBox(mensagem: "Good, you also mentioned you did that \"late into the night\"... Correct?", mensageiro: anna),
                 DialogueBox(mensagem: "… Um… Yeah, I did.", mensageiro: suspect),
-                DialogueBox(mensagem: "What's up with that? Why not wait until morning? Surely, you must have been pretty tired after cleaning up for so long…", mensageiro: carrie),
+                DialogueBox(mensagem: "What's up with that? Why not wait until morning? Surely, you must have been pretty tired after cleaning up for so long…", mensageiro: anna),
                 DialogueBox(mensagem: "… Because…? Just because, I guess? Or… Or rather… I am a night owl! Yeah. So…", mensageiro: suspect),
-                DialogueBox(mensagem: "Sir. I'm sorry, but that doesn't make any sense.", mensageiro: carrie),
+                DialogueBox(mensagem: "Sir. I'm sorry, but that doesn't make any sense.", mensageiro: anna),
                 DialogueBox(mensagem: "It does, though! I work better at night, so why wait until morning?!", mensageiro: suspect),
-                DialogueBox(mensagem: "You're a butcher. Don't you start work at early hours?", mensageiro: carrie),
+                DialogueBox(mensagem: "You're a butcher. Don't you start work at early hours?", mensageiro: anna),
                 DialogueBox(mensagem: "And?! Why do you care anyways?! It's just taking out the trash, why bother asking about that?!", mensageiro: suspect),
-                DialogueBox(mensagem: "Well, Mr. Boucher, I care because according to my documents a butcher's knife was found near your shop's trash. That's also why I need you to answer.", mensageiro: carrie),
+                DialogueBox(mensagem: "Well, Mr. Boucher, I care because according to my documents a butcher's knife was found near your shop's trash. That's also why I need you to answer.", mensageiro: anna),
                 DialogueBox(mensagem: "What?!", mensageiro: suspect),
                 DialogueBox(mensagem: "Ugh! This is terrifying!", mensageiro: suspect),//ANALISE DO ML
             ])

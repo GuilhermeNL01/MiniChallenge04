@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 protocol GameplayScene: Scenes{
-    var carrie: NPC { get }
+    var anna: NPC { get }
     var suspect: NPC { get set }
     var info: NPC { get }
     var dialogueCount: Int { get set }

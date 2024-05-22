@@ -15,7 +15,7 @@ class PreReportScene: SKScene, Scenes{
     var dialogos: [DialogueBox] = []
     var cenario: SKSpriteNode = SKSpriteNode(imageNamed: "OfficeBG")
     
-    var carrie = NPC(.main)
+    var anna = NPC(.main)
     
     init(path: Binding<[SKScene]>){
         _path = path
@@ -43,12 +43,12 @@ class PreReportScene: SKScene, Scenes{
         
     private func buildDialogues(){
         dialogos = [
-        DialogueBox(mensagem: "Alright… I suppose I'm done questioning the locals.", mensageiro: carrie),
-        DialogueBox(mensagem: "Ideally, I'd be more thorough about it, but my superiors have been hurrying me, so I can't afford to be meticulous about this investigation…", mensageiro: carrie),
-        DialogueBox(mensagem: "Well, that's unfortunate, but I can work with what I've got so far!", mensageiro: carrie),
-        DialogueBox(mensagem: "Now, all that's left is the report. I should set up an evidence board before writing anything down.", mensageiro: carrie),
-        DialogueBox(mensagem: "By the end of this, I should have a culprit, murder weapon and place of murder pointed out in my report.", mensageiro: carrie),
-        DialogueBox(mensagem: "Let's get to it, then…", mensageiro: carrie),
+        DialogueBox(mensagem: "Alright… I suppose I'm done questioning the locals.", mensageiro: anna),
+        DialogueBox(mensagem: "Ideally, I'd be more thorough about it, but my superiors have been hurrying me, so I can't afford to be meticulous about this investigation…", mensageiro: anna),
+        DialogueBox(mensagem: "Well, that's unfortunate, but I can work with what I've got so far!", mensageiro: anna),
+        DialogueBox(mensagem: "Now, all that's left is the report. I should set up an evidence board before writing anything down.", mensageiro: anna),
+        DialogueBox(mensagem: "By the end of this, I should have a culprit, murder weapon and place of murder pointed out in my report.", mensageiro: anna),
+        DialogueBox(mensagem: "Let's get to it, then…", mensageiro: anna),
         ]
     }
 }

@@ -27,7 +27,7 @@ extension Scenes{
             
             switch dialogo.mensageiro.type{ // handling text box ui
             case .main:
-                changeTextBox(.nameTagCarrieActive, .textBoxCarrieActive)
+                changeTextBox(.nameTagannaActive, .textBoxannaActive)
             case .info:
                 changeTextBox(nil, .infoTextBoxActive)
             default:
@@ -132,7 +132,7 @@ extension Scenes{
             personagem.fontName = elegantTypewritter
             if let nameTag = self.childNode(withName: "nameTag"){
                 personagem.position = CGPoint (x: nameTag.position.x + (nameTag.frame.width / 2), y: alturaTela * 0.28)
-                personagem.fontColor = dialogo.mensageiro.type == .main ? .carrieName : .npcName
+                personagem.fontColor = dialogo.mensageiro.type == .main ? .annaName : .npcName
                 self.addChild(personagem)
                 personagem.isHidden = nameTag.isHidden
             }

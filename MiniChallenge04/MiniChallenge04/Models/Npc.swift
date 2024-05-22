@@ -40,7 +40,7 @@ struct NPC {
     }
     
     enum GameCharacter: String{
-        case main = "Carrie"
+        case main = "anna"
         case butcher = "butcher"
         case victimsWife = "helena"
         case receptionist = "carmenBloom"
