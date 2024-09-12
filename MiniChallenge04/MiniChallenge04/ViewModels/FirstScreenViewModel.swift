@@ -52,7 +52,7 @@ class FirstScreenViewModel: ObservableObject{
             firstScreen = ScreenReport(path: $path)
             break
         default:
-            firstScreen = VideoCutsceneScene(path: $path)
+            firstScreen = ContextGameScene(path: $path)
             break
         }
     }
