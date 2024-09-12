@@ -77,7 +77,7 @@ struct FirstScreen: View {
                     Button("Return", role: .cancel){}
                     Button("Start a new game"){
                         UserDefaults.resetDefaults()
-                        vm.firstScreen = VideoCutsceneScene(path: vm.$path)
+                        vm.firstScreen = ContextGameScene(path: vm.$path)
                         vm.path.append(vm.firstScreen)
                     }
                 } message: {

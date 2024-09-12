@@ -191,7 +191,7 @@ extension HotelScene{
             DialogueBox(mensagem: "She doesn't break eye contact as you approach her. In fact, it seems like she was expecting you to reach out eventually.", mensageiro: info), // hide nametag
             DialogueBox(mensagem: "… Hello, ma'am.", mensageiro: anna),
             DialogueBox(mensagem: "Why, hello there officer… May I help you?", mensageiro: suspect),
-            DialogueBox(mensagem: "She hasn't said much, but from the way she annas herself and her tone as she greets you, you can't help but feel slightly overwhelmed by her confidence. It feels like she can see right through you.", mensageiro: info), // hide nametag
+            DialogueBox(mensagem: "She hasn't said much, but from the way she carries herself and her tone as she greets you, you can't help but feel slightly overwhelmed by her confidence. It feels like she can see right through you.", mensageiro: info), // hide nametag
             DialogueBox(mensagem: "… *Ahem* Well, ma'am, I'm sure you've heard about the murder that took place in town recently… I was sent here to investigate it, and I have a few questions for the locals…", mensageiro: anna),
             DialogueBox(mensagem: "Well, of course, Miss officer. I suppose you wouldn't be coming to Aldrich all the way from the capital with the purpose of sightseeing…", mensageiro: suspect),
             DialogueBox(mensagem: "… Right.", mensageiro: anna),

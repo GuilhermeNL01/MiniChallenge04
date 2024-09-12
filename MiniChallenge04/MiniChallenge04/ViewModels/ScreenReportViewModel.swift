@@ -31,7 +31,7 @@ class ScreenReportViewModel{
             }
             
             if score == 3{
-                scene.path.append(VideoCutscene2(path: scene.$path))
+                scene.path.append(GameOverScene(path: scene.$path))
             } else {
                 scene.path.append(GameOverScene(path: scene.$path))
             }
